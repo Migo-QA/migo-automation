@@ -1,0 +1,3 @@
+#===onBoarding turtorial===
+onBoarding_skip_text:
+  android: id=com.migo.androidplayer:id/tv_skip
