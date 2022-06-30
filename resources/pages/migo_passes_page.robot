@@ -209,7 +209,7 @@ Check Not Downloaded Yet Dialog
 Check Transaction Dialog
 
     #Buy Pass dialog
-    Log to Console  Buy pass by cash, check the transaction Dialog and cancel it!
+    Log to console  Buy pass by cash, check the transaction Dialog and cancel it!
     ##Note : Due to this dialog issue, checking whole item coat much time....(need to investigate)
     # Verify Element Display  ${passes_buy_dialog['${mobile}']}
     # Verify Element Display  ${passes_buy_dialog_icon['${mobile}']}
@@ -228,7 +228,7 @@ Check Transaction Dialog
 
 Cancel Transaction Dialog
 
-    Log to Console  Buy pass by cash, check the transaction Dialog and cancel it!  	
+    Log to console  Buy pass by cash, check the transaction Dialog and cancel it!  	
     Wait Element And Click Element  ${passes_buy_dialog_cancel['${mobile}']}
 
 
@@ -250,4 +250,26 @@ Buy and Active Ticket on Mitra Sell Pass
     Get Text And Compare    ${passes_migo_passes_status['${mobile}']}   Last Day
 
     [Return]    ${text_code}
+
+Check Pass Page Element
+    Log to console  checking migo passes icon
+    Verify Element Display  ${passes_migo_passes_icon['${mobile}']}
+    Sleep  1s
+    Log to console  checking my passes icon
+    Verify Element Display  ${passes_my_passes_icon['${mobile}']}
+    Sleep  1s
+    Log to console  checking promo code icon
+    Verify Element Display  ${passes_promo_code_icon['${mobile}']}
+    Sleep  1s
+    Log to console  checking migo passes text
+    Verify Element Display  ${passes_migo_passes_tab['${mobile}']}
+    Sleep  1s
+    Log to console  checking my passes text
+    Verify Element Display  ${passes_my_passes_tab['${mobile}']}
+    Sleep  1s
+    Log to console  checking promo code text 
+    Verify Element Display  ${passes_promo_code_tab['${mobile}']}
+    Sleep  1s
+    
+
 

@@ -386,8 +386,7 @@ Wait Element And Click Element
 
 Wait Element And Get Text
 
-    [Arguments]
-    ...    ${locator}    ${wait_time}=15s
+    [Arguments]    ${locator}    ${wait_time}=15s
 
     Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Contains Element    ${locator}    ${wait_time}
     ${text}    AppiumLibrary.Get Text    ${locator}

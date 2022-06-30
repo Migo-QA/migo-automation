@@ -13,7 +13,13 @@ passes_onboard_tutorials_subtitle:
 passes_onboard_tutorials_btn:
   android:  id=com.migo.androidplayer:id/button_call_to_action
 
-
+#Subpage Element
+passes_migo_passes_icon:
+  android:  xpath=//android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.ImageView[1]
+passes_my_passes_icon:
+  android:  xpath=//android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.ImageView[1]
+passes_promo_code_icon:
+  android:  xpath=//android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.ImageView[1]
 
 ##Migo Pass Status
 passes_migo_passes_status:

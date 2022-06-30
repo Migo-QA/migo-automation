@@ -162,20 +162,21 @@ Check Account Main Tab After Login
     Verify Element Display  ${account_tutorial_more['${mobile}']}
     Sleep  1s
 
+        #===Scroll up to the bottom===
         #===Share Feedback===
     Log to console  Check Share Feedback Icon
-    Verify Element Display  ${account_feedback_icon['${mobile}']}
+    Scroll To Element And Check  ${account_feedback_icon['${mobile}']}
     Sleep  1s
 
     Log to console  Check Share Feedback Text
-    Verify Element Display  ${account_feedback['${mobile}']}
+    Scroll To Element And Check  ${account_feedback['${mobile}']}
     Sleep  1s
 
     Log to console  Check Share Feedback More icon
-    Verify Element Display  ${account_feedback_more['${mobile}']}
+    Scroll To Element And Check  ${account_feedback_more['${mobile}']}
     Sleep  1s
     Log to console  ======= Account Page element check Pass ==========
-        #===Scroll up to the bottom===
+        
     Log to console  Scroll up to bottom...
     Log to console  Check Logout Text...
     Scroll To Element And Check  ${account_logout['${mobile}']}

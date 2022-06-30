@@ -9,4 +9,5 @@ Variables         ..${/}elements${/}migo_onBoarding_page.yaml
 Click Skip in onBoarding Page
     Log to console   Wait for onBoarding turtorial...
     Log to console   Check whether have tutorial or not 
+    Sleep  5s
     Wait Element And Click Element Option   ${onBoarding_skip_text['${mobile}']}

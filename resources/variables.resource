@@ -10,7 +10,7 @@ ${delay}    3s
 ${timeout}  10s
 &{domains}    stg=https://stg-mbk.migo.com.tw
 &{headers}    Content-Type=application/json    
-&{CONNECT_DEVICES}   Samsung_A505=R58M73JANNN    Samsung_A515F=R58NA0G325D     HUAWEI=5BM7N18515001137    Huawei_Nova3i=JUC4C18806011525    Google_Pixel6=1A071FDF600D1E
+&{CONNECT_DEVICES}   Samsung_A505=R58M73JANNN    Samsung_A515F=R58NA0G325D     HUAWEI=5BM7N18515001137    Huawei_Nova3i=JUC4C18806011525    Google_Pixel6=1A071FDF600D1E   Emulator=emulator-5554
 
 ${search_name}  John Wick: Chapter 2
 

@@ -26,10 +26,22 @@ Variables         ..${/}..${/}resources${/}elements${/}migo_onBoarding_page.yaml
 # Test
 #     [Tags]    test
 #     Confirm Cash Transaction of Buy Migo Passes     666666
+Test1
+    [Tags]    testing
+    [Setup]   Launch Migo  Google_Pixel6  true
+
+    Click Skip in onBoarding Page
+    Log to console  skipped
+    Allow Device Permission
+    Log to console  permission granted
+
+
+
 
 Regression Test
     [Tags]    onBoarding  ExistUser  
-    [Setup]    Launch Migo  Google_Pixel6  true
+    # [Setup]    Launch Migo  Google_Pixel6  true
+    [Setup]    Launch Migo  Samsung_A505  true
     # [Teardown]   Close Application
     
     # onBoarding Page and check if there have tutorial
@@ -37,6 +49,7 @@ Regression Test
     #If there have NO tutorial, then skip.
     Log to console   Check onBoarding tutorial...
     Log to console   Check "Skip"
+    Sleep  5s
     Click Skip in onBoarding Page
     Log to console   =============== OnBoarding Tutorial Pass ===============
     Sleep  2s
@@ -56,6 +69,8 @@ Regression Test
     Click Milestone View Pass Dialog
     Log to console   =============== Milestone Dialog Pass ===============
   
+    # Close Migo Reward Notification
+    # Log to console   =============== Close Reward Notification Pass ===============
     Close In App Message
     Log to console   =============== Close In App Message Pass ===============
     
@@ -79,6 +94,9 @@ Regression Test
     Continue To Pay
     # text_code -> Transaction code on web(buy pass) and history
     ${text_code}=  Buy and Active Ticket on Mitra Sell Pass
+    
+    Check Pass Page Element
+    Log to console  =============== Pass Page Element Pass ===============
     
     
 
