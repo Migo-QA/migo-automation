@@ -1,17 +1,20 @@
 # Main Tab 
 account_main_tab:
-  android:  id=com.migo.androidplayer:id/navigation_bar_item_large_label_view
+  android:  id=com.migo.androidplayer:id/nav_account
 catalog_main_tab:
-  android:  xpath=//*[contains(@text, "Catalog")]
+  android:  id=com.migo.androidplayer:id/nav_catalog
 downloads_main_tab:
-  android:  xpath=//*[contains(@text, "Downloads")]
-passes_main_tab:
-  android:  xpath=//*[contains(@text, "Passes")]
+  android:  id=com.migo.androidplayer:id/nav_download
 location_main_tab:
-  android:  xpath=//*[contains(@text, "Location")]  
+  android:  id=com.migo.androidplayer:id/nav_map
+passes_main_tab:
+  android:  id=com.migo.androidplayer:id/nav_pass
+
 
   
-
+#Error in OTP
+OTP_wrong_code:
+  android:  com.migo.androidplayer:id/cl_error
 
 
 
@@ -54,6 +57,7 @@ account_profile_info_save_btn:
 account_profile_info_save_toast:
   android:  id=com.migo.androidplayer:id/toast_root
 
+
 # Referal
 account_referral_icon:
   android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ImageView[1]
@@ -61,11 +65,15 @@ account_referral_text:
   android:  xpath=//*[contains(@text, "Invite Friend, Get Free Pass")]
 account_referral_more:
   android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ImageView[2]
+
+
 #My Rewards
 account_rewards_notification_Text_Header:
-  android:  id=com.migo.androidplayer:id/textHeader
-account_reward_notification_close_dialog:
-  android:  id=com.migo.androidplayer:id/imgClose
+  android:  id=com.migo.androidplayer:id/dialog # This is the white "New Migo Rewards" diaglog
+account_rewards_notification_close_dialog:
+  android:  id=com.migo.androidplayer:id/imgClose # This is the X of the white dialog
+account_rewards_tab:
+  android:  com.migo.androidplayer:id/iv_reward_background
 account_rewards_gift:
   android:  id=com.migo.androidplayer:id/iv_gift
 account_rewards_reward:
@@ -83,6 +91,7 @@ account_rewards_point_description:
   android:  id=com.migo.androidplayer:id/textPointDescription
 account_rewards_point_level:
   android:  id=com.migo.androidplayer:id/imageLevel
+
 #My Rewards-Migo Levels tab
 account_rewards_migo_point:
   android:  id=com.migo.androidplayer:id/tv_migo_point

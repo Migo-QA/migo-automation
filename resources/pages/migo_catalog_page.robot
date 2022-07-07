@@ -13,7 +13,7 @@ Click Milestone View Pass Dialog
 
     Log to console   Milestone dialog
     Sleep  2s
-    Log to console   Click Viwe Free Pass Button
+    Log to console   Click View Free Pass Button
     Wait Element And Click Element  ${catalog_milestone_dialog_ViewPass['${mobile}']}
     Sleep  2s
     Log to console   Check if it is in Migo Point Page...
@@ -73,7 +73,7 @@ Close In App Message
     ...    Close In App Message
     ...  
     Log to console    Close In app message...  
-    Wait Element And Click Element  ${catalog_inAppMessageCloseButton['${mobile}']}   60
+    Wait Element And Click Element Option  ${catalog_inAppMessageCloseButton['${mobile}']}   15
     Log to console    Pass!!!
 
 Click Coach Icon

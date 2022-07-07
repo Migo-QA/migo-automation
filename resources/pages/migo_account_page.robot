@@ -8,19 +8,21 @@ Variables         ..${/}elements${/}migo_auth_page.yaml
 *** Keywords ***
 Click Account Main Tab
 
+    Sleep  5s
     Log to console  Swtich to Account Main Tab 
     Wait Element And Click Element  ${account_main_tab['${mobile}']}
 
-Close Migo Reward Notification
+Click My Rewards Tab 
 
-    Log to console   Check if had the notification 
-    Sleep  2s
-    Verify Element Display    ${account_rewards_notification_Text_Header['${mobile}']}
-    Log to console   =============== User is in Migo Point Page ===============
+    Log to console  Swtich to My Rewards Tab
+    Wait Element And Click Element  ${account_rewards_tab['${mobile}']} 
+    
 
-    Log to console   Close the dialog...
+Close Migo Reward Introduction Notification
+
+    Log to console   Close Reward Introduction Notification...
     Sleep  2s
-    Wait Element And Click Element  ${account_reward_notification_close_dialog['${mobile}']}  
+    Wait Element And Click Element Option  ${account_rewards_notification_close_dialog['${mobile}']}   15
     Log to console   Done!!!
 
 
@@ -222,10 +224,12 @@ Login Migo Account
     Click Account Main Tab
     Log to console    Pass!!!
     Sleep   2s
+
     Log to console    Click register and login tab...
     Wait Element And Click Element   ${account_register_login_tab['${mobile}']}
     Log to console    Pass!!!
     Sleep   2s
+
     Log to console    Verify element on register and login page...   
     Verify Element Display  ${auth_register_title['${mobile}']}
     Verify Element Display  ${auth_register_countrycode['${mobile}']}
@@ -257,12 +261,32 @@ Input Phone Number
     #     ...   ELSE IF   '${planNo}'=='2'     Verify Text Label  ${locator_EachPolicy}  &{common}[policy_status_effective]
     #     ...   ELSE IF   '${planNo}'=='3'     Verify Text Label  ${locator_EachPolicy}  &{common}[policy_status_canceled]
     #     ...   ELSE      Verify Text Label  ${locator_EachPolicy}    &{common}[policy_status_expired]
-    Run Keyword If    '${phone_number}' == '99999999997'    Bypass Hard Code OTP Page    3   9   5   7   4   9
-    Run Keyword If    '${phone_number}' == '99999999998'    Bypass Hard Code OTP Page    3   9   5   7   4   9
-    Run Keyword If    '${phone_number}' == '99999999999'    Bypass Hard Code OTP Page    3   9   5   7   4   9
     #TBD
     #ELSE      Bypass OTP Page   ${phone_number} 
 
+Enter OTP code 
+
+    Log to console    Verify OTP page elements...
+    Verify Element Display  ${auth_otp_title['${mobile}']}
+    Verify Element Display  ${auth_otp_desc['${mobile}']}
+    Verify Element Display  ${auth_register_resend_btn['${mobile}']}
+    Log to console    Pass!!!
+    Log to console    Check resend hint...
+    Wait Element And Click Element   ${auth_register_resend_hint['${mobile}']}
+    Verify Element Display  ${auth_register_dialog['${mobile}']}
+    Verify Element Display  ${auth_register_description['${mobile}']}
+    Wait Element And Click Element   ${auth_register_dialog_ok['${mobile}']}
+
+    Log to console    Try WRONG password
+    Bypass Hard Code OTP Page    000000
+    Log to console    Check code is wrong...
+    Verify Element Display  ${OTP_wrong_code}
+    Log to console    Try CORRECT password
+    Bypass Hard Code OTP Page    395749
+    Log to console    Check code is correct...
+    Sleep  5s
+    Verify Element Not Display  ${OTP_wrong_code}
+ 
 
 Press Mobile Keypad 
     [Arguments]     ${number}   
@@ -282,33 +306,21 @@ Press Mobile Keypad
 
 
 Bypass Hard Code OTP Page
-    [Arguments]     ${otp_num1}   ${otp_num2}   ${otp_num3}   ${otp_num4}   ${otp_num5}   ${otp_num6}    
+    [Arguments]     ${OTP_code}    
     [Documentation]
     ...
     ...    OTP Page
     ...  
-
-    #OTP Page
-    Log to console    Verify OTP page elements...
-    Verify Element Display  ${auth_otp_title['${mobile}']}
-    Verify Element Display  ${auth_otp_desc['${mobile}']}
-    Verify Element Display  ${auth_register_resend_btn['${mobile}']}
-    Log to console    Pass!!!
-    Log to console    Check resend hint...
-    Wait Element And Click Element   ${auth_register_resend_hint['${mobile}']}
-    Verify Element Display  ${auth_register_dialog['${mobile}']}
-    Verify Element Display  ${auth_register_description['${mobile}']}
-    Wait Element And Click Element   ${auth_register_dialog_ok['${mobile}']}
     
     #OTP field
+    Sleep  2s
     Log to console    OTP Number Input...
-    Wait Element And Input    ${auth_register_otp_1['${mobile}']}    ${otp_num1}
-    Wait Element And Input    ${auth_register_otp_2['${mobile}']}    ${otp_num2}
-    Wait Element And Input    ${auth_register_otp_3['${mobile}']}    ${otp_num3}
-    Wait Element And Input    ${auth_register_otp_4['${mobile}']}    ${otp_num4}
-    Wait Element And Input    ${auth_register_otp_5['${mobile}']}    ${otp_num5}
-    Wait Element And Input    ${auth_register_otp_6['${mobile}']}    ${otp_num6}
+    @{number}    Split String To Characters    ${OTP_code}
+    FOR    ${i}    IN    @{number}
+        Press Mobile Keypad    ${i}
+    END
     Log to console    Finished!!!
+
 #Not Done Yet
 Bypass OTP Page   
     [Arguments]     ${phone_number} 
@@ -376,6 +388,8 @@ Logout
     Verify Element Not Display  ${account_payment['${mobile}']}
     Verify Element Not Display  ${account_parental['${mobile}']}
     Log to console    Pass!!!
+
+
 Check User Profile Information Storage   
     [Arguments]     ${fullname}=${my_fullname}    ${gender}=${my_gender}    ${birthdaty}=${my_birthdaty}     ${ig}=${my_ig}  
     [Documentation]
@@ -392,8 +406,8 @@ Check User Profile Information Storage
     Get Text And Compare    ${account_profile_info_birthday['${mobile}']}   ${birthdaty}
     Get Text And Compare    ${account_profile_info_ig['${mobile}']}     ${ig}
 
-Change User Profile Information Referral Code   
 
+Change User Profile Information Referral Code   
     #Account and setting
     Log to console  Verify Account profile and setting.....
     Wait Element And Click Element  ${account_profile_more['${mobile}']}
@@ -422,10 +436,7 @@ Migo Point Should Not Be Zero
     Sleep  2s
     Get Text And Not Equal    ${account_rewards_point_number['${mobile}']}    0  
     
-
-
 Check My Migo Reward Page
-
     Log to console  Verify My Migo reward Element...
     Sleep  2s
     Log to console  Check Migo Point...

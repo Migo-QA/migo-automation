@@ -5,10 +5,18 @@ Resource          ..${/}libraries.resource
 Variables         desired_capabilities.yaml
 
 *** Keywords ***
+#===Log===
+Log to Console Dash
+    [Arguments]    ${sentence}
+    ${dash_sentence} =    Set Variable  = ${sentence} =
+    ${dash_sentence} =    Format String  {:\=^60}  ${dash_sentence}
+    log to Console    ${dash_sentence}  
+
+
 #===Web===
 #Time
 Convert Date To ddMMyyyy
-    [Arguments]     ${date}     ${padZero}=${TRUE}
+    [Arguments]    ${date}    ${padZero}=${TRUE}
     [Documentation]    Converts a robot framework datetime to a string in format dd MMM yyyy.
     ...
     ...    Parameters:
@@ -24,8 +32,8 @@ Convert Date To ddMMyyyy
     #${date_day} =    Set Variable If    ${datetime.day} >= 10    ${datetime.day}    ${datetime.day}   
     
     #${datetime.month}
-    ${month}=   convert to integer  ${datetime.month}
-    ${month}=   Evaluate    ${month} - 1
+    ${month} =   convert to integer  ${datetime.month}
+    ${month} =   Evaluate    ${month} - 1
 
     ${date_return} =    Set Variable    ${date_day} ${monthList}[${month}] ${datetime.year}  
 
@@ -120,7 +128,7 @@ Submit Button
 
 
 #===App===
-Launch Migo
+Clear Data and Launch Migo
     [Arguments]     ${device_name}   ${reset}=false
     [Documentation]
     ...
@@ -129,7 +137,7 @@ Launch Migo
 
     Set Log Level    TRACE
 
-    Log    Environment set up...     html=True    console=True    level=TRACE
+    Log    \nEnvironment set up...     html=True    console=True    level=TRACE
 
     Run Keyword If    '${reset}' == 'true'
     ...    Starting Appium Server With Reset Data    migo    ${device_name}
@@ -140,9 +148,19 @@ Launch Migo
     ...    ELSE    Set Variable    ${device_name}
     Set Test Variable    ${device_name}    ${sut}
 
-    Log to console  Migo APP Launch!!!
     Wait Migo Animation Splash
 
+Launch Migo
+    [Arguments]     ${device_name}
+    Starting Appium Server    migo    ${device_name}
+    ${mobile}    Convert To Lower Case    android
+    ${mobile_env}    Create List    android    ios
+    Run Keyword If    '${mobile}' not in ${mobile_env}    Fatal Error    Invalid mobile value!!! Valid value is ${mobile_env}
+    Run Keyword If    '${mobile}' == 'ios'    Fatal Error    NotImplementedError
+    Set Test Variable    ${mobile}    ${mobile}
+
+    Log to console  Migo APP Launch!!!
+    Wait Migo Animation Splash
 
 Starting Appium Server
     [Arguments]     ${APP_NAME}    ${device_name}
@@ -369,8 +387,8 @@ Wait Element And Click Element Option
     ...
 
     ${isElementVisible} =   Run Keyword And Return Status    AppiumLibrary.Element Should Be Visible    ${locator}
-    Log to console   is visible? : ${isElementVisible}
-    Run Keyword If    ${isElementVisible}    AppiumLibrary.Click Element    ${locator}    ELSE    Log to console    Not visible, Skip.
+    Log to console    is visible? : ${isElementVisible}
+    Run Keyword If    ${isElementVisible}    AppiumLibrary.Click Element    ${locator}
 
 Wait Element And Click Element
     [Arguments]     ${locator}    ${wait_time}=15s

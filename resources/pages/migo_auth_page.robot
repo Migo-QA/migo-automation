@@ -28,9 +28,6 @@ Allow Device Permission
     Log to console   Wait for Migo permission process...
     Log to console   Click "Next" Button
     Wait Element And Click Element      ${auth_permisson_next_btn['${mobile}']}
-    
-    Log to console   Click "Next" Button again if have this page
-    Wait Element And Click Element Option    ${auth_permisson_next_btn['${mobile}']}
 
     Log to console   Click "Allow" on Permission dialog
     Wait Element And Click Element      ${auth_permisson_location_allow_btn['${mobile}']}
@@ -56,42 +53,32 @@ Register or Login First
     ...
     ...    Login
     ...     
-    Log to console    Wait and Click Tutorial
-    Sleep  2s
-    
+    Log to console    Wait and Click Tutorial  
     Wait Element And Click Element Option    ${auth_register_login_next_btn['${mobile}']}
     Log to console    Done!!
 
-    Log to console    Wait and Click Tutorial
-    Sleep  2s
-    Wait Element And Click Element Option    ${auth_register_login_next_btn['${mobile}']}
-    Log to console    Done!!!
+    # Log to console    Hi
+    # Sleep  2s
+    # Wait Element And Click Element Option    ${auth_register_login_next_btn['${mobile}']}
+    # Log to console    Done!!!
 
     Log to console   Check Element...
-    Sleep  2s
     Verify Element Display  ${auth_browse_first_btn['${mobile}']}  
-    Sleep  2s
     Verify Element Display  ${auth_register_login_btn['${mobile}']}  
     Log to console   Verify Pass...
-    Sleep  2s
-    Log to console    Wait and Click "Register or Login" Button
-    Sleep  2s
+    Log to console    Click "Register or Login" 
     Wait Element And Click Element      ${auth_register_login_btn['${mobile}']}
     Log to console    Login Process...
     Sleep  2s
 
     Log to console    Verify Register Title
     Verify Element Display  ${auth_register_title['${mobile}']}
-    Sleep  2s
     Log to console    Verify Country Code 
     Verify Element Display  ${auth_register_countrycode['${mobile}']}
-    Sleep  2s
     Log to console    Verify Hint Text
     Verify Element Display  ${auth_register_helphint['${mobile}']}
     Log to console    Input Phone number ${phone_number} 
-    Sleep  2s
     Input Phone Number      ${phone_number} 
-
 
 Change debug Recording Prevention
 

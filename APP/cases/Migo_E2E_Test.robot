@@ -26,53 +26,46 @@ Variables         ..${/}..${/}resources${/}elements${/}migo_onBoarding_page.yaml
 # Test
 #     [Tags]    test
 #     Confirm Cash Transaction of Buy Migo Passes     666666
-Test1
-    [Tags]    testing
-    [Setup]   Launch Migo  Google_Pixel6  true
-
-    Click Skip in onBoarding Page
-    Log to console  skipped
-    Allow Device Permission
-    Log to console  permission granted
+Test Test 
+    [Tags]    test
+    Log to Console Dash  Hello World!
 
 
-
-
-Regression Test
-    [Tags]    onBoarding  ExistUser  
+First Launch Test 
+    [Tags]    All 
     # [Setup]    Launch Migo  Google_Pixel6  true
-    [Setup]    Launch Migo  Samsung_A505  true
-    # [Teardown]   Close Application
+    [Setup]    Clear Data and Launch Migo  Samsung_A505  true
     
-    # onBoarding Page and check if there have tutorial
-    #If there have tutorial, then click Skip
-    #If there have NO tutorial, then skip.
-    Log to console   Check onBoarding tutorial...
-    Log to console   Check "Skip"
-    Sleep  5s
+    # ONBOARDING
+	# Tutorial
+    Log to console   Checking onBoarding tutorial & "Skip"...
     Click Skip in onBoarding Page
-    Log to console   =============== OnBoarding Tutorial Pass ===============
+    Log to console Dash   OnBoarding Tutorial Pass
     Sleep  2s
 
-    # To Allow Migo Permission
+    # Allow Migo Permission
     Log to console   Allow Migo permission...
     Allow Device Permission
-    Log to console   =============== To Allow Permission Pass ===============
+    Log to console Dash   Allow Permission Pass
 
-    # To Click "Register and Login" to Login
+    # Login
+    Log to console    Login...
     Register or Login First  +62  99999999999
-    Log to console   =============== Login Pass ===============
+	Enter OTP code  
+    Log to console Dash   Login Pass 
 
-    # MileStone Dialog and In App Message
-    Log to console   Wait for 5sec to let in app message appear
+
+	# ACCOUNT
+	# View Pass
     Sleep  5s
     Click Milestone View Pass Dialog
-    Log to console   =============== Milestone Dialog Pass ===============
-  
-    # Close Migo Reward Notification
-    # Log to console   =============== Close Reward Notification Pass ===============
+    Log to console Dash   Milestone Dialog Pass 
+	
+	# Reward Intro
+    Close Migo Reward Introduction Notification
+    Log to console Dash   Close Reward Notification Pass
     Close In App Message
-    Log to console   =============== Close In App Message Pass ===============
+    Log to console Dash   Close In App Message Pass
     
     # Check My reward page 
     Check My Migo Reward Page
@@ -81,10 +74,10 @@ Regression Test
     Sleep  2s
     Log to console  Press Back Key...
     User Press Back Key
-    Log to console   =============== Migo Reward Page Check Pass ===============
+    Log to console Dash   Migo Reward Page Check Pass 
     # Check Account Page Element
     Check Account Main Tab After Login
-    Log to console   =============== Migo Account Page Check Pass ===============
+    Log to console Dash   Migo Account Page Check Pass
 
     # Buy 3-days Pass
     Click Passes Main Tab
@@ -93,13 +86,72 @@ Regression Test
     Check Buy Migo Pass Dialog  Paket 1 Hari    Rp 3.000   Cash  
     Continue To Pay
     # text_code -> Transaction code on web(buy pass) and history
-    ${text_code}=  Buy and Active Ticket on Mitra Sell Pass
+    ${text_code} =  Buy and Active Ticket on Mitra Sell Pass
     
     Check Pass Page Element
-    Log to console  =============== Pass Page Element Pass ===============
-    
-    
+    Log to console Dash   Pass Page Element Pass
 
+
+OnBoarding Test
+    [Tags]    OnBoarding_TEST
+    # [Setup]    Clear Data and Launch Migo  Google_Pixel6  true
+    [Setup]    Clear Data and Launch Migo  Samsung_A505  true
+    Log to console Dash   Migo APP Launch!!!
+
+    # onBoarding Page and check if there have tutorial
+    # If there is tutorial, then click Skip
+    # If there is NO tutorial, then skip.
+    Log to console   Checking onBoarding tutorial & "Skip"...
+    Click Skip in onBoarding Page
+    Log to console Dash   OnBoarding Tutorial Pass
+    Sleep  2s
+
+    # Allow Migo Permission
+    Log to console   Allow Migo permission...
+    Allow Device Permission
+    Log to console Dash   Allow Permission Pass
+
+    # Login
+    Log to console    Login...
+    Register or Login First  +62  99999999999
+	Enter OTP code  
+
+    Log to console Dash   Login Pass 
+
+
+Account Test
+    [Tags]    Account_TEST
+    [Setup]    Launch Migo  Samsung_A505   
+    # MileStone Dialog and In App Message
+    
+    Click Account Main Tab
+    Close Migo Reward Introduction Notification
+    Click My Rewards Tab 
+    # Check My reward page 
+    Check My Migo Reward Page
+    Change Migo Point Subpage
+
+    Sleep  2s
+    Log to console  Press Back Key...
+    User Press Back Key
+    Log to console Dash  Migo Reward Page Check Pass
+    # Check Account Page Element
+    Check Account Main Tab After Login
+    Log to console Dash  Migo Account Page Check Pass
+
+
+Passes Test
+    [Tags]     Passes_TEST
+    [Setup]     Launch Migo  Samsung_A505
+    # Buy 3-days Pass
+    Click Passes Main Tab
+    Check Buy Migo Pass Dialog  Paket 1 Hari    Rp 3.000   Cash  
+    Continue To Pay
+    # text_code -> Transaction code on web(buy pass) and history
+    ${text_code} =  Buy and Active Ticket on Mitra Sell Pass
+    
+    Check Pass Page Element
+    Log to console Dash  Pass Page Element Pass
 
 
 

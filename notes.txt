@@ -1,0 +1,14 @@
+OnBoarding Test
+    Launch App
+    Wait for splash
+    Check tutorial and Click skip
+    Login
+        Click Register or Login
+        Enter 99999999999 and Click I agree
+        Click Can't Login through phone
+        Click OK
+        Enter 000000 and Check Wrong Code Error
+        Enter 395749
+    Check Congratulations! Click View Free Pass
+    Check New Migo Rewards Click Check it out (This currently causes bug)
+    
