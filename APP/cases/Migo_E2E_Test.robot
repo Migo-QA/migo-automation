@@ -66,19 +66,19 @@ First Launch Test
     Log to console Dash   Close Reward Notification Pass
     Close In App Message
     Log to console Dash   Close In App Message Pass
-    
-    # Check My reward page 
-    Check My Migo Reward Page
-    Change Migo Point Subpage
 
-    Sleep  2s
-    Log to console  Press Back Key...
+    # My Rewards
+    Check My Migo Reward Page
+    Check My Migo Reward Subpage
+    Log to console Dash  Migo Reward Page Check Pass
     User Press Back Key
-    Log to console Dash   Migo Reward Page Check Pass 
+
     # Check Account Page Element
     Check Account Main Tab After Login
-    Log to console Dash   Migo Account Page Check Pass
+    Log to console Dash  Migo Account Page Check Pass
 
+
+    # PASSES
     # Buy 3-days Pass
     Click Passes Main Tab
     Log to console  Check onBoard Passes Tutorial
@@ -93,7 +93,7 @@ First Launch Test
 
 
 OnBoarding Test
-    [Tags]    OnBoarding_TEST
+    [Tags]    OnBoarding_TEST  Login  NotLogin
     # [Setup]    Clear Data and Launch Migo  Google_Pixel6  true
     [Setup]    Clear Data and Launch Migo  Samsung_A505  true
     Log to console Dash   Migo APP Launch!!!
@@ -120,28 +120,25 @@ OnBoarding Test
 
 
 Account Test
-    [Tags]    Account_TEST
+    [Tags]    Account_TEST  Login
     [Setup]    Launch Migo  Samsung_A505   
-    # MileStone Dialog and In App Message
     
     Click Account Main Tab
-    Close Migo Reward Introduction Notification
-    Click My Rewards Tab 
-    # Check My reward page 
-    Check My Migo Reward Page
-    Change Migo Point Subpage
 
-    Sleep  2s
-    Log to console  Press Back Key...
-    User Press Back Key
+    # My Rewards
+    Click My Rewards Tab 
+    Check My Migo Reward Page
+    Check My Migo Reward Subpage
     Log to console Dash  Migo Reward Page Check Pass
+    User Press Back Key
+
     # Check Account Page Element
     Check Account Main Tab After Login
     Log to console Dash  Migo Account Page Check Pass
 
 
 Passes Test
-    [Tags]     Passes_TEST
+    [Tags]     Passes_TEST  Login
     [Setup]     Launch Migo  Samsung_A505
     # Buy 3-days Pass
     Click Passes Main Tab
@@ -157,7 +154,7 @@ Passes Test
 
 
 Calculate from Launch App to Catalog timer 
-    [Tags]    Calculate   time
+    [Tags]    Calculate   time 
     [Setup]    Launch Migo  Google_Pixel6    true
     [Teardown]    Close Application 
     Log to console   Start to calculate time

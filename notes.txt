@@ -2,6 +2,9 @@ OnBoarding Test
     Launch App
     Wait for splash
     Check tutorial and Click skip
+    Allow Permission
+        Click Next
+        Click Allow
     Login
         Click Register or Login
         Enter 99999999999 and Click I agree
@@ -10,5 +13,21 @@ OnBoarding Test
         Enter 000000 and Check Wrong Code Error
         Enter 395749
     Check Congratulations! Click View Free Pass
-    Check New Migo Rewards Click Check it out (This currently causes bug)
-    
+    # Check New Migo Rewards Click Check it out (This is deleted)
+    # Check New Migo Rewards Click X
+
+Account Test
+    Check My Rewards
+        Check My Rewards page
+        Check My Rewards sub page
+            Check Earn Page by checking texts
+            Check History Page by checking texts & scrollable
+                Check list item 1
+                Scroll
+                Check list item 8
+            Check Levels Page by checking text & button
+                Check list item 1
+                Click Claim
+                Check Redeem error 
+                Click OK
+

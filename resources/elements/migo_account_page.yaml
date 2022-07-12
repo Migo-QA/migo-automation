@@ -92,18 +92,103 @@ account_rewards_point_description:
 account_rewards_point_level:
   android:  id=com.migo.androidplayer:id/imageLevel
 
-#My Rewards-Migo Levels tab
+#My Rewards-Migo tab
 account_rewards_migo_point:
-  android:  id=com.migo.androidplayer:id/tv_migo_point
-account_rewards_point_levels_tab:
-  android:  xpath=//*[contains(@text, "Levels")]
+  android:  id=com.migo.androidplayer:id/tv_migo_point  
+
+
+#My Rewards-Migo Earn 
 account_rewards_point_earn_tab:
   android:  xpath=//*[contains(@text, "Earn")]
+account_rewards_point_earn_section:
+  android:  id=com.migo.androidplayer:id/recycler
+account_rewards_point_earn_list:
+  android:  id=com.migo.androidplayer:id/rv_list
+# Earn by Watching
+account_rewards_point_earn_by_watching_text:
+  android:  xpath=//android.view.ViewGroup[1]/android.widget.TextView
+account_rewards_point_earn_by_watching_1: # 1
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[1]
+account_rewards_point_earn_by_watching_2: # Main-text
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
+account_rewards_point_earn_by_watching_3: # POINT
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[3]
+account_rewards_point_earn_by_watching_4: # Description
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[4]
+# Earn by Download
+account_rewards_point_earn_by_download_text:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView
+account_rewards_point_earn_by_download_1: # 1
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[1]
+account_rewards_point_earn_by_download_2: # Main-text
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[2]
+account_rewards_point_earn_by_download_3: # POINT
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[3]
+account_rewards_point_earn_by_download_4: # PER DAY
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[4]
+account_rewards_point_earn_by_download_5: # Description
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[5]
+account_rewards_point_earn_by_download_6: # 1
+  android:  xpath=//android.view.ViewGroup[5]/android.widget.TextView[1]
+account_rewards_point_earn_by_download_7: # Main-text
+  android:  xpath=//android.view.ViewGroup[5]/android.widget.TextView[2]
+account_rewards_point_earn_by_download_8: # POINT
+  android:  xpath=//android.view.ViewGroup[5]/android.widget.TextView[3]
+account_rewards_point_earn_by_download_9: # PER DAY
+  android:  xpath=//android.view.ViewGroup[5]/android.widget.TextView[4]
+account_rewards_point_earn_by_download_10: # Description
+  android:  xpath=//android.view.ViewGroup[5]/android.widget.TextView[5]
+
+
+#My Rewards-Migo History 
 account_rewards_point_history_tab:
-  android:  xpath=//*[contains(@text, "History")]    
+  android:  xpath=//*[contains(@text, "History")]
+account_rewards_point_history_section:
+  android:  id=com.migo.androidplayer:id/recycler
+account_rewards_point_history_list:
+  android:  id=com.migo.androidplayer:id/rv_list
+  # List items 1
+account_rewards_point_history_list_1_1: # Main-text
+  android:  xpath=//android.view.ViewGroup[1]/android.widget.TextView[1]
+account_rewards_point_history_list_1_2: # Date
+  android:  xpath=//android.view.ViewGroup[1]/android.widget.TextView[2]
+account_rewards_point_history_list_1_3: # +1
+  android:  xpath=//android.view.ViewGroup[1]/android.widget.TextView[3]
+  # List items 8
+account_rewards_point_history_list_8_1: # Main-text
+  android:  xpath=//android.view.ViewGroup[8]/android.widget.TextView[1]
+account_rewards_point_history_list_8_2: # Date
+  android:  xpath=//android.view.ViewGroup[8]/android.widget.TextView[2]
+account_rewards_point_history_list_8_3: # +1
+  android:  xpath=//android.view.ViewGroup[8]/android.widget.TextView[3]
+
+
+#My Rewards-Migo Levels
+account_rewards_point_levels_tab:
+  android:  xpath=//*[contains(@text, "Levels")]
 account_rewards_point_levels_section:
   android:  id=com.migo.androidplayer:id/levelRecyclerView
-#My Rewards-Migo Levels tab-redeem gift
+account_rewards_point_levels_list:
+  android:  id=com.migo.androidplayer:id/rv_level
+  # Text
+account_rewards_point_levels_title:
+  android:  id=com.migo.androidplayer:id/tv_level_title
+account_rewards_point_levels_description:
+  android:  id=com.migo.androidplayer:id/tv_level_description
+  # List items 1
+account_rewards_point_levels_list_1_img:
+  android: xpath=//android.view.ViewGroup[2]/android.widget.ImageView
+account_rewards_point_levels_list_1_text: # Level 1
+  android: xpath=//android.view.ViewGroup[2]/android.widget.TextView[1]
+account_rewards_point_levels_list_1_button: # Claim
+  android: xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
+account_rewards_point_levels_redeem_error_title: # Redeem Error
+  android: id=com.migo.androidplayer:id/tv_title 
+account_rewards_point_levels_redeem_error_description: # Oops...
+  android: id=com.migo.androidplayer:id/tv_description
+account_rewards_point_levels_redeem_error_button: # OK
+  android: id=com.migo.androidplayer:id/tv_positive_button
+  # NOT USED
 account_rewards_point_levels_gift1:
   android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.ImageView
 account_rewards_point_levels_claim_close:
@@ -126,16 +211,6 @@ account_rewards_point_levels_claim_code_cancel_btn:
 account_rewards_point_levels_claim_code_error:
   android:  id=com.migo.androidplayer:id/textinput_error
 
-#My Rewards-Migo Earn tab
-account_rewards_point_earn_tab:
-  android:  xpath=//*[contains(@text, "Earn")]
-account_rewards_point_earn_section:
-  android:  id=com.migo.androidplayer:id/recycler
-#My Rewards-Migo History tab
-account_rewards_point_history_tab:
-  android:  xpath=//*[contains(@text, "History")]
-account_rewards_point_history_section:
-  android:  id=com.migo.androidplayer:id/recycler
 
 #Payment methods
 account_title_payment:

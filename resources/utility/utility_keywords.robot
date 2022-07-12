@@ -299,6 +299,14 @@ Verify Element Not Display
 
     Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Does Not Contain    ${locator}    ${wait_time}
 
+Scroll Down 
+    [Arguments]    ${start_x}=500    ${start_y}=1200    ${offset_x}=500    ${offset_y}=850    ${duration}=1000   
+    [Documentation]
+    ...
+    ...  Scroll by using coordinate and Click()
+    ...
+    #start_x start_y offset_x offset_y duration 
+    Swipe    500    1200    500    850    1000
 
 Scroll To Element And Click
     [Arguments]    ${locator}   
