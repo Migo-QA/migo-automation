@@ -17,9 +17,16 @@ OnBoarding Test
     # Check New Migo Rewards Click X
 
 Account Test
-    Check My Rewards
-        Check My Rewards page
-        Check My Rewards sub page
+    Check Profile
+        Chek Profile Page
+        Check Profile Information
+            Check Name by adding text
+            Check Gender by changing gender
+            Check Birthday by changing day
+         
+    Check My Migo Rewards
+        Check My Migo Rewards page
+        Check My Migo Rewars subpage
             Check Earn Page by checking texts
             Check History Page by checking texts & scrollable
                 Check list item 1

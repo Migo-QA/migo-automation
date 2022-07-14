@@ -28,34 +28,17 @@ Close Migo Reward Introduction Notification
 
 Check Account Main Tab After Login
 
-    Log to console  Account item Checking...
-    Log to console  Check profile avatar...
-    Verify Element Display  ${account_profile_avatar['${mobile}']}
-    Sleep  1s
-    Log to console  Check profile welcome text...
-    Verify Element Display  ${account_profile_welcome['${mobile}']}
-    Sleep  1s
-    Log to console  Check User ID...
-    Verify Element Display  ${account_profile_uid['${mobile}']}
-    Sleep  1s
-    Log to console  Check More icon...
-    Verify Element Display  ${account_profile_more['${mobile}']}
-    Sleep  1s
-    Log to console  Check reward gift image...
-    Verify Element Display  ${account_rewards_gift['${mobile}']}
-    Sleep  1s
-    Log to console  Check My Reward...
-    Verify Element Display  ${account_rewards_reward['${mobile}']}
-    Sleep  1s
-    Log to console  Check gift count...
-    Verify Element Display  ${account_rewards_giftcount['${mobile}']}
-    Sleep  1s
-    Log to console  Check Migo Point...
-    Verify Element Display  ${account_rewards_migo_point['${mobile}']}
-    Sleep  1s
-    Log to console  Check reward description...
-    Verify Element Display  ${account_rewards_description['${mobile}']}
-    Sleep  1s
+    Log to console  Account Items Checking...
+
+    # Profile
+    Log to console Dash  Check Profile
+    Check Profile
+    Log to Console Dash  Profile Pass
+
+    # My Rewards
+    Log to console Dash  Check My Migo Reward  
+    Check My Migo Reward
+    Log to Console Dash  My Migo Reward Pass 
 
     #===Verify title of item====
     Log to console  Check items title...
@@ -206,12 +189,6 @@ Check Account Main Tab After Login
     Sleep  1s
     Log to console  ======= Main Tab Check Pass ==========
 
- 
-
-Check Migo Points Subpage
-
-    Log to console   Migo Points Page items checking...
-    Verify Element Display  locator  wait_time
 
 
 Login Migo Account
@@ -254,15 +231,6 @@ Input Phone Number
     Log to console    Click "I agree" button...
     Wait Element And Click Element   ${auth_register_agree_btn['${mobile}']}
     Log to console    Pass!!!
-    # : FOR    ${count}    IN RANGE    0    9
-	# \   ${planNo}=      convert to string  ${count}
-	# \   ${locator_EachPolicy}=     replace string  ${myPet}[labPolicyStatusOrder]    $n    ${planNo}
-    # \   Run keyword if  '${planNo}'=='1'     Verify Text Label  ${locator_EachPolicy}  &{common}[policy_status_waiting_period]
-    #     ...   ELSE IF   '${planNo}'=='2'     Verify Text Label  ${locator_EachPolicy}  &{common}[policy_status_effective]
-    #     ...   ELSE IF   '${planNo}'=='3'     Verify Text Label  ${locator_EachPolicy}  &{common}[policy_status_canceled]
-    #     ...   ELSE      Verify Text Label  ${locator_EachPolicy}    &{common}[policy_status_expired]
-    #TBD
-    #ELSE      Bypass OTP Page   ${phone_number} 
 
 Enter OTP code 
 
@@ -321,7 +289,6 @@ Bypass Hard Code OTP Page
     END
     Log to console    Finished!!!
 
-#Not Done Yet
 Bypass OTP Page   
     [Arguments]     ${phone_number} 
     [Documentation]
@@ -350,24 +317,195 @@ Bypass OTP Page
     Wait Element And Input    ${auth_register_otp_5['${mobile}']}    ${otp_num5}
     Wait Element And Input    ${auth_register_otp_6['${mobile}']}    ${otp_num6}
 
-#Not Done Yet
-Check Hello Profile Page   
+# PROFILE
+Check Profile   
     [Documentation]
     ...
     ...    Hello profile page (The first time)
     ...  
 
-    #Hello profile page
-    Verify Element Display  ${auth_Hello_info_title['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_subtitle['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_name['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_gender['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_birday['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_ig['${mobile}']}
-    Verify Element Display  ${auth_Hello_info_refferl['${mobile}']}
-    Wait Element And Click Element   ${auth_Hello_info_next_btn['${mobile}']}
-    Verify Element Display  ${auth_login_success_toast['${mobile}']}
+    # Profile
+    Log to console  Check Profile Text...
+    Verify Element Display  ${account_profile_avatar['${mobile}']}
+    Verify Element Display  ${account_profile_welcome['${mobile}']}
+    Verify Element Display  ${account_profile_uid['${mobile}']}
+    Verify Element Display  ${account_profile_more['${mobile}']}
 
+    # Profile information
+    Log to console  Check Profile information...
+    Wait Element And Click Element  ${account_profile_welcome['${mobile}']} 
+    Verify Element Display  ${account_profile_information_text['${mobile}']}
+    Verify Element Display  ${account_profile_information_avatar['${mobile}']}
+        # Name, check by adding text
+    Log to console  Check Name...
+    ${name} =  Wait Element And Get Text  ${account_profile_information_name_box['${mobile}']}
+    Wait Element And Click Element  ${account_profile_information_name_box['${mobile}']}
+    Verify Element Display  ${account_profile_information_name_x['${mobile}']}
+    Press Mobile Keypad  0
+
+        # Gender, check by get text then changing gender
+    Log to console  Check Gender...
+    ${gender} =  Wait Element And Get Text  ${account_profile_information_gender_box['${mobile}']}
+    Wait Element And Click Element  ${account_profile_information_gender_box['${mobile}']}
+    IF  '${gender}' == 'Male'   
+        Wait Element And Click Element  ${account_profile_information_name_select_female_text['${mobile}']}
+        ${new_gender} =  Set Variable  Female
+    ELSE  
+        Wait Element And Click Element  ${account_profile_information_name_select_male_text['${mobile}']}
+        ${new_gender} =  Set Variable  Male 
+    END
+    Wait Element And Click Element  ${account_profile_information_name_select_ok['${mobile}']}
+    Wait Element And Click Element  ${account_profile_information_birthday_done['${mobile}']} 
+
+        # Birthday, check by get text then changing day
+    Sleep  1s 
+    Log to console  Check Birthday...
+    Verify Element Display  ${account_profile_information_birthday_box['${mobile}']}
+    ${birthday} =  Wait Element And Get Text  ${account_profile_information_birthday_box['${mobile}']}
+    Wait Element And Click Element  ${account_profile_information_birthday_box['${mobile}']}
+    Sleep  1s
+    IF  '${birthday}' == '01.01.2003'
+        Log to console  Scrolling UP...
+        Scroll   520  1130  520  1000
+        ${new_birthday} =  Format String  	02.01.2003
+    ELSE
+        Log to console  Scrolling DOWN 
+        Scroll   520  1130  520  1260 
+        ${new_birthday} =  Format String  	01.01.2003
+    END
+    Wait Element And Click Element  ${account_profile_information_birthday_done['${mobile}']}
+
+    # Check Save
+    Log to console  Check Save...
+    Wait Element And Click Element  ${account_profile_information_save_btn['${mobile}']}
+    User Press Back Key
+    Sleep  1s
+        # Check if Name is saved
+    Log to console  Check if Outside Name is Saved ...
+    ${new_name} =  Format String  Hello, {}0  ${name}
+    Get Text And Compare  ${account_profile_welcome['${mobile}']}  ${new_name}
+    Wait Element And Click Element  ${account_profile_welcome['${mobile}']} 
+    Log to console  Check if Inside Name is Saved ...
+    ${new_name} =  Format String  {}0  ${name}
+    Get Text And Compare  ${account_profile_information_name_box['${mobile}']}  ${new_name}
+        # Check if Gender is saved
+    Log to console  Check if Gender is Saved...
+    Get Text And Compare  ${account_profile_information_gender_box['${mobile}']}  ${new_gender}
+        # Check if Birthday is saved
+    Log to console  Check if Birthday is Saved...
+    Get Text And Compare  ${account_profile_information_birthday_box['${mobile}']}  ${new_birthday}
+    User Press Back Key
+
+# MY MIGO REWARD
+Check My Migo Reward 
+ 
+    Log to console  Check reward gift image...
+    Verify Element Display  ${account_rewards_gift['${mobile}']}
+    Log to console  Check My Reward...
+    Verify Element Display  ${account_rewards_reward['${mobile}']}
+    Log to console  Check gift count...
+    Verify Element Display  ${account_rewards_giftcount['${mobile}']}
+    Log to console  Check Migo Point...
+    Verify Element Display  ${account_rewards_migo_point['${mobile}']}
+    Log to console  Check reward description...
+    Verify Element Display  ${account_rewards_description['${mobile}']}
+
+    Log to console  Check My Migo reward Element...
+    Click My Rewards Tab
+    Sleep  1s
+    Log to console  Check Migo Point...
+    Verify Element Display  ${account_rewards_point_number['${mobile}']}
+    Log to console  Check Migo Description...
+    Verify Element Display  ${account_rewards_point_description['${mobile}']}
+    Log to console  Check Migo point level...
+    Verify Element Display  ${account_rewards_point_level['${mobile}']}
+    Log to console  Check subpage of Migo point page...
+    Log to console  Levels subpage...
+    Verify Element Display  ${account_rewards_point_levels_tab['${mobile}']}
+    Log to console  Earn subpage...
+    Verify Element Display  ${account_rewards_point_earn_tab['${mobile}']}
+    Log to console  History subpage...
+    Verify Element Display  ${account_rewards_point_history_tab['${mobile}']}
+    # Check Earn Page by checking texts
+    Check Earn Page 
+    # Check History Page by checking texts & scrollable 
+    Check History Page
+    # Check Levels Page by checking text & button
+    Check Levels Page
+    User Press Back Key
+    
+Check Earn Page 
+    Log to console  Check Earn subpage...
+    Wait Element And Click Element  ${account_rewards_point_earn_tab['${mobile}']}
+    Log to console  Chek whole page...
+    Verify Element Display  ${account_rewards_point_earn_list['${mobile}']}
+
+    Log to console  Check Earn by Watching text...
+    Verify Element Display  ${account_rewards_point_earn_by_watching_text['${mobile}']}
+    Log to console  Check Earn by Watching...
+    Verify Element Display  ${account_rewards_point_earn_by_watching_1['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_watching_2['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_watching_3['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_watching_4['${mobile}']}
+
+    Log to console  Check Earn by Download text...
+    Verify Element Display  ${account_rewards_point_earn_by_download_text['${mobile}']}
+    log to console  Check Earn by Download...
+    Verify Element Display  ${account_rewards_point_earn_by_download_1['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_2['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_3['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_4['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_5['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_6['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_7['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_8['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_9['${mobile}']}
+    Verify Element Display  ${account_rewards_point_earn_by_download_10['${mobile}']}
+
+Check History Page
+    Log to console  Check History subpage...
+    Wait Element And Click Element  ${account_rewards_point_history_tab['${mobile}']}  
+    Log to console  Chek whole page...
+    Verify Element Display  ${account_rewards_point_history_list['${mobile}']}
+    Log to console  Check List item 1...
+    Verify Element Display  ${account_rewards_point_history_list_1_1['${mobile}']}
+    Verify Element Display  ${account_rewards_point_history_list_1_2['${mobile}']}
+    Verify Element Display  ${account_rewards_point_history_list_1_3['${mobile}']}
+
+    Log to console  Scrolling down...
+    Scroll
+
+    Log to console  Check List item 8...
+    Verify Element Display  ${account_rewards_point_history_list_8_1['${mobile}']}
+    Verify Element Display  ${account_rewards_point_history_list_8_2['${mobile}']}
+    Verify Element Display  ${account_rewards_point_history_list_8_3['${mobile}']}
+
+Check Levels Page
+    Log to console  Check Levels subpage...
+    Wait Element And Click Element  ${account_rewards_point_levels_tab['${mobile}']}
+    Log to console  Chek whole page...
+    Verify Element Display  ${account_rewards_point_levels_list['${mobile}']}
+    Log to console  Check Text...
+    Verify Element Display  ${account_rewards_point_levels_title['${mobile}']}
+    Verify Element Display  ${account_rewards_point_levels_description['${mobile}']}
+    Log to console  Check List item 1...
+    Verify Element Display  ${account_rewards_point_levels_list_1_img['${mobile}']}
+    Verify Element Display  ${account_rewards_point_levels_list_1_text['${mobile}']}
+    Verify Element Display  ${account_rewards_point_levels_list_1_button['${mobile}']}
+
+    Log to console  Click Claim...
+    Wait Element And Click Element  ${account_rewards_point_levels_list_1_button['${mobile}']}
+    log to console  Check Redeem Error Dialog...
+    Sleep  2s
+    Verify Element Display  ${account_rewards_point_levels_redeem_error_title['${mobile}']}
+    Verify Element Display  ${account_rewards_point_levels_redeem_error_description['${mobile}']}
+    Verify Element Display  ${account_rewards_point_levels_redeem_error_button['${mobile}']}
+    Log to console  Click OK...
+    Wait Element And Click Element  ${account_rewards_point_levels_redeem_error_button['${mobile}']}
+
+
+
+#Not Done Yet
 Logout
     [Documentation]
     ...
@@ -434,105 +572,6 @@ Migo Point Should Not Be Zero
 
     Sleep  2s
     Get Text And Not Equal    ${account_rewards_point_number['${mobile}']}    0  
-    
-Check My Migo Reward Page
-    Log to console  Verify My Migo reward Element...
-    Sleep  2s
-    Log to console  Check Migo Point...
-    Verify Element Display  ${account_rewards_point_number['${mobile}']}
-    Log to console  Check Migo Description...
-    Verify Element Display  ${account_rewards_point_description['${mobile}']}
-    Log to console  Check Migo point level...
-    Verify Element Display  ${account_rewards_point_level['${mobile}']}
-    Log to console  Check subpage of Migo point page...
-    Log to console  Levels subpage...
-    Verify Element Display  ${account_rewards_point_levels_tab['${mobile}']}
-    Log to console  Earn subpage...
-    Verify Element Display  ${account_rewards_point_earn_tab['${mobile}']}
-    Log to console  History subpage...
-    Verify Element Display  ${account_rewards_point_history_tab['${mobile}']}
-    
-
-Check My Migo Reward Subpage
-    # Check Earn Page by checking texts
-    Check Earn Page 
-    # Check History Page by checking texts & scrollable 
-    Check History Page
-    # Check Levels Page by checking text & button
-    Check Levels Page
-
-
-Check Earn Page 
-    Log to console  Check Earn subpage...
-    Wait Element And Click Element  ${account_rewards_point_earn_tab['${mobile}']}
-    Log to console  Chek whole page...
-    Verify Element Display  ${account_rewards_point_earn_list['${mobile}']}
-
-    Log to console  Check Earn by Watching text 
-    Verify Element Display  ${account_rewards_point_earn_by_watching_text['${mobile}']}
-    Log to console  Check Earn by Watching
-    Verify Element Display  ${account_rewards_point_earn_by_watching_1['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_watching_2['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_watching_3['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_watching_4['${mobile}']}
-
-    Log to console  Check Earn by Download text 
-    Verify Element Display  ${account_rewards_point_earn_by_download_text['${mobile}']}
-    log to console  Check Earn by Download
-    Verify Element Display  ${account_rewards_point_earn_by_download_1['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_2['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_3['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_4['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_5['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_6['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_7['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_8['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_9['${mobile}']}
-    Verify Element Display  ${account_rewards_point_earn_by_download_10['${mobile}']}
-
-Check History Page
-    Log to console  Check History subpage...
-    Wait Element And Click Element  ${account_rewards_point_history_tab['${mobile}']}  
-    Log to console  Chek whole page...
-    Verify Element Display  ${account_rewards_point_history_list['${mobile}']}
-    Log to console  Check List item 1
-    Verify Element Display  ${account_rewards_point_history_list_1_1['${mobile}']}
-    Verify Element Display  ${account_rewards_point_history_list_1_2['${mobile}']}
-    Verify Element Display  ${account_rewards_point_history_list_1_3['${mobile}']}
-
-    Log to console  Scrolling down...
-    Scroll Down
-
-    Log to console  Check List item 8
-    Verify Element Display  ${account_rewards_point_history_list_8_1['${mobile}']}
-    Verify Element Display  ${account_rewards_point_history_list_8_2['${mobile}']}
-    Verify Element Display  ${account_rewards_point_history_list_8_3['${mobile}']}
-
-Check Levels Page
-    Log to console  Check Levels subpage...
-    Wait Element And Click Element  ${account_rewards_point_levels_tab['${mobile}']}
-    Log to console  Chek whole page...
-    Verify Element Display  ${account_rewards_point_levels_list['${mobile}']}
-    Log to console  Check Text 
-    Verify Element Display  ${account_rewards_point_levels_title['${mobile}']}
-    Verify Element Display  ${account_rewards_point_levels_description['${mobile}']}
-    Log to console  Check List item 1
-    Verify Element Display  ${account_rewards_point_levels_list_1_img['${mobile}']}
-    Verify Element Display  ${account_rewards_point_levels_list_1_text['${mobile}']}
-    Verify Element Display  ${account_rewards_point_levels_list_1_button['${mobile}']}
-
-    Log to console  Click Claim
-    Wait Element And Click Element  ${account_rewards_point_levels_list_1_button['${mobile}']}
-    log to console  Check Redeem Error Dialog...
-    Sleep  2s
-    Verify Element Display  ${account_rewards_point_levels_redeem_error_title['${mobile}']}
-    Verify Element Display  ${account_rewards_point_levels_redeem_error_description['${mobile}']}
-    Verify Element Display  ${account_rewards_point_levels_redeem_error_button['${mobile}']}
-    Log to console  Click OK
-    Wait Element And Click Element  ${account_rewards_point_levels_redeem_error_button['${mobile}']}
-
-
-
 Check Gift Redeem Flow
     [Documentation]
     ...

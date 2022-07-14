@@ -66,17 +66,21 @@ First Launch Test
     Log to console Dash   Close Reward Notification Pass
     Close In App Message
     Log to console Dash   Close In App Message Pass
-
-    # My Rewards
-    Check My Migo Reward Page
-    Check My Migo Reward Subpage
-    Log to console Dash  Migo Reward Page Check Pass
     User Press Back Key
 
-    # Check Account Page Element
-    Check Account Main Tab After Login
-    Log to console Dash  Migo Account Page Check Pass
+    Log to console  Checking Account Page...
+    # Profile
+    Log to console Dash  Check Profile
+    Check Profile
+    Log to Console Dash  Profile Pass
 
+    # My Rewards
+    Log to console Dash  Check My Migo Reward  
+    Check My Migo Reward
+    Log to Console Dash  My Migo Reward Pass  
+
+    # Check Account Main Tab After Login
+    Log to console Dash  Migo Account Page Check Pass
 
     # PASSES
     # Buy 3-days Pass
@@ -123,17 +127,22 @@ Account Test
     [Tags]    Account_TEST  Login
     [Setup]    Launch Migo  Samsung_A505   
     
+    Sleep  2s
+    Close In App Message
     Click Account Main Tab
 
-    # My Rewards
-    Click My Rewards Tab 
-    Check My Migo Reward Page
-    Check My Migo Reward Subpage
-    Log to console Dash  Migo Reward Page Check Pass
-    User Press Back Key
+    Log to console  Checking Account Page...
+    # Profile
+    Log to console Dash  Check Profile
+    Check Profile
+    Log to Console Dash  Profile Pass
 
-    # Check Account Page Element
-    Check Account Main Tab After Login
+    # My Rewards
+    Log to console Dash  Check My Migo Reward  
+    Check My Migo Reward
+    Log to Console Dash  My Migo Reward Pass  
+
+    # Check Account Main Tab After Login
     Log to console Dash  Migo Account Page Check Pass
 
 

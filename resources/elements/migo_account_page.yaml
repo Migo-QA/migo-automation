@@ -18,17 +18,58 @@ OTP_wrong_code:
 
 
 
-#Profile
-account_register_login_tab:
-  android:  id=com.migo.androidplayer:id/cl_profile
-account_profile_avatar:
+# Profile
+account_register_login_tab: # when not logged in
+  android:  id=com.migo.androidplayer:id/cl_profile 
+account_profile_avatar: 
   android:  id=com.migo.androidplayer:id/iv_avatar
-account_profile_welcome:
+account_profile_welcome: # Hello, user
   android:  id=com.migo.androidplayer:id/tv_welcome
-account_profile_uid:
+account_profile_uid: # User id
   android:  id=com.migo.androidplayer:id/tv_user_id
-account_profile_more:
+account_profile_more: # >
   android:  id=com.migo.androidplayer:id/iv_account_more
+# Profile Information
+account_profile_information_text:
+  android:  id=com.migo.androidplayer:id/tv_title
+account_profile_information_avatar: 
+  android:  id=com.migo.androidplayer:id/iv_avatar
+  # Name
+account_profile_information_name_box:
+  android:  xpath=//android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText
+account_profile_information_name_x: # After clicking name text input
+  android:  xpath=//android.widget.ImageButton[@content-desc="Clear text"]
+  # Gender
+account_profile_information_gender_box:
+  android:  xpath=//android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.Spinner
+    # Select Your Gender
+account_profile_information_name_select_male_text: # Male
+  android:  id=com.migo.androidplayer:id/rb_male
+account_profile_information_name_select_female_text: # Female
+  android:  id=com.migo.androidplayer:id/rb_female
+account_profile_information_name_select_secret_text: # Prefer not to say
+  android:  id=com.migo.androidplayer:id/rb_secret
+account_profile_information_name_select_ok: # OK
+  android:  id=com.migo.androidplayer:id/button_confirm
+account_profile_information_name_select_cancel: # Cancel
+  android:  id=com.migo.androidplayer:id/button_cancel
+  # Birthday
+account_profile_information_birthday_box:
+  android:  xpath=//android.widget.FrameLayout[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.Spinner
+account_profile_information_birthday_done:
+  android:  id=android:id/button1 # DONE
+account_profile_information_birthday_cancel:
+  android:  id=android:id/button2 # CANCEL
+  # Save
+account_profile_information_save_btn:
+  android:  id=com.migo.androidplayer:id/button_save
+# account_profile_information
+# account_profile_information
+# account_profile_information
+# account_profile_information
+# account_profile_information
+
+
 
 account_profile_info_title:
   android:  id=tv_account_info_title
