@@ -125,7 +125,7 @@ OnBoarding Test
 
 Account Test
     [Tags]    Account_TEST  Login
-    [Setup]    Launch Migo  Samsung_A505   
+    [Setup]    Launch Migo  Samsung_A515F 
     
     Sleep  2s
     Close In App Message
@@ -141,6 +141,11 @@ Account Test
     Log to console Dash  Check My Migo Reward  
     Check My Migo Reward
     Log to Console Dash  My Migo Reward Pass  
+
+    # Linked Phone Number
+    Log to console Dash  Check Linked Phone Number
+    Check Linked Phone Number
+    Log to Console Dash  Linked Phone Number Pass 
 
     # Check Account Main Tab After Login
     Log to console Dash  Migo Account Page Check Pass
@@ -458,6 +463,7 @@ Parental Control Happy Path
     Verify Element Not Display  ${account_parental_set_pin_field1['${mobile}']}
     Sleep  2s
     AppiumLibrary.Capture Page Screenshot   Parental_Disable.png
+
 
 
 
