@@ -283,6 +283,18 @@ account_transactiont_thelatest_history_method:
 account_transactiont_thelatest_history_status:
   android:  xpath=//android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[6]
 
+#Linked Phone Number
+account_linked_phone_number_tab:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]
+account_linked_phone_number_text:
+  android:  xpath=//*[contains(@text, "Phone Number")]
+account_linked_phone_number_telephone:
+  android:  xpath=//*[contains(@text, "+6299999999999")]
+account_linked_phone_number_verified_icon:
+  android:  xpath=//android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView
+account_linked_phone_number_verified_text:
+  android:  xpath=//*[contains(@text, "Verified")]
+
 
 
 #Setting

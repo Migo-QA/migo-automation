@@ -18,6 +18,10 @@ Click My Rewards Tab
     Log to console  Swtich to My Rewards Tab
     Wait Element And Click Element  ${account_rewards_tab['${mobile}']} 
     
+Click Linked Phone Number Tab
+
+    Log to console  Swtich to Linked Phone Number Tab
+    Wait Element And Click Element  ${account_linked_phone_number_tab['${mobile}']} 
 
 Close Migo Reward Introduction Notification
 
@@ -433,7 +437,7 @@ Check My Migo Reward
     # Check Levels Page by checking text & button
     Check Levels Page
     User Press Back Key
-    
+  
 Check Earn Page 
     Log to console  Check Earn subpage...
     Wait Element And Click Element  ${account_rewards_point_earn_tab['${mobile}']}
@@ -503,7 +507,32 @@ Check Levels Page
     Log to console  Click OK...
     Wait Element And Click Element  ${account_rewards_point_levels_redeem_error_button['${mobile}']}
 
+Check Linked Phone Number
 
+    Log to console  Check Linked Phone Number Icon
+    Verify Element Display  ${account_linked_phone_number_icon['${mobile}']}
+    Sleep  1s
+    Log to console  Check Linked Phone Number Text
+    Verify Element Display  ${account_linked_phone_number['${mobile}']}
+    Sleep  1s
+    Log to console  Check Linked Phone Number More icon
+    Verify Element Display  ${account_tutorial_more['${mobile}']}
+    Sleep  1s 
+
+    Log to console  Check Linked Phone Number Page...
+    Click Linked Phone Number Tab
+    Sleep  1s
+    Log to console  Check Phone Number Title...
+    Verify Element Display  ${account_linked_phone_number['${mobile}']}
+    Log to console  Check Phone Number Text...
+    Verify Element Display  ${account_linked_phone_number_text['${mobile}']}
+    Log to console  Check Phone Number...
+    Verify Element Display  ${account_linked_phone_number_telephone['${mobile}']}
+    Log to console  Check Verify Icon...
+    Verify Element Display  ${account_linked_phone_number_verified_icon['${mobile}']}
+    Log to console  Check Verify Text...
+    Verify Element Display  ${account_linked_phone_number_verified_text['${mobile}']}
+    User Press Back Key    
 
 #Not Done Yet
 Logout
