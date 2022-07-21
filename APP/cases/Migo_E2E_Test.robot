@@ -34,7 +34,7 @@ Test Test
 First Launch Test 
     [Tags]    All 
     # [Setup]    Launch Migo  Google_Pixel6  true
-    [Setup]    Clear Data and Launch Migo  Samsung_A505  true
+    [Setup]    Clear Data and Launch Migo  Samsung_A515F  true
     
     # ONBOARDING
 	# Tutorial
@@ -77,7 +77,12 @@ First Launch Test
     # My Rewards
     Log to console Dash  Check My Migo Reward  
     Check My Migo Reward
-    Log to Console Dash  My Migo Reward Pass  
+    Log to Console Dash  My Migo Reward Pass
+
+    # Linked Phone Number
+    Log to console Dash  Check Linked Phone Number
+    Check Linked Phone Number
+    Log to Console Dash  Linked Phone Number Pass 
 
     # Check Account Main Tab After Login
     Log to console Dash  Migo Account Page Check Pass
