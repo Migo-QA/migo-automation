@@ -5,6 +5,217 @@
 #   other:  xpath=//*[contains(@text, "Next")]
 
 
+#MAIN
+#Header
+catalog_main_logo:  # Migo
+  android:  id=com.migo.androidplayer:id/iv_logo
+catalog_main_search:
+  android:  id=com.migo.androidplayer:id/tv_search_entry
+catalog_main_promo:
+  android:  id=com.migo.androidplayer:id/iv_right_icon
+
+#Genre
+catalog_main_genre_tab:
+  android:  id=com.migo.androidplayer:id/rv_genre
+catalog_main_genre_comedy:
+  android:  xpath=//*[contains(@text, "Comedy")]
+catalog_main_genre_drama:
+  android:  xpath=//*[contains(@text, "Drama")]
+catalog_main_genre_action:
+  android:  xpath=//*[contains(@text, "Action")]
+catalog_main_genre_horror:
+  android:  xpath=//*[contains(@text, "Horror")]
+catalog_main_genre_romance:
+  android:  xpath=//*[contains(@text, "Romance")]
+catalog_main_genre_animation:
+  android:  xpath=//*[contains(@text, "Animation")]
+catalog_main_genre_kids:
+  android:  xpath=//*[contains(@text, "Kids")]
+catalog_main_genre_learning:
+  android:  xpath=//*[contains(@text, "Learning")]
+catalog_main_genre_music:
+  android:  xpath=//*[contains(@text, "Music")]
+catalog_main_genre_sport:
+  android:  xpath=//*[contains(@text, "Sport")]
+
+#Carousel
+catalog_main_carousel_image:
+  android:  id=com.migo.androidplayer:id/carouselImage
+catalog_main_carousel_indicator:
+  android:  id=com.migo.androidplayer:id/indicator
+
+#Channels
+catalog_main_channel_text:
+  android:  id=com.migo.androidplayer:id/tv_channel_title
+catalog_main_channel_view:
+  android:  id=com.migo.androidplayer:id/tv_view_all
+catalog_main_channel_channels_tab:
+  android:  id=com.migo.androidplayer:id/rv_channel
+catalog_main_channel_channels_1: # 1
+  android:  xpath=//android.view.ViewGroup[1]
+catalog_main_channel_channels_2: # 2
+  android:  xpath=//android.view.ViewGroup[2]
+catalog_main_channel_channels_3: # 3
+  android:  xpath=//android.view.ViewGroup[3]
+catalog_main_channel_channels_4: # 4
+  android:  xpath=//android.view.ViewGroup[4]
+catalog_main_channel_channels_5: # 5
+  android:  xpath=//android.view.ViewGroup[5]
+catalog_main_channel_channels_6: # 6
+  android:  xpath=//android.view.ViewGroup[6]
+
+catalog_main_channel_channels_vision: # VISION
+  android:  xpath=//android.view.ViewGroup[1]
+catalog_main_channel_channels_lionsgate: # LIONSGATE PLAY
+  android:  xpath=//android.view.ViewGroup[2]
+catalog_main_channel_channels_anak: # Migo Anak
+  android:  xpath=//android.view.ViewGroup[3]
+catalog_main_channel_channels_belajar: # Migo Belajar
+  android:  xpath=//android.view.ViewGroup[4]
+catalog_main_channel_channels_noice: # Migo Noice
+  android:  xpath=//android.view.ViewGroup[5]
+catalog_main_channel_channels_starvision: # Starvision
+  android:  xpath=//android.view.ViewGroup[6]
+catalog_main_channel_channels_genflix: # Genflix
+  android:  xpath=//android.view.ViewGroup[7]
+catalog_main_channel_channels_korea: # Migo Korea
+  android:  xpath=//android.view.ViewGroup[8]
+catalog_main_channel_channels_friends: # Migo 'n Friends
+  android:  xpath=//android.view.ViewGroup[9]
+
+
+
+#SEARCH
+#Header
+catalog_search_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+catalog_search_input:
+  android:  id=com.migo.androidplayer:id/et_input
+
+#Genre
+catalog_search_genre_text:
+  android:  xpath=//*[contains(@text, "Search by Genre")]
+catalog_search_genre_comedy:
+  android:  xpath=//*[contains(@text, "Comedy")]
+catalog_search_genre_drama:
+  android:  xpath=//*[contains(@text, "Drama")]
+catalog_search_genre_action:
+  android:  xpath=//*[contains(@text, "Action")]
+catalog_search_genre_horror:
+  android:  xpath=//*[contains(@text, "Horror")]
+catalog_search_genre_romance:
+  android:  xpath=//*[contains(@text, "Romance")]
+catalog_search_genre_animation:
+  android:  xpath=//*[contains(@text, "Animation")]
+catalog_search_genre_kids:
+  android:  xpath=//*[contains(@text, "Kids")]
+catalog_search_genre_learning:
+  android:  xpath=//*[contains(@text, "Learning")]
+catalog_search_genre_music:
+  android:  xpath=//*[contains(@text, "Music")]
+catalog_search_genre_sport:
+  android:  xpath=//*[contains(@text, "Sport")]
+  
+#Trending on Migo
+catalog_search_trending_text:
+  android:  xpath=//*[contains(@text, "Trending on Migo")]
+catalog_search_card_1: # 1
+  android:  xpath=//android.view.ViewGroup[1]
+catalog_search_card_2: # 2
+  android:  xpath=//android.view.ViewGroup[2]
+catalog_search_card_3: # 3
+  android:  xpath=//android.view.ViewGroup[3]
+catalog_search_card_4: # 4
+  android:  xpath=//android.view.ViewGroup[4]
+catalog_search_card_5: # 5
+  android:  xpath=//android.view.ViewGroup[5]
+catalog_search_card_6: # 6
+  android:  xpath=//android.view.ViewGroup[6]
+catalog_search_card_7: # 7
+  android:  xpath=//android.view.ViewGroup[7]
+catalog_search_card_8: # 2
+  android:  xpath=//android.view.ViewGroup[8]
+
+#SEARCHED
+catalog_searched_video_1:
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView
+
+#TITLE CARD
+#Movie
+  # Info
+catalog_titlecard_name:
+  android:  id=com.migo.androidplayer:id/tv_video_name
+catalog_titlecard_video_info:
+  android:  id=com.migo.androidplayer:id/tv_video_info
+catalog_titlecard_synopsis:
+  android:  id=com.migo.androidplayer:id/tv_synopsis
+catalog_titlecard_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+  # Download
+catalog_titlecard_download_btn:
+  android:  id=com.migo.androidplayer:id/ll_root
+catalog_titlecard_download_icon:
+  android:  id=com.migo.androidplayer:id/iv_icon
+catalog_titlecard_download_text:
+  android:  id=com.migo.androidplayer:id/tv_action
+  # Save
+catalog_titlecard_save:
+  android:  id=com.migo.androidplayer:id/button_bookmark
+  # Like
+catalog_titlecard_rating:
+  android:  id=com.migo.androidplayer:id/button_rating
+catalog_titlecard_rating_like:
+  android:  id=com.migo.androidplayer:id/ib_like
+catalog_titlecard_rating_dislike:
+  android:  id=com.migo.androidplayer:id/ib_dislike
+catalog_titlecard_rating_no: # X
+  android:  id=com.migo.androidplayer:id/ib_no_comment
+  # See
+catalog_titlecard_seemore:
+  android:  xpath=//*[contains(@text, "See More")]
+catalog_titlecard_seeless:
+  android:  xpath=//*[contains(@text, "See Less")]
+catalog_titlecard_subtitle:
+  android:  xpath=//*[contains(@text, "Subtitle")]
+catalog_titlecard_audio:
+  android:  xpath=//*[contains(@text, "Audio")]
+catalog_titlecard_advisory:
+  android:  xpath=//*[contains(@text, "Advisory")]
+# Series
+  # Season
+catalog_titlecard_season_1:
+  android:  xpath=//*[contains(@text, "S1")]
+catalog_titlecard_season_select:
+  android:  id=com.migo.androidplayer:id/ib_season_select
+  # Episodes
+catalog_titlecard_episode_list_text:
+  android:  xpath=//*[contains(@text, "Episode List")]
+    # Episode 1
+catalog_titlecard_episode_list_1_tab: # ViewGroup 3
+  android:  xpath=//android.view.ViewGroup[3]
+catalog_titlecard_episode_list_1_title:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[1]
+catalog_titlecard_episode_list_1_description:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
+catalog_titlecard_episode_list_1_download_btn:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.LinearLayout
+catalog_titlecard_episode_list_1_download_icon:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.ImageView
+catalog_titlecard_episode_list_1_download_text:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.TextView
+    # Episode 12
+catalog_titlecard_episode_list_12_tab: # ViewGroup 8
+  android:  xpath=//android.view.ViewGroup[8]
+
+
+
+
+
+
+
+
+
+# ==================================  OLD  ==================================
 #Migo debug version tool
 catalog_main_debug_info:
   android:  xpath=//android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageButton
@@ -22,34 +233,13 @@ catalog_inAppMessage:
   android:  id=com.migo.androidplayer:id/image_view
 catalog_inAppMessageCloseButton:
   android:  id=com.migo.androidplayer:id/collapse_button
-catalog_carousel:
-  android:  id=com.migo.androidplayer:id/carouselRecyclerView
-catalog_searchbtn:
-  android:  id=com.migo.androidplayer:id/iv_right_icon
+
 catalog_searchvideopage:
   android:  id=com.migo.androidplayer:id/recyclerView
 catalog_searchfield:
   android:  id=com.migo.androidplayer:id/editTextSearch
 catalog_back:
   android:  id=com.migo.androidplayer:id/imageBack
-catalog_genres_genres:
-  android:  xpath=//*[contains(@text, '$genres')]
-catalog_genres_comedy:
-  android:  xpath=//*[contains(@text, "Comedy")]
-catalog_genres_kids:
-  android:  xpath=//*[contains(@text, "Kids")]
-catalog_genres_action:
-  android:  xpath=//*[contains(@text, "Action")]
-catalog_genres_horror:
-  android:  xpath=//*[contains(@text, "Horror")]
-catalog_genres_romance:
-  android:  xpath=//*[contains(@text, "Romance")]
-catalog_genres_drama:
-  android:  xpath=//*[contains(@text, "Drama")]
-catalog_genres_biography:
-  android:  xpath=//*[contains(@text, "Biography")]
-catalog_genres_family:
-  android:  xpath=//*[contains(@text, "Family")]
 catalog_trending:
   android:  id=com.migo.androidplayer:id/text_section_title
 catalog_trending_list:
@@ -71,35 +261,13 @@ catalog_migo_famous_series:
 catalog_migo_famous_series_all:
   android:  xpath=//*[contains(@text, "Serial Paling Populer Di Migo")]//following-sibling::android.widget.TextView
 
-catalog_video_search:
-  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView
+
 
 # catalog_titlecard_info:
 #   android:  id=com.migo.androidplayer:id/videoInfoText
 # catalog_titlecard_image:
 #   android:  xpath=//android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup
-catalog_titlecard_name:
-  android:  id=com.migo.androidplayer:id/tv_video_name
-catalog_titlecard_video_info:
-  android:  id=com.migo.androidplayer:id/tv_video_info
-catalog_titlecard_synopsis:
-  android:  id=com.migo.androidplayer:id/tv_synopsis
-# catalog_titlecard_description:
-#   android:  id=com.migo.androidplayer:id/synopsisText
-catalog_titlecard_savelater:
-  android:  id=com.migo.androidplayer:id/button_bookmark
-catalog_titlecard_download_btn:
-  android:  id=com.migo.androidplayer:id/ll_movie_download_button
-catalog_titlecard_download_btn_text:
-  android:  id=com.migo.androidplayer:id/tv_download
-catalog_titlecard_seemore:
-  android:  xpath=//*[contains(@text, "See More")]
-catalog_titlecard_seeless:
-  android:  xpath=//*[contains(@text, "See Less")]
-catalog_titlecard_subtitle:
-  android:  xpath=//*[contains(@text, "Subtitle")]
-catalog_titlecard_audio:
-  android:  xpath=//*[contains(@text, "Audio")]
+
 
 
 

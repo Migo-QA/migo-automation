@@ -19,8 +19,9 @@ Click My Rewards Tab
     Wait Element And Click Element  ${account_rewards_tab['${mobile}']} 
     
 Click Linked Phone Number Tab
-
+    
     Log to console  Swtich to Linked Phone Number Tab
+    sleep 1s
     Wait Element And Click Element  ${account_linked_phone_number_tab['${mobile}']} 
 
 Close Migo Reward Introduction Notification
@@ -28,6 +29,15 @@ Close Migo Reward Introduction Notification
     Log to console   Close Reward Introduction Notification...
     Sleep  2s
     Wait Element And Click Element Option  ${account_rewards_notification_close_dialog['${mobile}']}  15
+
+Click Milestone View Pass Dialog
+
+    Log to console   Milestone dialog
+    Sleep  2s
+    Log to console   Click View Free Pass Button
+    Wait Element And Click Element  ${catalog_milestone_dialog_ViewPass['${mobile}']}
+    Sleep  2s
+    Log to console   Check if it is in Migo Point Page...
 
 
 Check Account Main Tab After Login
@@ -511,17 +521,13 @@ Check Linked Phone Number
 
     Log to console  Check Linked Phone Number Icon
     Verify Element Display  ${account_linked_phone_number_icon['${mobile}']}
-    Sleep  1s
     Log to console  Check Linked Phone Number Text
     Verify Element Display  ${account_linked_phone_number['${mobile}']}
-    Sleep  1s
     Log to console  Check Linked Phone Number More icon
     Verify Element Display  ${account_tutorial_more['${mobile}']}
-    Sleep  1s 
 
     Log to console  Check Linked Phone Number Page...
     Click Linked Phone Number Tab
-    Sleep  1s
     Log to console  Check Phone Number Title...
     Verify Element Display  ${account_linked_phone_number['${mobile}']}
     Log to console  Check Phone Number Text...

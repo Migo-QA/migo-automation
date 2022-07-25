@@ -12,7 +12,8 @@ ${timeout}  10s
 &{headers}    Content-Type=application/json    
 &{CONNECT_DEVICES}   Samsung_A505=R58M73JANNN    Samsung_A515F=R58NA0G325D     HUAWEI=5BM7N18515001137    Huawei_Nova3i=JUC4C18806011525    Google_Pixel6=1A071FDF600D1E   Emulator=emulator-5554
 
-${search_name}  John Wick: Chapter 2
+${search_movie}  John Wick: Chapter 2
+${search_series}  Om Nom Stories
 
 #99999999998 account info
 #Profile

@@ -1,9 +1,43 @@
 downloads_main_tab:
   android:  xpath=//*[contains(@text, "Downloads")]
 downloads_page_title:
-  android:  id=com.migo.androidplayer:id/txtToolBarTitle
+  android:  xpath=//android.view.ViewGroup/android.widget.FrameLayout[1]
 downloads_file_manager:
   android:  id=com.migo.androidplayer:id/ll_file_manage
+
+#storage
+downloads_storage_icon:
+  android:  id=com.migo.androidplayer:id/iv_storage_icon
+downloads_storage_title:
+  android:  id=com.migo.androidplayer:id/tv_storage_name
+downloads_storage_capacity:
+  android:  id=com.migo.androidplayer:id/tv_storage_capacity
+downloads_storage_capacity_hint:
+  android:  id=com.migo.androidplayer:id/tv_capacity_hint
+
+#saving master
+downloads_saving_master_icon:
+  android:  id=com.migo.androidplayer:id/iv_map
+downloads_saving_master_title:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]
+downloads_saving_master_description:
+  android:  id=com.migo.androidplayer:id/tv_description
+downloads_saving_master_value:
+  android:  id=com.migo.androidplayer:id/tv_value
+downloads_saving_master_tab:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup
+downloads_saving_master_dialog:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup
+downloads_saving_master_close:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+
+#snack bar download
+downloads_snack_bar_success:
+  android:  id=com.migo.androidplayer:id/snackBarActionText
+downloads_snack_bar_view:
+  android:  id=com.migo.androidplayer:id/viewText
+downloads_snack_bar_more:
+  android:  id=com.migo.androidplayer:id/nextImage
 
 #onboard_first_download
 downloads_first_download_page_title:
@@ -15,40 +49,70 @@ downloads_first_download_page_img:
 downloads_first_download_page_btn:
   android:  id=com.migo.androidplayer:id/btn_next
 
+#download empty
+downloads_empty:
+  android:  id=com.migo.androidplayer:id/tv_download_empty
+downloads_empty_text:
+  android:  id=com.migo.androidplayer:id/tv_hint
+downloads_empty_browse_catalog:
+  android:  id=com.migo.androidplayer:id/tv_browse_catalog
 
-downloads_no_any_movies_text:
-  android:  xpath=//*[contains(@text, "Download movie and TV shows to watch offline without quota.")]
-downloads_no_any_movies_btn:
-  android:  xpath=//*[contains(@text, "Browse Catalog")]
 
-#File Manager 
-downloads_manage_migo_files_title:
-  android:  id=com.migo.androidplayer:id/txtToolBarTitle
-downloads_manage_migo_files_close:
-  android:  id=com.migo.androidplayer:id/toolbar_ic
-downloads_manage_migo_files_internalstorage:
-  android:  id=com.migo.androidplayer:id/iv_storage_name
-downloads_manage_migo_files_migo:
-  android:  xpath=//*[contains(@text, "Migo")]
-downloads_manage_migo_files_otherfiles:
-  android:  xpath=//*[contains(@text, "Other Files")]
-downloads_manage_migo_files_free:
-  android:  xpath=//*[contains(@text, "Free")]
-downloads_manage_migo_files_deleteall:
-  android:  id=com.migo.androidplayer:id/tv_delete_all
-downloads_manage_migo_files_tvshows:
-  android:  xpath=//*[contains(@text, "TV SHOWS")]
-downloads_manage_migo_files_movies:
-  android:  xpath=//*[contains(@text, "MOVIES")]
-downloads_manage_migo_files_deletebtn:
-  android:  xpath=//android.view.ViewGroup[1]/android.widget.ImageView[1]
-
-downloads_delete_popup_title:
+#File Manage
+#button
+downloads_manage_icon:
+  android:  id=com.migo.androidplayer:id/iv_map
+downloads_manage_text:
+  android:  id=com.migo.androidplayer:id/tv_right_button_text
+#manage page
+downloads_manage_title:
   android:  id=com.migo.androidplayer:id/tv_title
-downloads_delete_popup_delete:
+downloads_manage_close:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+downloads_manage_internalstorage:
+  android:  id=com.migo.androidplayer:id/iv_storage_name
+downloads_manage_icon:
+  android:  id=com.migo.androidplayer:id/iv_storage_icon
+downloads_manage_total:
+  android:  id=com.migo.androidplayer:id/tv_total_head
+downloads_manage_space_capacity:
+  android:  id=com.migo.androidplayer:id/tv_space_capacity
+downloads_manage_space_remaining:
+  android:  id=com.migo.androidplayer:id/tv_space_remaining
+downloads_manage_progress_storage:
+  android:  id=com.migo.androidplayer:id/progress_storage
+downloads_manage_migo:
+  android:  xpath=//*[contains(@text, "Migo")]
+downloads_manage_otherfiles:
+  android:  xpath=//*[contains(@text, "Other Files")]
+downloads_manage_freespace:
+  android:  xpath=//*[contains(@text, "Free Space")]
+downloads_manage_deleteall:
+  android:  id=com.migo.androidplayer:id/tv_delete_all
+downloads_manage_tvshows:
+  android:  xpath=//*[contains(@text, "TV SHOWS")]
+downloads_manage_movies:
+  android:  xpath=//*[contains(@text, "MOVIES")]
+#button
+downloads_manage_delete_btn:
+  android:  xpath=//android.view.ViewGroup[1]/android.widget.ImageView[1]
+downloads_manage_delete_all_btn:
+  android:  id=com.migo.androidplayer:id/tv_delete_all
+#pop up delete single
+downloads_manage_delete_popup_title:
+  android:  id=com.migo.androidplayer:id/tv_title
+downloads_manage_delete_popup_description:
+  android:  id=com.migo.androidplayer:id/tv_description
+downloads_manage_delete_popup_delete:
   android:  id=com.migo.androidplayer:id/tv_positive
-downloads_delete_popup_cancel:
+downloads_manage_delete_popup_cancel:
   android:  id=com.migo.androidplayer:id/tv_negative
+
+#test download
+catalog_genres_video_series:
+  android: xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView
+catalog_genres_video_movie:
+  android: xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[7]/android.widget.ImageView[1]
 
 #Tutorials
 downloads_tutorials_btn:

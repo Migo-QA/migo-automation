@@ -297,7 +297,7 @@ Verify Element Not Display
     ...  Element should not display
     ...
 
-    Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Does Not Contain    ${locator}    ${wait_time}
+    Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Does Not Contain Element   ${locator}    ${wait_time}
 
 Scroll 
     [Arguments]    ${start_x}=500    ${start_y}=1200    ${offset_x}=500    ${offset_y}=850    ${duration}=1000   

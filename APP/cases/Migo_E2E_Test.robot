@@ -54,7 +54,6 @@ First Launch Test
 	Enter OTP code  
     Log to console Dash   Login Pass 
 
-
 	# ACCOUNT
 	# View Pass
     Sleep  5s
@@ -128,6 +127,48 @@ OnBoarding Test
     Log to console Dash   Login Pass 
 
 
+Catalog Test
+    [Tags]    Catalog_TEST  
+    [Setup]    Launch Migo  Google_Pixel6
+
+    Sleep  2s
+    Close In App Message
+    Click Catalog Main Tab
+
+    Log to console  Checking Catalog Page...
+
+    # Catalog Display
+    Log to console Dash  Check Catalog Page
+    Check Catalog Page
+    Log to Console Dash  Catalog Display Page
+
+    # Search Page 
+    Log to Console Dash  Check Search Display
+    Check Search Display
+    Log to Console Dash  Search Display PASS
+
+    # Search Movie & Check Title Card
+    Log to Console Dash  Check Search
+    Search  John Wick: Chapter 2
+    Log to console Dash  Search PASS
+
+    # Movie Title Card 
+    Log to console Dash  Check Movie Title Card 
+    Check Movie Title Card  John Wick: Chapter 2
+    Log to console Dash  Movie Title Card Pass
+
+    Search  Om Nom Stories
+
+    # Series Title Card
+    Log to console Dash  Check Series Title Card 
+    Check Series Title Card  Om Nom Stories
+    Log to console Dash  Series Title Card Pass
+
+    # Genre
+    Log to console Dash  Check Genre 
+    Check Genre 
+    Log to Console Dash  Genre Pass
+
 Account Test
     [Tags]    Account_TEST  Login
     [Setup]    Launch Migo  Samsung_A515F 
@@ -169,7 +210,50 @@ Passes Test
     Check Pass Page Element
     Log to console Dash  Pass Page Element Pass
 
+Download Test
+    [Tags]    Download_TEST  Login
+    [Setup]    Launch Migo  Samsung_A515F
+    
+    Sleep  2s
+    Close In App Message
+    Click Downloads Main Tab
 
+    Log to console  Checking Download Page...
+
+    # download page
+    Log to console Dash  Check Download page
+    Check Download
+    Log to Console Dash  Download page Pass
+
+    # saving master
+    Log to console Dash  Check Saving Master
+    Check Saving Master
+    Log to Console Dash  Saving Master Pass
+
+    # download moive
+    Log to console Dash  Check Download Movie
+    Check Download Movie
+    Log to Console Dash  Download Movie Pass
+
+    # snack bar
+    Log to console Dash  Check Download Bar To Download Page
+    Check Download Bar To Download Page
+    Log to Console Dash  Download Bar To Download Page Pass
+
+    # download series
+    Log to console Dash  Check Download Series
+    Check Download Series
+    Log to Console Dash  Download Series Pass
+
+    # play video
+
+
+    #manage download
+    # Log to console Dash  Check Manage Downloads
+    # Check Manage Downloads
+    # Check Delete Single Download Video
+    # Check Delete All Download Video
+    # Log to Console Dash  Manage Downloads Pass
 
 
 Calculate from Launch App to Catalog timer 
