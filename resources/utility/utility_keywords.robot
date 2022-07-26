@@ -345,6 +345,27 @@ Scroll To Element And Check
 
     # Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Contains Element    ${locator}    ${wait_time}
 
+Scroll To No Element And Check
+    [Arguments]    ${locator}   
+    [Documentation]
+    ...
+    ...  Scroll by using coordinate and Until Element Is Visible
+    ...
+    ${distance} =  Set Variable  ${0}
+    #Scroll Down
+    FOR    ${i}    IN RANGE    10
+        ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ...    ${locator}
+        Exit For Loop If    ${visible} == False
+        #start_x start_y offset_x offset_y duration 
+        Swipe    500    1200    500    900    1000
+        ${distance} =  Set Variable  ${distance + 300}
+        Sleep  1s
+    END
+    Log to console  Scrolled Down Distance: ${distance}
+    [Return]  ${distance}
+    # Run Keyword If    type($locator) is str     AppiumLibrary.Wait Until Page Contains Element    ${locator}    ${wait_time}
+
 Send Request
     [Arguments]     ${method}    ${uri}    ${kwargs}=${None}
     [Documentation]

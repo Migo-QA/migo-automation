@@ -13,7 +13,7 @@ Click Account Main Tab
     Wait Element And Click Element  ${account_main_tab['${mobile}']}
 
 
-Click My Rewards Tab 
+Click My Rewards Tab
 
     Log to console  Swtich to My Rewards Tab
     Wait Element And Click Element  ${account_rewards_tab['${mobile}']} 

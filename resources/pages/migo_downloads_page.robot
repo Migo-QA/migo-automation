@@ -2,13 +2,16 @@
 Resource          ..${/}variables.resource
 Resource          ..${/}libraries.resource
 Resource          ..${/}utility${/}utility_keywords.robot
+Resource          ..${/}..${/}resources${/}pages${/}migo_passes_page.robot
 Variables         ..${/}elements${/}migo_downloads_page.yaml
 Variables         ..${/}elements${/}migo_catalog_page.yaml
 Variables         ..${/}elements${/}migo_location_page.yaml
 Variables         ..${/}elements${/}migo_auth_page.yaml
 
+
 *** Variables ***
 ${search_by_genres}       //*[contains(@text, '$genres')]
+
 
 *** Keywords ***
 Click Downloads Main Tab
@@ -18,11 +21,14 @@ Click Downloads Main Tab
     Wait Element And Click Element  ${downloads_main_tab['${mobile}']}
 
 
-Check Download
+Check Download Page
+
     Log to console   Check Downloads Page elements...
 
+    Sleep  5s
     Log to console   Check Download page title
     Verify Element Display  ${downloads_page_title['${mobile}']}
+    Log to console   Download page title Pass
 
     #check Storage
     Log to console   Check Storage
@@ -30,15 +36,22 @@ Check Download
     Verify Element Display  ${downloads_storage_title['${mobile}']}
     Verify Element Display  ${downloads_storage_capacity['${mobile}']}
     Verify Element Display  ${downloads_storage_capacity_hint['${mobile}']}
+    Log to console   Check Storage Pass
 
     #check Manage button
     Log to console   Check Manage button
     Verify Element Display  ${downloads_manage_icon['${mobile}']}
+    Log to console   Manage button Pass
 
-    #check Download Empty
+    # saving master
+    Log to console   Check Saving Master
+    Check Saving Master
+    Log to console   Check Saving Master Pass
+
+    # download empty and go to catalog
     Log to console   Check Download Empty
-    Verify Element Display  ${downloads_empty_text['${mobile}']}
-    Verify Element Display  ${downloads_empty_browse_catalog['${mobile}']}
+    Check Download Empty
+    Log to console   Download Empty Pass
 
 
 Check Saving Master
@@ -51,11 +64,32 @@ Check Saving Master
 
     Log to console  Check Saving Master Page...
     Click Saving Master Tab
-    #not work
+
+    Log to console  Check Saving Master Page 1
+    Verify Element Display  ${downloads_saving_master_page1_title['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_movies['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_movies_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_episode['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_episode_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_graphic['${mobile}']}    
+
     Log to console  Swipe left
-    Scroll   900  330  300  330  1000
+    Scroll   900  1050  100  1050  500
+    Log to console  Check Saving Master Page 2
+    Verify Element Display  ${downloads_saving_master_page2_title['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page2_gb_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page2_graphic['${mobile}']}  
+
+    Log to console  Swipe left
+    Scroll   900  1050  100  1050  500
+    Log to console  Check Saving Master Page 3
+    Verify Element Display  ${downloads_saving_master_page3_title['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_saving_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_hint['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_graphic['${mobile}']}
+    
     Click Close Saving Master
-    Sleep  5s
+
 
 Click Saving Master Tab
 
@@ -73,18 +107,14 @@ Click Close Saving Master
 Check First Download Page
 
     #Download video to check the download successfully page
-    Log to console  Verify First Download Page
-    Wait Element And Click Element  ${catalog_main_tab['${mobile}']}
-
-    Click Geners Animation
-    Click The Search By Geners Title Card 
-    Click Download Button on Movie Title Card
-
+    Log to console  Check First Download Page
+    Sleep  2s
     Verify Element Display  ${downloads_first_download_page_title['${mobile}']}
     Verify Element Display  ${downloads_first_download_page_subtitle['${mobile}']}
     Verify Element Display  ${downloads_first_download_page_img['${mobile}']}
     Wait Element And Click Element  ${downloads_first_download_page_btn['${mobile}']}
-
+    Log to console  Click button: See My Download List
+    Log to console  Switch to Downloads Tab
 
 Click Browse Catalog
 
@@ -97,62 +127,95 @@ Click Browse Catalog
 Check Download Movie
 
     #Download video to check the download successfully page
-    Log to console  Check Download Movie
-    Click Browse Catalog
+    Log to console Dash  Check Download Movie
+    Click Catalog Main Tab
 
-    Click Geners Animation
-    Click The Search Movie Title Card
+    Sleep  5s
+    Log to console  Search Movie
+    Wait Element And Click Element  ${catalog_main_search['${mobile}']} 
+    Search  Belajar Fauna
+    Click The First Search Title Card
     Click Download Button on Movie Title Card
-    # Log to console  Check Download Series
-    # Click Download Button on Series Title Card
+    Check Download Bar To Download Page
 
-    # Verify Element Display  ${downloads_first_download_page_title['${mobile}']}
-    # Verify Element Display  ${downloads_first_download_page_subtitle['${mobile}']}
-    # Verify Element Display  ${downloads_first_download_page_img['${mobile}']}
-    # Wait Element And Click Element  ${downloads_first_download_page_btn['${mobile}']}
-    # Verify Element Display  ${downloads_page_title['${mobile}']}
+    # check after download
+    Log to console  Download Movie File...
+    Sleep  5s
+    Log to console  Check Download Movie File
+    Verify Element Display  ${downloads_file_movies_text['${mobile}']}
+    Verify Element Display  ${downloads_file_tvshows_thumbnail['${mobile}']}
+    Get Text And Compare    ${downloads_file_tvshows_title['${mobile}']}   Masha and The Bear
+    Verify Element Display  ${downloads_file_tvshows_description['${mobile}']}
+    Verify Element Display  ${downloads_file_tvshows_more['${mobile}']}
+    Log to Console Dash  Download Movie Pass
+    
 
 Check Download Series
 
     #Download video to check the download successfully page
-    Log to console  Check Download Series
-    Click Catalog Main Tab
+    Log to console Dash  Check Download Series
 
-    Click Geners Animation
-    Click The Search Series Title Card
-    Click Download Button on Series Title Card
-    #Go back to Download Page
-    Check Download Bar To Download Page
-
-Click Geners Animation
-    [Documentation]
-    ...
-    ...    Select Generes: Animation
-    ...
-    Log to console  Click Search
-    Wait Element And Click Element  ${catalog_main_search['${mobile}']}
+    # Search
+    Log to console  Search Series
+    Wait Element And Click Element  ${catalog_main_search['${mobile}']} 
+    Search  Masha and The Bear
+    Click The First Search Title Card
     
-    #click animation
-    Log to console  Click Animation
-    Wait Element And Click Element  ${catalog_search_genre_animation['${mobile}']}              
+    # Download
+    Log to console  Click Download to Watch
+    Wait Element And Click Element   ${catalog_titlecard_episode_list_1_download_btn['${mobile}']}
 
+    # Check First Download
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_first_download_page_bg['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check First Download Page: False
+        #Go back to Download Page
+        Sleep  2s
+        Wait Element And Click Element   ${catalog_search_back['${mobile}']}
+        Wait Element And Click Element   ${catalog_search_back['${mobile}']}
+        Click Downloads Main Tab
+    ELSE
+        Log to console  Check First Download Page: True
+        Check First Download Page
+    END
+    
+    # check after download
+    Sleep  5s
+    Log to console  Check Download Series File
+    Verify Element Display  ${downloads_file_tvshows_text['${mobile}']}
+    Verify Element Display  ${downloads_file_tvshows_thumbnail['${mobile}']}
+    Get Text And Compare    ${downloads_file_tvshows_title['${mobile}']}   Masha and The Bear
+    Verify Element Display  ${downloads_file_tvshows_description['${mobile}']}
+    Verify Element Display  ${downloads_file_tvshows_more['${mobile}']}
+    Log to Console Dash  Download Series Pass
 
-Click The Search Movie Title Card
+Check Download Empty
     [Documentation]
     ...
-    ...    Movie Title Card
-    ...  
-    Log to console  Click Search By Geners Movie Title Card
-    Wait Element And Click Element  ${catalog_genres_video_movie['${mobile}']}
+    ...    Check Download Empty and Go to Catalog
+    ...
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_empty_text['${mobile}']}
+    IF  ${visible} == False
+        #not empty click tap catalog
+        Log to console  Check Download Empty: False
+        Click Catalog Main Tab
+    ELSE
+        #browse catalog
+        Log to console  Check Download Empty: True
+        Verify Element Display  ${downloads_empty_text['${mobile}']}
+        Click Browse Catalog
+    END
 
 
-Click The Search Series Title Card
+Click The First Search Title Card
     [Documentation]
     ...
-    ...    Series Title Card
+    ...    First search result Title Card
     ...  
-    Log to console  Click Search By Geners Series Title Card
-    Wait Element And Click Element  ${catalog_genres_video_series['${mobile}']}
+    Log to console  Click The First Search Title Card
+    Wait Element And Click Element  ${catalog_search_first_video['${mobile}']}
     
 
 Click Download Button on Movie Title Card
@@ -169,6 +232,7 @@ Click Download Button on Movie Title Card
     ${button_status}=  Wait Element And Get Text  ${catalog_titlecard_download_text['${mobile}']}
     Run Keyword If   '${button_status}'=='Download to Watch'
     ...     Wait Element And Click Element   ${catalog_titlecard_download_btn['${mobile}']}   15s  
+    Log to console    Click download button
     Sleep  2s
 
 Click Download Button on Series Title Card
@@ -184,22 +248,28 @@ Click Download Button on Series Title Card
     ${button_status}=  Wait Element And Get Text  ${catalog_titlecard_episode_list_1_download_text['${mobile}']}
     Run Keyword If   '${button_status}'=='Download to Watch'
     ...     Wait Element And Click Element   ${catalog_titlecard_episode_list_1_download_btn['${mobile}']}   15s  
+    Log to console    Click download button
     Sleep  2s
 
-# Check Download Snack Bar
 
-#     Log to console  Check Download Snack Bar...
-#     Verify Element Display  ${downloads_snack_bar_success['${mobile}']}
-#     Verify Element Display  ${downloads_snack_bar_view['${mobile}']}
-#     Verify Element Display  ${downloads_snack_bar_more['${mobile}']}
-#     Log to console  Switch to Downloads Tab
-#     Wait Element And Click Element  ${downloads_snack_bar_view['${mobile}']}
+Check Download Other episodes
 
+    Log to console Dash  Check Download Other episodes
+    Log to Console   Click Video Title
+    Wait Element And Click Element  ${downloads_play_video_cover['${mobile}']}
+    Log to Console   Click Download other episodes
+    Wait Element And Click Element  ${downloads_play_download_other_episode['${mobile}']}
+    Log to Console   Click Download episode 2
+    Wait Element And Click Element  ${catalog_titlecard_episode_list_2_download_btn['${mobile}']}
+    Check Download Bar To Download Page
+    Log to Console Dash  Check Download Other episodes Pass
+    
 
 Check Manage Downloads
 
-    Log to console  Switch to Manage Downloads Page
+    Sleep  2s
     Wait Element And Click Element  ${downloads_manage_text['${mobile}']}
+    Log to console  Switch to Manage Downloads Page
 
     Log to console  Check Manage Downloads Page elements...
     Log to console  Check title
@@ -223,13 +293,14 @@ Check Delete Single Download Video
     Wait Element And Click Element  ${downloads_manage_delete_btn['${mobile}']}
     
     Log to console  Check Confirm Delete Pop up
+    Sleep  5s
     Verify Element Display  ${downloads_manage_delete_popup_title['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_description['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_delete['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_cancel['${mobile}']}
     
     Log to console  Click Cancel button
-    Wait Element And Click Element  ${downloads_delete_popup_cancel['${mobile}']}
+    Wait Element And Click Element  ${downloads_manage_delete_popup_cancel['${mobile}']}
 
 
 Check Delete All Download Video
@@ -249,6 +320,7 @@ Check Delete All Download Video
 
     Log to console  Check Empty Downloads
     Verify Element Display  ${downloads_empty['${mobile}']}
+    Log to console  Check Empty Downloads: True
 
     Log to console  Switch to Downloads Page
     Wait Element And Click Element  ${downloads_manage_close['${mobile}']}
@@ -269,14 +341,13 @@ Check Download Bar To Download Page
 
     Log to console  Check Download Snack Bar...
     Verify Element Display  ${catalog_successful_download_bar['${mobile}']}
+    Log to console  Click View
     Wait Element And Click Element  ${catalog_bar_view['${mobile}']}
     Log to console  Switch to Downloads Tab
     Verify Element Display  ${downloads_page_title['${mobile}']}
-    # Verify Element Display  ${downloads_wifi_remind_alert['${mobile}']}
-    # Verify Element Display  ${downloads_wifi_remind_title['${mobile}']}
-    # Verify Element Display  ${downloads_wifi_remind_learnmore['${mobile}']}
 
-Check Play Video 
+
+Check Play Video old
 
     [Arguments]     ${video_name}   ${obb_info}  
     [Documentation]
@@ -303,7 +374,6 @@ Check Play Video
         Should Contain     ${content}     ${obb_info['${i}']} 
     END
 
-
     ${current_activity}=  Get Activity
     Should Be Equal    ${current_activity}    .ui.activity.nowplaying.ExoNowPlayingActivity
     Log to Console  Current Activity is : ${current_activity}
@@ -316,18 +386,87 @@ Check Play Video
     # Verify Element Display  ${downloads_video_play_btn['${mobile}']}   
     # Verify Element Display  ${downloads_video_seekbar['${mobile}']}   
     # Wait Element And Click Element  ${downloads_video_forward_btn['${mobile}']} 
-    # Sleep  1s
+    # 
     AppiumLibrary.Capture Page Screenshot   video_${datetime}_2.png 
-
     # Wait Element And Click Element  ${downloads_play_back_btn['${mobile}']} 
+
+Check Play Video 
+
+    #[Arguments]     ${video_name}   ${obb_info}  
+    [Documentation]
+    ...
+    ...    Play and Check Video, surfaceview and video info
+    ...     
+    Log to Console   Click Video Title
+    Wait Element And Click Element  ${downloads_play_video_cover['${mobile}']}
+    Log to Console   Check Video elements...
+    Sleep  2s
+    Verify Element Display  ${downloads_play_video_cover['${mobile}']}
+    Verify Element Display  ${downloads_play_video_icon['${mobile}']}
+    Verify Element Display  ${downloads_play_video_episode['${mobile}']}
+    Verify Element Display  ${downloads_play_video_info['${mobile}']}
+    Verify Element Display  ${downloads_play_video_pb_watched['${mobile}']}
+    Verify Element Display  ${downloads_play_download_other_episode['${mobile}']}
+
+    Log to Console   Click Play
+    Wait Element And Click Element  ${downloads_play_video_icon['${mobile}']}
+    
+    # check buy pass pop-up
+    Log to Console   Check Buy Pass Dialog
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_buypass_dialog['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check Buy Pass Dialog: False
+    ELSE
+        Log to console  Check Buy Pass Dialog: True
+        Log to console  Check Buy Pass Dialog elements...
+        Verify Element Display  ${downloads_buypass_dialog_title['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_description['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_btn_buy['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_btn_cancel['${mobile}']}
+        Log to console  Click Buy Pass
+        Wait Element And Click Element  ${downloads_buypass_dialog_btn_buy['${mobile}']}
+        Log to console  Switch to Passes tab
+        # check buy pass tuitorial
+        ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ...    ${downloads_buypass_dialog['${mobile}']}
+        IF  ${visible} == False
+            Log to console  Buy Pass Tutorial: False
+        ELSE
+            Log to console  Buy Pass Tutorial: True
+            Log to console  Click Skip
+            Wait Element And Click Element  ${passes_onboard_tutorials_skip['${mobile}']}
+            Redeem Promocode    migoqa2022
+            Activate Pass   Last Day
+        END
+    END
+    
+    # play video
+    Log to Console   Playing video 30s...
+    Sleep  30s
+    Press Keycode  4
+
+    #Go back to Download Page
+    Sleep  2s
+    Wait Element And Click Element   ${catalog_search_back['${mobile}']}    
+    Log to Console   Switch to Downloads tab
+
+
 
 Check Download Queue
 
-    [Arguments]     ${video_name}  
+    #[Arguments]     ${video_name}  
     [Documentation]
     ...
     ...    Check Download Queue for Restoration
     ...     
-
-    Wait Element And Click Element  ${downloads_main_tab['${mobile}']}
-    Get Text And Compare    ${downloads_saved_queue['${mobile}']}   ${video_name}
+    #Wait Element And Click Element  ${downloads_main_tab['${mobile}']}
+    Log to console  Check Download Queue...
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_queue_text['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check Download Queue: False
+    ELSE
+        Log to console  Check Download Queue: True
+    END
+    #Get Text And Compare    ${downloads_saved_queue['${mobile}']}   ${video_name}

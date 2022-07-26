@@ -31,6 +31,38 @@ downloads_saving_master_dialog:
 downloads_saving_master_close:
   android:  id=com.migo.androidplayer:id/iv_navigation
 
+#saving master page 1
+downloads_saving_master_page1_title:
+  android:  xpath=//android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+downloads_saving_master_page1_movies:
+  android:  id=com.migo.androidplayer:id/tv_movies_title
+downloads_saving_master_page1_movies_count:
+  android:  id=com.migo.androidplayer:id/tv_movie_count
+downloads_saving_master_page1_episode:
+  android:  id=com.migo.androidplayer:id/tv_episode_title
+downloads_saving_master_page1_episode_count:
+  android:  id=com.migo.androidplayer:id/tv_episode_count
+downloads_saving_master_page1_graphic:
+  android:  id=com.migo.androidplayer:id/iv_graphic
+
+#saving master page 2
+downloads_saving_master_page2_title:
+  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+downloads_saving_master_page2_gb_count:
+  android:  id=com.migo.androidplayer:id/tv_gb_count
+downloads_saving_master_page2_graphic:
+  android:  id=com.migo.androidplayer:id/iv_graphic
+
+#saving master page 3
+downloads_saving_master_page3_title:
+  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+downloads_saving_master_page3_saving_count:
+  android:  id=com.migo.androidplayer:id/tv_saving_count
+downloads_saving_master_page3_hint:
+  android:  id=com.migo.androidplayer:id/tv_hint
+downloads_saving_master_page3_graphic:
+  android:  id=com.migo.androidplayer:id/iv_graphic
+
 #snack bar download
 downloads_snack_bar_success:
   android:  id=com.migo.androidplayer:id/snackBarActionText
@@ -48,6 +80,8 @@ downloads_first_download_page_img:
   android:  id=com.migo.androidplayer:id/image_download_graphic
 downloads_first_download_page_btn:
   android:  id=com.migo.androidplayer:id/btn_next
+downloads_first_download_page_bg:
+  android:  id=com.migo.androidplayer:id/layout_background
 
 #download empty
 downloads_empty:
@@ -95,7 +129,7 @@ downloads_manage_movies:
   android:  xpath=//*[contains(@text, "MOVIES")]
 #button
 downloads_manage_delete_btn:
-  android:  xpath=//android.view.ViewGroup[1]/android.widget.ImageView[1]
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView[1]
 downloads_manage_delete_all_btn:
   android:  id=com.migo.androidplayer:id/tv_delete_all
 #pop up delete single
@@ -109,10 +143,10 @@ downloads_manage_delete_popup_cancel:
   android:  id=com.migo.androidplayer:id/tv_negative
 
 #test download
-catalog_genres_video_series:
-  android: xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView
-catalog_genres_video_movie:
-  android: xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[7]/android.widget.ImageView[1]
+catalog_search_first_video:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView
+catalog_search_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
 
 #Tutorials
 downloads_tutorials_btn:
@@ -133,20 +167,39 @@ downloads_wifi_remind_learnmore:
   android:  id=com.migo.androidplayer:id/acb_learn_more
 
 
-#download
-downloads_file_tvshows:
+#download series
+downloads_file_tvshows_text:
   android:  xpath=//*[contains(@text, "TV SHOWS")]
-downloads_file_movies:
+downloads_file_tvshows_thumbnail:
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.ImageView
+downloads_file_tvshows_title:
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[1]
+downloads_file_tvshows_description:
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
+downloads_file_tvshows_more:
+  android:  id=com.migo.androidplayer:id/iv_go_to_episode
+
+
+#download movie
+downloads_file_movies_text:
   android:  xpath=//*[contains(@text, "MOVIES")]
+downloads_file_movies_thumbnail:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.FrameLayout/android.widget.ImageView
+downloads_file_movies_title:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[1]
+downloads_file_movies_description:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
 
 downloads_state:
   android:  id=com.migo.androidplayer:id/downloadStateText
 #queue
 downloads_saved_queue:
   android:  xpath=//android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.TextView
+downloads_queue_text:
+  android:  xpath=//*[contains(@text, "Waiting...")]
 
 #Switch Network and Check Video playing
-downloads__wifi_dialog_title:
+downloads_wifi_dialog_title:
   android:  id=com.migo.androidplayer:id/tv_instruction_title
 downloads_wifi_dialog_img:
   android:  id=com.migo.androidplayer:id/iv_connect_to_migo_wifi
@@ -160,9 +213,33 @@ downloads_wifi_public:
 downloads_wifi_mds:
   android:  xpath=//*[contains(@text, "@alpha-prod-demo-A")]
 
+#buy pass dialog
+downloads_buypass_dialog:
+  android:  id=com.migo.androidplayer:id/cl_dialog
+downloads_buypass_dialog_title:
+  android:  id=com.migo.androidplayer:id/tv_title
+downloads_buypass_dialog_description:
+  android:  id=com.migo.androidplayer:id/tv_description
+downloads_buypass_dialog_btn_buy:
+  android:  id=com.migo.androidplayer:id/button_positive
+downloads_buypass_dialog_btn_cancel:
+  android:  id=com.migo.androidplayer:id/button_negative
+
 #Check Video playing
 downloads_play_video_icon:
-  android:  id=com.migo.androidplayer:id/playButton
+  android:  id=com.migo.androidplayer:id/iv_play
+downloads_play_video_cover:
+  android:  id=com.migo.androidplayer:id/iv_cover
+downloads_play_video_season:
+  android:  id=com.migo.androidplayer:id/tv_season_title
+downloads_play_video_episode:
+  android:  id=com.migo.androidplayer:id/tv_episode_name
+downloads_play_video_info:
+  android:  id=com.migo.androidplayer:id/tv_episode_info
+downloads_play_video_pb_watched:
+  android:  id=com.migo.androidplayer:id/pb_watched
+downloads_play_download_other_episode:
+  android:  id=com.migo.androidplayer:id/tv_choose_others_episodes
 
 downloads_video_surfaceView:
   android:  id=com.migo.androidplayer:id/surfaceView

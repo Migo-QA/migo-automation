@@ -33,12 +33,12 @@ Check Catalog Page
     ...     
     Log to console  Check Catalog Page...
 
-    Log to console  Check Header...
+    Log to console  Check Header Display...
     Verify Element Display  ${catalog_main_logo['${mobile}']}
     Verify Element Display  ${catalog_main_search['${mobile}']}
     Verify Element Display  ${catalog_main_promo['${mobile}']}
 
-    Log to console  Check Genre...
+    Log to console Dash  Check Genre Display...
     Verify Element Display  ${catalog_main_genre_tab['${mobile}']}
     Verify Element Display  ${catalog_main_genre_comedy['${mobile}']}
     Verify Element Display  ${catalog_main_genre_drama['${mobile}']}
@@ -46,18 +46,32 @@ Check Catalog Page
     Verify Element Display  ${catalog_main_genre_horror['${mobile}']}
     Verify Element Display  ${catalog_main_genre_romance['${mobile}']}
     Log to console  Swipe left
-    Scroll   900  330  100  330  1000
+    Sleep  1s
+    Scroll   1000  330  100  330  1000
+    # Scroll   1000  330  50  330  1000
     Verify Element Display  ${catalog_main_genre_animation['${mobile}']}
     Verify Element Display  ${catalog_main_genre_kids['${mobile}']}
     Verify Element Display  ${catalog_main_genre_learning['${mobile}']}
     Verify Element Display  ${catalog_main_genre_music['${mobile}']}
     Verify Element Display  ${catalog_main_genre_sport['${mobile}']}
+    Verify Element Not Display  ${catalog_main_genre_comedy['${mobile}']}
+    Verify Element Not Display  ${catalog_main_genre_drama['${mobile}']}
+    Verify Element Not Display  ${catalog_main_genre_action['${mobile}']}
+    Verify Element Not Display  ${catalog_main_genre_horror['${mobile}']}
+    Log to console  Swipe right
+    Sleep  1s
+    Scroll   100  330  1000  330  1000
+    # Scroll   50  330  1000  330  1000
+    Log to console Dash  Genre Pass
 
-    Log to console  Check Carousel...
+
+    Log to console Dash  Check Carousel
     Verify Element Display  ${catalog_main_carousel_image['${mobile}']}
     Verify Element Display  ${catalog_main_carousel_indicator['${mobile}']}
+    Check Carousel
+    Log to console Dash  Carousel Pass
 
-    Log to console  Check Channels...
+    Log to console Dash  Check Channels
     Verify Element Display  ${catalog_main_channel_text['${mobile}']}
     Verify Element Display  ${catalog_main_channel_view['${mobile}']}
     Verify Element Display  ${catalog_main_channel_channels_tab['${mobile}']}
@@ -67,14 +81,169 @@ Check Catalog Page
     Verify Element Display  ${catalog_main_channel_channels_4['${mobile}']}
     Verify Element Display  ${catalog_main_channel_channels_5['${mobile}']}
     Verify Element Display  ${catalog_main_channel_channels_6['${mobile}']}
+    Check Channels 
+    Log to console Dash  Channels Pass
 
+
+    Log to console Dash  Check Row & My Saved Items
+    Verify Element Display  ${catalog_main_rows_lionsgate_text['${mobile}']}
+    Check Row And My Saved Items 
+    Log to console Dash  Row & My Saved Items Pass 
+
+    Log to console  Check Scrolling...
+    Log to console  First Scroll: Scroll till Carousel not Display 
+    Scroll To No Element And Check  ${catalog_main_carousel_image['${mobile}']}
+    Log to console  Second Scroll: Scroll till Example Row not Display
+    Scroll To No Element And Check  ${catalog_main_rows_lionsgate_text['${mobile}']}
+    Verify Element Display  ${catalog_main_genre_tab['${mobile}']}
+    Verify Element Display  ${catalog_main_search['${mobile}']}
+
+       
+Check Carousel
+
+    FOR   ${i}   IN RANGE   3
+        Wait Element And Click Element  ${catalog_main_carousel_image['${mobile}']}
+        ${visible1}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ...   ${catalog_titlecard_name['${mobile}']}
+        ${visible2}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ...   ${catalog_main_carousel_invite['${mobile}']}
+        # if title card: say title card
+        IF  ${visible1}
+            Log to console  < This is Title Card >
+        # else if invite friend: say invite friend
+        ELSE IF  ${visible2}
+            Log to console  < This is Invite Friend >
+        # else: say row
+        ELSE  
+            Log to console  < This is Row >
+        END
+        Wait Element And Click Element  ${catalog_back['${mobile}']} 
+        Wait Element And Click Element Option  ${catalog_back['${mobile}']} 
+    END
+
+
+Check Channels 
     
-    # Verify Element Display  ${catalog_migo_personal_recommendation['${mobile}']}
-    # Verify Element Display  ${catalog_migo_personal_recommendation_all['${mobile}']}
-    # Verify Element Display  ${catalog_migo_famous_movie['${mobile}']}
-    # Verify Element Display  ${catalog_migo_famous_movie_all['${mobile}']}
-    # Verify Element Display  ${catalog_migo_famous_series['${mobile}']}
-    # Verify Element Display  ${catalog_migo_famous_series_all['${mobile}']}
+    Log to console  Check Lionsgate...
+    Wait Element And Click Element  ${catalog_main_channel_channels_2['${mobile}']}
+    Verify Element Display  ${catalog_main_channel_channels_lionsgate['${mobile}']}  
+    Wait Element And Click Element  ${catalog_back['${mobile}']}
+    Log to console  Swipe left
+    Sleep  1s
+    Scroll   1000  1450  50  1450  1000
+    Log to console  Check Noice...
+    Wait Element And Click Element  ${catalog_main_channel_channels_2['${mobile}']}
+    Verify Element Display  ${catalog_main_channel_channels_noice['${mobile}']}  
+    Wait Element And Click Element  ${catalog_back['${mobile}']} 
+
+    Log to console  Check View All 
+    Wait Element And Click Element  ${catalog_main_channel_view['${mobile}']}
+    Wait Element And Click Element  ${catalog_main_channel_channels_2['${mobile}']}
+    Verify Element Display  ${catalog_main_channel_channels_lionsgate['${mobile}']}  
+    Wait Element And Click Element  ${catalog_back['${mobile}']}
+    Wait Element And Click Element  ${catalog_main_channel_channels_5['${mobile}']}
+    Verify Element Display  ${catalog_main_channel_channels_noice['${mobile}']}  
+    Wait Element And Click Element  ${catalog_back['${mobile}']}
+
+    Wait Element And Click Element  ${catalog__back['${mobile}']} 
+
+Check Row And My Saved Items 
+
+    Verify Element Display  ${catalog_main_rows_1_view['${mobile}']} 
+    Verify Element Display  ${catalog_main_rows_lionsgate_text['${mobile}']}
+    Log to console  Check Row...
+    Sleep  1s
+    Wait Element And Click Element  ${catalog_main_rows_1_click['${mobile}']} 
+    Log to console  Save the first not saved title card...
+    Sleep  1s
+    Wait Element And Click Element  ${catalog_main_rows_card_1['${mobile}']} 
+
+    # Getting the First Not Saved Title Card from First Row
+    ${save} =  Wait Element And Get Text  ${catalog_titlecard_save['${mobile}']}
+    FOR   ${i}   IN RANGE  100
+        ${save} =  Wait Element And Get Text  ${catalog_titlecard_save['${mobile}']}
+        Exit For Loop If  '${save}' == 'Save'
+        Log to console  Swipe left
+        Scroll   1000  1600  100  1600  1000 
+    END
+    ${title} =  Wait Element And Get Text  ${catalog_titlecard_name['${mobile}']}
+    Log to console  First Not Saved Title: ${title}
+
+    # Save the First Unsaved Title Card in First Row 
+    Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
+    Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  Saved
+    # Click View in Successfully Added
+    Verify Element Display  ${catalog_titlecard_save_bar_text['${mobile}']}  
+    Verify Element Display  ${catalog_titlecard_save_bar_btn_text['${mobile}']}  
+    Wait Element And Click Element  ${catalog_titlecard_save_bar_btn_arrow['${mobile}']}
+
+    Log to console  Check My Saved Items...
+    # Checking if Title Card did Saved & Unsave it 
+    Log to console  Check if Saved Successfully...
+    Wait Element And Click Element  ${catalog_main_mysaveditems_card_1['${mobile}']}
+    ${new_title1} =  Wait Element And Get Text  ${catalog_titlecard_name['${mobile}']}
+    FOR   ${i}   IN RANGE  100
+        Exit For Loop If  '${new_title1}' == '${title}'
+        Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  Saved
+        Log to console  Swipe left
+        Scroll   1000  1600  100  1600  1000 
+        ${new_title2} =  Wait Element And Get Text  ${catalog_titlecard_name['${mobile}']}
+        Exit For Loop If  '${new_title1}' == '${new_title2}'
+        ${new_title1} =  SET Variable  ${new_title2}
+        END   
+    Get Text And Compare  ${catalog_titlecard_name['${mobile}']}  ${title}
+    Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  Saved
+    Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
+    Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  Save
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+
+    # Go back to First Row to Check if it did Unsave & Save it
+    Log to console  Check if Unsaved Successfully...
+    Wait Element And Click Element  ${catalog_main_rows_1_click['${mobile}']} 
+    Wait Element And Click Element  ${catalog_main_rows_card_1['${mobile}']}
+
+    FOR   ${i}   IN RANGE  100
+        ${save} =  Wait Element And Get Text  ${catalog_titlecard_save['${mobile}']}
+        Exit For Loop If  '${save}' == 'Save'
+        Log to console  Swipe left
+        Scroll   1000  1600  100  1600  1000 
+    END
+    Get Text And Compare  ${catalog_titlecard_name['${mobile}']}  ${title}
+    Log to Console  Save Again for Edit Use
+    Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
+    Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  Saved
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+
+    # Check Edit by Unsaving the First Title Card
+    Log to console  Check Edit...
+
+    Log to console  Get First Title
+    Wait Element And Click Element  ${catalog_main_mysaveditems_view['${mobile}']}
+    Wait Element And Click Element  ${catalog_main_mysaveditems_card_1['${mobile}']}
+    ${title} =  Wait Element And Get Text  ${catalog_titlecard_name['${mobile}']}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+
+    Log to console  Before Clicking Edit
+    Verify Element Display  ${catalog_main_mysaveditems_edit_text['${mobile}']} 
+    Verify Element Display  ${catalog_main_mysaveditems_edit_icon['${mobile}']} 
+    # Verify Edit
+    Wait Element And Click Element  ${catalog_main_mysaveditems_edit_icon['${mobile}']} 
+    Log to console  After Clicking Edit
+    Verify Element Display  ${catalog_main_mysaveditems_done_text['${mobile}']} 
+    Verify Element Display  ${catalog_main_mysaveditems_done_icon['${mobile}']} 
+    Verify Element Display  ${catalog_main_mysaveditems_remove['${mobile}']} 
+    # Edit out the first title card
+    Log to console  Edit Out the First Title Card 
+    Wait Element And Click Element  ${catalog_main_mysaveditems_remove['${mobile}']} 
+    Wait Element And Click Element  ${catalog_main_mysaveditems_done_icon['${mobile}']} 
+    Wait Element And Click Element  ${catalog_main_mysaveditems_card_1['${mobile}']}
+    Get Text And Not Equal  ${catalog_titlecard_name['${mobile}']}  ${title}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}
+    Wait Element And Click Element  ${catalog__back['${mobile}']}    
+
 
 Check Search Display
     [Documentation]
@@ -110,7 +279,7 @@ Check Search Display
     Verify Element Display  ${catalog_search_card_2['${mobile}']}
     Verify Element Display  ${catalog_search_card_3['${mobile}']}
     Log to console  Scroll Down 
-    Scroll   550  1400  550  200  1000
+    Scroll   550  1200  550  200  1000
     Verify Element Display  ${catalog_search_card_1['${mobile}']}
     Verify Element Display  ${catalog_search_card_2['${mobile}']}
     Verify Element Display  ${catalog_search_card_3['${mobile}']}
@@ -245,8 +414,8 @@ Check Save and Rating
     END
     Back and Back
 
-    # Change to NotSaved & No Comment
-    Log to console  Change to NotSaved & No Comment
+    # Change to Unsave & No Comment
+    Log to console  Change to Unsave & No Comment
       # Save
     Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  ${new_save}
     Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
@@ -261,8 +430,8 @@ Check Save and Rating
 
     Back and Back
 
-    # Change to NotSaved & No Comment Again 
-    Log to console  Change to Saved & No Comment Again 
+    # Change to Unsave & No Comment Again 
+    Log to console  Change to Unsave & No Comment Again 
       # Save
     Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  ${new_save}
     Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
@@ -301,14 +470,13 @@ Check Genre
     Wait Element And Click Element  ${catalog_searched_video_1['${mobile}']}
     ${title} =  Wait Element And Get Text  ${catalog_titlecard_name['${mobile}']}
     ${info} =  Wait Element And Get Text  ${catalog_titlecard_video_info['${mobile}']}
-    ${description} =  Wait Element And Get Text  ${catalog_titlecard_synopsis['${mobile}']}
     ${rating} =  Wait Element And Get Text  ${catalog_titlecard_rating['${mobile}']}
     ${save} =  Wait Element And Get Text  ${catalog_titlecard_save['${mobile}']}
     Log to console  Title: ${title}
     Log to console  Info: ${info}
     Log to console  Rating: ${rating}
     Log to console  Save: ${save}
-    # === NEW ===
+
     Wait Element And Click Element  ${catalog_titlecard_back['${mobile}']}
     Wait Element And Click Element  ${catalog_search_back['${mobile}']}
     Log to console  Try Genre from Search
@@ -319,8 +487,6 @@ Check Genre
     Log to console  Title: PASS
     Get Text And Compare  ${catalog_titlecard_video_info['${mobile}']}  ${info}
     Log to console  Info: PASS
-    Get Text And Compare  ${catalog_titlecard_synopsis['${mobile}']}  ${description}
-    Log to console  Description: PASS
     Get Text And Compare  ${catalog_titlecard_rating['${mobile}']}  ${rating}
     Log to console  Rating: PASS
     Get Text And Compare  ${catalog_titlecard_save['${mobile}']}  ${save}

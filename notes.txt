@@ -37,4 +37,91 @@ Account Test
                 Click Claim
                 Check Redeem error 
                 Click OK
+    Check Linked Phone Number
+        Check Linked Phone Number Page
+    
+
+Catalog Test 
+    Check Catalog Page 
+        Check Header 
+        Check Genre 
+        Check Carousel
+            Click on Carousel Three Times and Returns 
+                Title Card 
+                Invite Friend 
+                Row 
+        Check Channels
+            Click second channel
+            Swipe
+            Click fifth channel
+        Check Row & My Saved Items 
+            Check Row 
+                Getting the First Not Saved Title Card from First Row
+                Save the First Unsaved Title Card in First Row 
+                Click View in Successfully Added 
+            Check My Saved Items 
+                Checking if Title Card did Saved & Unsave it 
+                Go back to First Row to Check if it did Unsave & Save it
+                Check Edit by Unsaving the First Title Card
+                    Edit Out the First Title Card 
+        Check Scrolling 
+            Scroll till Carousel not Display 
+            Scroll till Example Row not Display
+    Check Search 
+        Search by Genre 
+        Trending On Migo
+        Search "John Wick: Chapter 2"
+    Check Title Card 
+        Check Movie Title Card 
+            Check Save & Rating 
+                Change to Saved & Liked 
+                Change to Unsave & No Comment
+                Change to Unsave & No Comment Again 
+        Check Series Title Card 
+            Check Save & Rating
+                Change to Saved & Liked 
+                Change to Unsave & No Comment
+                Change to Unsave & No Comment Again 
+    Check Genre 
+        Take the First Title Card of Sport from Catalog 
+        Compare it to the First Title Card of Sport from Search
+
+Download Test
+    Check Download Page
+        Check Download page title
+        Check Storage
+        Check Manage button
+        Check Saving Master
+            Check Saving Master Page 1
+            Check Saving Master Page 2
+            Check Saving Master Page 3
+        Check Download Empty
+    Check Downloads
+        Check Download Series
+            Search Series
+                Download to Watch
+                Check First Download
+            Check Download Series File
+        Check Download Other episodes
+        Check Download Movie
+            Search Movie
+                Download to Watch
+            Check Download Bar To Download Page
+            Check Download Series File
+    Check Manage Downloads
+        Check Manage Downloads
+            Check title
+            Check storage
+        Check Delete Single Download Video
+            Check Confirm Delete Pop up
+                Click Cancel button
+        Check Delete All Download Video
+            Check Confirm Delete All Pop up
+                Click Delete All
+            Check Empty Downloads
+    
+
+
+    
+
 

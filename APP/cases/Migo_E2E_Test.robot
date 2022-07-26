@@ -99,6 +99,39 @@ First Launch Test
     Check Pass Page Element
     Log to console Dash   Pass Page Element Pass
 
+    # CATALOG
+    Sleep  5s
+    Click Catalog Main Tab
+
+    Log to console  Checking Catalog Page...
+
+    # Catalog (Carousel, Channels, My Saved Items, Rows)
+    Log to console Dash  Check Catalog Page
+    Check Catalog Page
+    Log to Console Dash  Catalog Page Pass
+
+    # Search Page 
+    Log to Console Dash  Check Search 
+    Check Search Display
+    Search  John Wick: Chapter 2
+    Log to console Dash  Search PASS
+
+    # Movie Title Card 
+    Log to console Dash  Check Movie Title Card 
+    Check Movie Title Card  John Wick: Chapter 2
+    Log to console Dash  Movie Title Card Pass
+
+    # Series Title Card
+    Search  Om Nom Stories
+    Log to console Dash  Check Series Title Card 
+    Check Series Title Card  Om Nom Stories
+    Log to console Dash  Series Title Card Pass
+
+    # Genre
+    Log to console Dash  Check Genre 
+    Check Genre 
+    Log to Console Dash  Genre Pass
+
 
 OnBoarding Test
     [Tags]    OnBoarding_TEST  Login  NotLogin
@@ -129,7 +162,8 @@ OnBoarding Test
 
 Catalog Test
     [Tags]    Catalog_TEST  
-    [Setup]    Launch Migo  Google_Pixel6
+    # [Setup]    Launch Migo  Samsung_A505
+    [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
     Close In App Message
@@ -137,18 +171,14 @@ Catalog Test
 
     Log to console  Checking Catalog Page...
 
-    # Catalog Display
+    # Catalog (Carousel, Channels, My Saved Items, Rows)
     Log to console Dash  Check Catalog Page
     Check Catalog Page
-    Log to Console Dash  Catalog Display Page
+    Log to Console Dash  Catalog Page Pass
 
     # Search Page 
-    Log to Console Dash  Check Search Display
+    Log to Console Dash  Check Search 
     Check Search Display
-    Log to Console Dash  Search Display PASS
-
-    # Search Movie & Check Title Card
-    Log to Console Dash  Check Search
     Search  John Wick: Chapter 2
     Log to console Dash  Search PASS
 
@@ -157,9 +187,8 @@ Catalog Test
     Check Movie Title Card  John Wick: Chapter 2
     Log to console Dash  Movie Title Card Pass
 
-    Search  Om Nom Stories
-
     # Series Title Card
+    Search  Om Nom Stories
     Log to console Dash  Check Series Title Card 
     Check Series Title Card  Om Nom Stories
     Log to console Dash  Series Title Card Pass
@@ -168,6 +197,7 @@ Catalog Test
     Log to console Dash  Check Genre 
     Check Genre 
     Log to Console Dash  Genre Pass
+
 
 Account Test
     [Tags]    Account_TEST  Login
@@ -213,47 +243,36 @@ Passes Test
 Download Test
     [Tags]    Download_TEST  Login
     [Setup]    Launch Migo  Samsung_A515F
-    
+    #[Setup]   Launch Migo  Google_Pixel6
+
     Sleep  2s
     Close In App Message
     Click Downloads Main Tab
 
-    Log to console  Checking Download Page...
-
     # download page
-    Log to console Dash  Check Download page
-    Check Download
-    Log to Console Dash  Download page Pass
-
-    # saving master
-    Log to console Dash  Check Saving Master
-    Check Saving Master
-    Log to Console Dash  Saving Master Pass
-
-    # download moive
-    Log to console Dash  Check Download Movie
-    Check Download Movie
-    Log to Console Dash  Download Movie Pass
-
-    # snack bar
-    Log to console Dash  Check Download Bar To Download Page
-    Check Download Bar To Download Page
-    Log to Console Dash  Download Bar To Download Page Pass
+    Log to console Dash  Check Download Page
+    Check Download Page
+    Log to Console Dash  Download Page Pass  
 
     # download series
-    Log to console Dash  Check Download Series
+    Log to console Dash  Check Download Video
     Check Download Series
-    Log to Console Dash  Download Series Pass
+    Check Download Other episodes
+    Check Download Movie
+    Log to Console Dash  Download Video Pass
 
-    # play video
+    # # play video
+    # # check buy pass
+    # Log to console Dash  Check Play Video
+    # Check Play Video
+    # Log to Console Dash  Check Play Video Pass
 
-
-    #manage download
-    # Log to console Dash  Check Manage Downloads
-    # Check Manage Downloads
-    # Check Delete Single Download Video
-    # Check Delete All Download Video
-    # Log to Console Dash  Manage Downloads Pass
+    # manage download
+    Log to console Dash  Check Manage Downloads
+    Check Manage Downloads
+    Check Delete Single Download Video
+    Check Delete All Download Video
+    Log to Console Dash  Manage Downloads Pass
 
 
 Calculate from Launch App to Catalog timer 

@@ -13,6 +13,8 @@ catalog_main_search:
   android:  id=com.migo.androidplayer:id/tv_search_entry
 catalog_main_promo:
   android:  id=com.migo.androidplayer:id/iv_right_icon
+catalog_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
 
 #Genre
 catalog_main_genre_tab:
@@ -43,6 +45,9 @@ catalog_main_carousel_image:
   android:  id=com.migo.androidplayer:id/carouselImage
 catalog_main_carousel_indicator:
   android:  id=com.migo.androidplayer:id/indicator
+catalog_main_carousel_invite:
+  android:  id=com.migo.androidplayer:id/tv_referral_code
+  
 
 #Channels
 catalog_main_channel_text:
@@ -51,10 +56,12 @@ catalog_main_channel_view:
   android:  id=com.migo.androidplayer:id/tv_view_all
 catalog_main_channel_channels_tab:
   android:  id=com.migo.androidplayer:id/rv_channel
-catalog_main_channel_channels_1: # 1
+catalog_main_channel_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+catalog_main_channel_channels_1: # 1 DONT USE THIS
   android:  xpath=//android.view.ViewGroup[1]
 catalog_main_channel_channels_2: # 2
-  android:  xpath=//android.view.ViewGroup[2]
+  android:  xpath=//android.view.ViewGroup[2] 
 catalog_main_channel_channels_3: # 3
   android:  xpath=//android.view.ViewGroup[3]
 catalog_main_channel_channels_4: # 4
@@ -63,17 +70,16 @@ catalog_main_channel_channels_5: # 5
   android:  xpath=//android.view.ViewGroup[5]
 catalog_main_channel_channels_6: # 6
   android:  xpath=//android.view.ViewGroup[6]
-
 catalog_main_channel_channels_vision: # VISION
-  android:  xpath=//android.view.ViewGroup[1]
+  android:  xpath=//*[contains(@text, "Vision+")]
 catalog_main_channel_channels_lionsgate: # LIONSGATE PLAY
-  android:  xpath=//android.view.ViewGroup[2]
+  android:  xpath=//*[contains(@text, "Lionsgate Play")]
 catalog_main_channel_channels_anak: # Migo Anak
   android:  xpath=//android.view.ViewGroup[3]
 catalog_main_channel_channels_belajar: # Migo Belajar
   android:  xpath=//android.view.ViewGroup[4]
 catalog_main_channel_channels_noice: # Migo Noice
-  android:  xpath=//android.view.ViewGroup[5]
+  android:  xpath=//*[contains(@text, "Noice")]
 catalog_main_channel_channels_starvision: # Starvision
   android:  xpath=//android.view.ViewGroup[6]
 catalog_main_channel_channels_genflix: # Genflix
@@ -83,7 +89,36 @@ catalog_main_channel_channels_korea: # Migo Korea
 catalog_main_channel_channels_friends: # Migo 'n Friends
   android:  xpath=//android.view.ViewGroup[9]
 
+#My Saved Itmes
+catalog_main_mysaveditems_text: # ❤ My Saved Items
+  android:  xpath=//*[contains(@text, "❤ My Saved Items")]
+catalog_main_mysaveditems_view:
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
+catalog_main_mysaveditems_card_1:
+  android:  xpath=//android.widget.RelativeLayout[1]
+  # Edit
+catalog_main_mysaveditems_edit_text: # Edit
+  android:  xpath=//*[contains(@text, "Edit")]
+catalog_main_mysaveditems_edit_icon:
+  android:  xpath=//*[contains(@resource-id, "com.migo.androidplayer:id/iv_right_button_icon")]
+catalog_main_mysaveditems_done_text: # Done
+  android:  xpath=//*[contains(@text, "Done")]
+catalog_main_mysaveditems_done_icon:
+  android:  xpath=//*[contains(@resource-id, "com.migo.androidplayer:id/iv_right_button_icon")]
+catalog_main_mysaveditems_remove:
+  android:  xpath=//*[contains(@resource-id, "com.migo.androidplayer:id/iv_quick_remove")]
 
+
+
+#Rows
+catalog_main_rows_lionsgate_text: # Film Hollywood dari Lionsgate Play
+  android: xpath=//*[contains(@text, "Film Hollywood dari Lionsgate Play")]
+catalog_main_rows_1_click:
+  android:  xpath=//android.view.ViewGroup[3]/android.view.View
+catalog_main_rows_1_view:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
+catalog_main_rows_card_1: # 1
+  android:  xpath=//android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]
 
 #SEARCH
 #Header
@@ -206,7 +241,13 @@ catalog_titlecard_episode_list_1_download_text:
     # Episode 12
 catalog_titlecard_episode_list_12_tab: # ViewGroup 8
   android:  xpath=//android.view.ViewGroup[8]
-
+#Save Bar
+catalog_titlecard_save_bar_text: # Successfully save
+  android:  xpath=//*[contains(@text, "Successfully saved")]
+catalog_titlecard_save_bar_btn_text: # View
+  android:  id=com.migo.androidplayer:id/viewText
+catalog_titlecard_save_bar_btn_arrow: # >
+  android:  id=com.migo.androidplayer:id/nextImage
 
 
 
@@ -238,8 +279,6 @@ catalog_searchvideopage:
   android:  id=com.migo.androidplayer:id/recyclerView
 catalog_searchfield:
   android:  id=com.migo.androidplayer:id/editTextSearch
-catalog_back:
-  android:  id=com.migo.androidplayer:id/imageBack
 catalog_trending:
   android:  id=com.migo.androidplayer:id/text_section_title
 catalog_trending_list:
@@ -294,5 +333,10 @@ catalog_successful_download_bar:
 catalog_bar_view:
   android:  xpath=//*[contains(@text, "View")]
 
+# Episode 2
+catalog_titlecard_episode_list_2_download_btn:
+  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.widget.LinearLayout
+# Episode 12
+catalog_titlecard_episode_list_12_tab: # ViewGroup 8
+  android:  xpath=//android.view.ViewGroup[8]
 
-#
