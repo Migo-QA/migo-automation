@@ -58,18 +58,23 @@ catalog_main_channel_channels_tab:
   android:  id=com.migo.androidplayer:id/rv_channel
 catalog_main_channel_back:
   android:  id=com.migo.androidplayer:id/iv_navigation
-catalog_main_channel_channels_1: # 1 DONT USE THIS
-  android:  xpath=//android.view.ViewGroup[1]
+catalog_main_channel_channels_1: # 1
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]
 catalog_main_channel_channels_2: # 2
-  android:  xpath=//android.view.ViewGroup[2] 
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]
+catalog_main_channel_view_2: # 2
+  android:  xpath=//android.view.ViewGroup[2]
 catalog_main_channel_channels_3: # 3
-  android:  xpath=//android.view.ViewGroup[3]
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]
 catalog_main_channel_channels_4: # 4
-  android:  xpath=//android.view.ViewGroup[4]
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]
 catalog_main_channel_channels_5: # 5
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]
+catalog_main_channel_view_5: # 5
   android:  xpath=//android.view.ViewGroup[5]
 catalog_main_channel_channels_6: # 6
-  android:  xpath=//android.view.ViewGroup[6]
+  android:  xpath=//android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[6]
+
 catalog_main_channel_channels_vision: # VISION
   android:  xpath=//*[contains(@text, "Vision+")]
 catalog_main_channel_channels_lionsgate: # LIONSGATE PLAY
@@ -93,7 +98,7 @@ catalog_main_channel_channels_friends: # Migo 'n Friends
 catalog_main_mysaveditems_text: # ❤ My Saved Items
   android:  xpath=//*[contains(@text, "❤ My Saved Items")]
 catalog_main_mysaveditems_view:
-  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
 catalog_main_mysaveditems_card_1:
   android:  xpath=//android.widget.RelativeLayout[1]
   # Edit
@@ -108,17 +113,16 @@ catalog_main_mysaveditems_done_icon:
 catalog_main_mysaveditems_remove:
   android:  xpath=//*[contains(@resource-id, "com.migo.androidplayer:id/iv_quick_remove")]
 
-
-
 #Rows
 catalog_main_rows_lionsgate_text: # Film Hollywood dari Lionsgate Play
   android: xpath=//*[contains(@text, "Film Hollywood dari Lionsgate Play")]
 catalog_main_rows_1_click:
-  android:  xpath=//android.view.ViewGroup[3]/android.view.View
+  android:  xpath=//android.view.ViewGroup[4]/android.view.View
 catalog_main_rows_1_view:
-  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[2]
 catalog_main_rows_card_1: # 1
   android:  xpath=//android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]
+
 
 #SEARCH
 #Header

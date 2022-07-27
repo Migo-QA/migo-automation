@@ -21,7 +21,7 @@ Click My Rewards Tab
 Click Linked Phone Number Tab
     
     Log to console  Swtich to Linked Phone Number Tab
-    sleep 1s
+    sleep  1s
     Wait Element And Click Element  ${account_linked_phone_number_tab['${mobile}']} 
 
 Close Migo Reward Introduction Notification
@@ -369,7 +369,6 @@ Check Profile
         ${new_gender} =  Set Variable  Male 
     END
     Wait Element And Click Element  ${account_profile_information_name_select_ok['${mobile}']}
-    Wait Element And Click Element  ${account_profile_information_birthday_done['${mobile}']} 
 
         # Birthday, check by get text then changing day
     Sleep  1s 

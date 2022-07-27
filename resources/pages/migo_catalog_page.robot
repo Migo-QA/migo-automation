@@ -103,9 +103,9 @@ Check Carousel
 
     FOR   ${i}   IN RANGE   3
         Wait Element And Click Element  ${catalog_main_carousel_image['${mobile}']}
-        ${visible1}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ${visible1}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible  5s
         ...   ${catalog_titlecard_name['${mobile}']}
-        ${visible2}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+        ${visible2}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible  5s
         ...   ${catalog_main_carousel_invite['${mobile}']}
         # if title card: say title card
         IF  ${visible1}
@@ -138,10 +138,10 @@ Check Channels
 
     Log to console  Check View All 
     Wait Element And Click Element  ${catalog_main_channel_view['${mobile}']}
-    Wait Element And Click Element  ${catalog_main_channel_channels_2['${mobile}']}
+    Wait Element And Click Element  ${catalog_main_channel_view_2['${mobile}']}
     Verify Element Display  ${catalog_main_channel_channels_lionsgate['${mobile}']}  
     Wait Element And Click Element  ${catalog_back['${mobile}']}
-    Wait Element And Click Element  ${catalog_main_channel_channels_5['${mobile}']}
+    Wait Element And Click Element  ${catalog_main_channel_view_5['${mobile}']}
     Verify Element Display  ${catalog_main_channel_channels_noice['${mobile}']}  
     Wait Element And Click Element  ${catalog_back['${mobile}']}
 

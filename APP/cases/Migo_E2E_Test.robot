@@ -33,8 +33,8 @@ Test Test
 
 First Launch Test 
     [Tags]    All 
-    # [Setup]    Launch Migo  Google_Pixel6  true
-    [Setup]    Clear Data and Launch Migo  Samsung_A515F  true
+    [Setup]    Clear Data and Launch Migo  Google_Pixel6  true
+    # [Setup]    Clear Data and Launch Migo  Samsung_A515F  true
     
     # ONBOARDING
 	# Tutorial
@@ -229,7 +229,8 @@ Account Test
 
 Passes Test
     [Tags]     Passes_TEST  Login
-    [Setup]     Launch Migo  Samsung_A505
+    # [Setup]     Launch Migo  Samsung_A505
+    [Setup]     Launch Migo  Google_Pixel6
     # Buy 3-days Pass
     Click Passes Main Tab
     Check Buy Migo Pass Dialog  Paket 1 Hari    Rp 3.000   Cash  
