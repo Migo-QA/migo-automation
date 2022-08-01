@@ -344,3 +344,12 @@ catalog_titlecard_episode_list_2_download_btn:
 catalog_titlecard_episode_list_12_tab: # ViewGroup 8
   android:  xpath=//android.view.ViewGroup[8]
 
+# enable VPN
+catalog_migo_debug:
+  android:  id=com.migo.androidplayer:id/iv_logo
+catalog_migo_debug_vpnmode:
+  android:  id=com.migo.androidplayer:id/switch_vpn_mode
+catalog_migo_debug_back:
+  android:  id=com.migo.androidplayer:id/iv_navigation
+catalog_migo_debug_vpnmode_success:
+  android:  id=com.migo.androidplayer:id/dividerFour

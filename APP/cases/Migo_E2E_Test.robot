@@ -163,6 +163,7 @@ OnBoarding Test
 Catalog Test
     [Tags]    Catalog_TEST  
     # [Setup]    Launch Migo  Samsung_A505
+    # [Setup]    Launch Migo  Samsung_A515F
     [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
@@ -230,7 +231,8 @@ Account Test
 Passes Test
     [Tags]     Passes_TEST  Login
     # [Setup]     Launch Migo  Samsung_A505
-    [Setup]     Launch Migo  Google_Pixel6
+    # [Setup]     Launch Migo  Google_Pixel6
+    [Setup]     Launch Migo  Samsung_A515F
     # Buy 3-days Pass
     Click Passes Main Tab
     Check Buy Migo Pass Dialog  Paket 1 Hari    Rp 3.000   Cash  
@@ -248,6 +250,8 @@ Download Test
 
     Sleep  2s
     Close In App Message
+    # WFH enable VPN
+    Enable VPN
     Click Downloads Main Tab
 
     # download page
@@ -255,11 +259,12 @@ Download Test
     Check Download Page
     Log to Console Dash  Download Page Pass  
 
-    # download series
+    # download
     Log to console Dash  Check Download Video
     Check Download Series
     Check Download Other episodes
     Check Download Movie
+    Check Download Free Tag
     Log to Console Dash  Download Video Pass
 
     # # play video

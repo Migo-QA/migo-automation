@@ -173,12 +173,13 @@ downloads_file_tvshows_text:
 downloads_file_tvshows_thumbnail:
   android:  xpath=//android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.ImageView
 downloads_file_tvshows_title:
-  android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Masha and The Bear")]
 downloads_file_tvshows_description:
   android:  xpath=//android.view.ViewGroup[2]/android.widget.TextView[2]
 downloads_file_tvshows_more:
   android:  id=com.migo.androidplayer:id/iv_go_to_episode
-
+downloads_file_error:
+  android:  xpath=//*[contains(@text, "Error")]
 
 #download movie
 downloads_file_movies_text:
@@ -186,9 +187,17 @@ downloads_file_movies_text:
 downloads_file_movies_thumbnail:
   android:  xpath=//android.view.ViewGroup[3]/android.widget.FrameLayout/android.widget.ImageView
 downloads_file_movies_title:
-  android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Belajar Fauna")]
 downloads_file_movies_description:
   android:  xpath=//android.view.ViewGroup[3]/android.widget.TextView[2]
+
+#download free tag
+downloads_file_freetag_thumbnail:
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.FrameLayout/android.widget.ImageView
+downloads_file_freetag_title:
+  android:  xpath=//*[contains(@text, "Cara Melindungi")]
+downloads_file_freetag_description:
+  android:  xpath=//android.view.ViewGroup[4]/android.widget.TextView[2]
 
 downloads_state:
   android:  id=com.migo.androidplayer:id/downloadStateText
@@ -227,9 +236,13 @@ downloads_buypass_dialog_btn_cancel:
 
 #Check Video playing
 downloads_play_video_icon:
-  android:  id=com.migo.androidplayer:id/iv_play
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.ImageView
 downloads_play_video_cover:
   android:  id=com.migo.androidplayer:id/iv_cover
+downloads_play_video_title:
+  android:  xpath=//*[contains(@text, "Masha and The Bear")]
+downloads_play_video_episode_title:
+  android:  xpath=//*[contains(@text, "How They Meet")]
 downloads_play_video_season:
   android:  id=com.migo.androidplayer:id/tv_season_title
 downloads_play_video_episode:
@@ -257,3 +270,23 @@ downloads_video_forward_btn:
   android:  id=com.migo.androidplayer:id/forwardButton
 downloads_video_leftdurationtext:
   android:  id=com.migo.androidplayer:id/leftDurationText
+
+# MDS alert message
+downloads_page_wifi_alert_title:
+  android:  xpath=//*[contains(@text, "You must connect to Migo Hotspot Gratis to download.")]
+downloads_page_wifi_btn_learnmore:
+  android:  id=com.migo.androidplayer:id/button_learn_more
+downloads_page_wifi_btn_ok:
+  android:  id=com.migo.androidplayer:id/button_ok
+downloads_page_wifi_icon_alert:
+  android:  id=com.migo.androidplayer:id/iv_pink_alert
+
+# MDS wifi connect
+downloads_page_wifi_connect_icon:
+  android:  id=com.migo.androidplayer:id/iv_red_circle
+downloads_page_wifi_connect_text:
+  android:  id=com.migo.androidplayer:id/tv_migo_wifi_disconnection
+downloads_page_wifi_connect_button:
+  android:  id=com.migo.androidplayer:id/tv_migo_wifi_connection
+downloads_page_wifi_connect_more:
+  android:  id=com.migo.androidplayer:id/iv_arrow
