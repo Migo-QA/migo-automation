@@ -245,8 +245,8 @@ Passes Test
 
 Download Test
     [Tags]    Download_TEST  Login
-    [Setup]    Launch Migo  Samsung_A515F
-    # [Setup]   Launch Migo  Google_Pixel6
+    # [Setup]    Launch Migo  Samsung_A515F
+    [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
     Close In App Message

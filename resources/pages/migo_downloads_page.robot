@@ -481,7 +481,7 @@ Check Play Video
         Click Downloads Main Tab
         Log to Console   Click Play
         Wait Element And Click Element  ${downloads_play_video_episode_title['${mobile}']}
-        Play Video 30s
+        Play Video 20s
     END
 
     #Go back to Download Page
@@ -539,13 +539,17 @@ Check Download Free Tag
     # play video
     Log to console  Play video Free Tag...
     Wait Element And Click Element  ${downloads_file_freetag_title['${mobile}']}
-    Play Video 20s
+    Play Video  20  
     Log to Console Dash  Download Free Tag Pass
 
-Play Video 20s
-    # want to customize
-    Log to Console   Playing video 30s...
-    Sleep  20s
+Play Video
+    [Documentation]
+        ...
+        ...    Play video, sleep time
+        ... 
+    [Arguments]    ${time}
+    Log to Console   Playing video ${time}s
+    Sleep  ${time}s
     Press Keycode  4
     
 Connect MDS VPN
