@@ -339,7 +339,7 @@ catalog_bar_view:
 
 # Episode 2
 catalog_titlecard_episode_list_2_download_btn:
-  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.widget.LinearLayout
+  android:  xpath=//*[contains(@text, "Download to Watch")]
 # Episode 12
 catalog_titlecard_episode_list_12_tab: # ViewGroup 8
   android:  xpath=//android.view.ViewGroup[8]

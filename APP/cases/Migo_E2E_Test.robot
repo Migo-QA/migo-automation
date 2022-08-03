@@ -246,16 +246,19 @@ Passes Test
 Download Test
     [Tags]    Download_TEST  Login
     [Setup]    Launch Migo  Samsung_A515F
-    #[Setup]   Launch Migo  Google_Pixel6
+    # [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
     Close In App Message
-    # WFH enable VPN
-    Enable VPN
+
     Click Downloads Main Tab
 
     # download page
     Log to console Dash  Check Download Page
+    # Check Downloads Page Public Network
+    # Connect MDS VPN
+    # Click Downloads Main Tab
+    # Connect MDS Network
     Check Download Page
     Log to Console Dash  Download Page Pass  
 
@@ -266,12 +269,6 @@ Download Test
     Check Download Movie
     Check Download Free Tag
     Log to Console Dash  Download Video Pass
-
-    # # play video
-    # # check buy pass
-    # Log to console Dash  Check Play Video
-    # Check Play Video
-    # Log to Console Dash  Check Play Video Pass
 
     # manage download
     Log to console Dash  Check Manage Downloads

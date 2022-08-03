@@ -88,40 +88,47 @@ Catalog Test
 
 Download Test
     Check Download Page
-        Check Download page title
-        Check Storage
-        Check Manage button
-        Check Saving Master
-            Check Saving Master Page 1
-            Check Saving Master Page 2
-            Check Saving Master Page 3
-        Check Download Empty
+	Check Download Page (Public Network)
+		Check Wifi Alert message
+		Check Migo WiFi Connect tab
+	Check Download Page (MDS Network)
+		Connect MDS VPN/Connect MDS Network
+        	Check Download page title
+        	Check Storage
+        	Check Manage button
+        	Check Saving Master
+            		Check Saving Master Page 1
+            		Check Saving Master Page 2
+            		Check Saving Master Page 3
+        	Check Download Empty
     Check Downloads
         Check Download Series
-            Search Series
-                Download to Watch
-                Check First Download
-            Check Download Series File
+		Search Series
+            	Download to Watch
+            	Check First Download
+            	Check Download Series File
         Check Download Other episodes
+		Click Download other episodes
+		Download to Watch
         Check Download Movie
-            Search Movie
+            	Search Movie
                 Download to Watch
-            Check Download Bar To Download Page
-            Check Download Series File
+            	Check Download Bar To Download Page
+            	Check Download Series File
+	Check Pass Status
+	Check Download Free Tag
+		Search Free Tag video
+		Download to Watch
+		Check Download Bar To Download Page
+		Play Video 20s
     Check Manage Downloads
         Check Manage Downloads
             Check title
             Check storage
         Check Delete Single Download Video
             Check Confirm Delete Pop up
-                Click Cancel button
+            Click Cancel button
         Check Delete All Download Video
             Check Confirm Delete All Pop up
-                Click Delete All
+            Click Delete All
             Check Empty Downloads
-    
-
-
-    
-
-

@@ -19,9 +19,9 @@ downloads_storage_capacity_hint:
 downloads_saving_master_icon:
   android:  id=com.migo.androidplayer:id/iv_map
 downloads_saving_master_title:
-  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Halo. Saving Master!")]
 downloads_saving_master_description:
-  android:  id=com.migo.androidplayer:id/tv_description
+  android:  xpath=//*[contains(@text, "You've saved this much while using Migo!")]
 downloads_saving_master_value:
   android:  id=com.migo.androidplayer:id/tv_value
 downloads_saving_master_tab:
@@ -33,13 +33,13 @@ downloads_saving_master_close:
 
 #saving master page 1
 downloads_saving_master_page1_title:
-  android:  xpath=//android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Total films downloaded on Migo")]
 downloads_saving_master_page1_movies:
-  android:  id=com.migo.androidplayer:id/tv_movies_title
+  android:  xpath=//*[contains(@text, "Movies")]
 downloads_saving_master_page1_movies_count:
   android:  id=com.migo.androidplayer:id/tv_movie_count
 downloads_saving_master_page1_episode:
-  android:  id=com.migo.androidplayer:id/tv_episode_title
+  android:  xpath=//*[contains(@text, "Episodes")]
 downloads_saving_master_page1_episode_count:
   android:  id=com.migo.androidplayer:id/tv_episode_count
 downloads_saving_master_page1_graphic:
@@ -47,7 +47,7 @@ downloads_saving_master_page1_graphic:
 
 #saving master page 2
 downloads_saving_master_page2_title:
-  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Total mobile data saved from using Migo")]
 downloads_saving_master_page2_gb_count:
   android:  id=com.migo.androidplayer:id/tv_gb_count
 downloads_saving_master_page2_graphic:
@@ -55,11 +55,11 @@ downloads_saving_master_page2_graphic:
 
 #saving master page 3
 downloads_saving_master_page3_title:
-  android:  xpath=//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]
+  android:  xpath=//*[contains(@text, "Total cash saved from using Migo")]
 downloads_saving_master_page3_saving_count:
   android:  id=com.migo.androidplayer:id/tv_saving_count
 downloads_saving_master_page3_hint:
-  android:  id=com.migo.androidplayer:id/tv_hint
+  android:  xpath=//*[contains(@text, "(Estimated by using quota price of Rp3,000/GB)")]
 downloads_saving_master_page3_graphic:
   android:  id=com.migo.androidplayer:id/iv_graphic
 
@@ -226,9 +226,9 @@ downloads_wifi_mds:
 downloads_buypass_dialog:
   android:  id=com.migo.androidplayer:id/cl_dialog
 downloads_buypass_dialog_title:
-  android:  id=com.migo.androidplayer:id/tv_title
+  android:  xpath=//*[contains(@text, "Buy Migo Pass")]
 downloads_buypass_dialog_description:
-  android:  id=com.migo.androidplayer:id/tv_description
+  android:  xpath=//*[contains(@text, "Oops, you don’t have any Migo Passes. Buy and activate a Migo pass to start watching your favorite shows.")]
 downloads_buypass_dialog_btn_buy:
   android:  id=com.migo.androidplayer:id/button_positive
 downloads_buypass_dialog_btn_cancel:
@@ -254,6 +254,7 @@ downloads_play_video_pb_watched:
 downloads_play_download_other_episode:
   android:  id=com.migo.androidplayer:id/tv_choose_others_episodes
 
+# old code video button
 downloads_video_surfaceView:
   android:  id=com.migo.androidplayer:id/surfaceView
 downloads_video_title:
@@ -290,3 +291,5 @@ downloads_page_wifi_connect_button:
   android:  id=com.migo.androidplayer:id/tv_migo_wifi_connection
 downloads_page_wifi_connect_more:
   android:  id=com.migo.androidplayer:id/iv_arrow
+downloads_page_wifi_connect_device:
+  android:  id=android:id/button1

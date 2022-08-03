@@ -11,6 +11,7 @@ Variables         ..${/}elements${/}migo_auth_page.yaml
 
 *** Variables ***
 ${search_by_genres}       //*[contains(@text, '$genres')]
+${storage_before}
 
 
 *** Keywords ***
@@ -126,10 +127,17 @@ Click Browse Catalog
 
 Check Download Movie
 
+    #check storage before
+    Log to console Dash  Check Storage & Saving Change
+    Log to console  Before Downloading...
+    Log to console  Check Storage Capacity
+    Log to console  Check Saving Maving
+    ${storage_before} =  Wait Element And Get Text  ${downloads_storage_capacity['${mobile}']}
+    ${saving_before} =  Wait Element And Get Text  ${downloads_saving_master_value['${mobile}']}
+
     #Download video to check the download successfully page
     Log to console Dash  Check Download Movie
     Click Catalog Main Tab
-
     Sleep  5s
     Log to console  Search Movie
     Wait Element And Click Element  ${catalog_main_search['${mobile}']} 
@@ -148,6 +156,15 @@ Check Download Movie
     Verify Element Display  ${downloads_file_movies_description['${mobile}']}
     Check Download Status
     Log to Console Dash  Download Movie Pass
+
+    #check storage after
+    Log to console  After Downloading...
+    Sleep  10s
+    Log to console  Check Storage Capacity
+    Log to console  Check Saving Maving
+    Get Text And Not Equal    ${downloads_storage_capacity['${mobile}']}    ${storage_before}
+    Get Text And Not Equal    ${downloads_saving_master_value['${mobile}']}    ${saving_before}
+    Log to console Dash  Check Storage & Saving Change Pass
     
 
 Check Download Series
@@ -189,6 +206,7 @@ Check Download Series
     Verify Element Display  ${downloads_file_tvshows_description['${mobile}']}
     Verify Element Display  ${downloads_file_tvshows_more['${mobile}']}
     Check Download Status
+
     Log to Console Dash  Download Series Pass
 
 Check Download Status
@@ -434,7 +452,7 @@ Check Play Video
     ...    ${downloads_buypass_dialog['${mobile}']}
     IF  ${visible} == False
         Log to console  Check Buy Pass Dialog: False
-        Play Video 30s
+        Play Video 20s
     ELSE
         Log to console  Check Buy Pass Dialog: True
         Log to console  Check Buy Pass Dialog elements...
@@ -521,21 +539,21 @@ Check Download Free Tag
     # play video
     Log to console  Play video Free Tag...
     Wait Element And Click Element  ${downloads_file_freetag_title['${mobile}']}
-    Play Video 30s
+    Play Video 20s
     Log to Console Dash  Download Free Tag Pass
 
-Play Video 30s
+Play Video 20s
     # want to customize
     Log to Console   Playing video 30s...
-    Sleep  30s
+    Sleep  20s
     Press Keycode  4
     
-Enable VPN
+Connect MDS VPN
     [Documentation]
         ...
         ...    Enable VPN, In case WFH
         ...   
-    Log to Console   Enable VPN...
+    Log to Console   Connect MDS VPN...
     Log to Console   Switch to Catalog Tab 
     Click Catalog Main Tab
     Log to Console   Click Migo debug
@@ -549,19 +567,9 @@ Enable VPN
     Wait Element And Click Element  ${catalog_migo_debug_back['${mobile}']}
     Log to Console   Enable VPN: Pass
 
-Check Download Page Public Network
+Check Downloads Page Public Network
     Log to console   Check Downloads Page (Connect Public Network)...
     Log to console   Check Wifi Alert message
-    Verify Element Display  ${downloads_page_wifi_alert_title['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_btn_learnmore['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_btn_ok['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_icon_alert['${mobile}']}
-    Log to console   Click button: Learn More
-    Wait Element And Click Element  ${downloads_page_wifi_btn_learnmore['${mobile}']}
-    Log to console   Checking onBoarding tutorial & "Skip"...
-    Click Skip in onBoarding Page
-    Log to console   Click button: OK
-    Wait Element And Click Element  ${downloads_page_wifi_btn_ok['${mobile}']}
     # Check wifi alert message
     ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
     ...    ${downloads_page_wifi_alert_title['${mobile}']}
@@ -569,15 +577,30 @@ Check Download Page Public Network
         Log to console  Check wifi alert message: False
     ELSE
         Log to console  Check wifi alert message: True
+        Verify Element Display  ${downloads_page_wifi_alert_title['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_btn_learnmore['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_btn_ok['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_icon_alert['${mobile}']}
+        Log to console   Click button: Learn More
+        Wait Element And Click Element  ${downloads_page_wifi_btn_learnmore['${mobile}']}
+        Log to console   Checking onBoarding tutorial & "Skip"...
+        Click Skip in onBoarding Page
+        Log to console   Click button: OK
+        Wait Element And Click Element  ${downloads_page_wifi_btn_ok['${mobile}']}
     END
     Log to console   Check Migo WiFi Connect tab
     Verify Element Display  ${downloads_page_wifi_connect_icon['${mobile}']}
     Verify Element Display  ${downloads_page_wifi_connect_text['${mobile}']}
     Verify Element Display  ${downloads_page_wifi_connect_button['${mobile}']}
     Verify Element Display  ${downloads_page_wifi_connect_more['${mobile}']}
-    # Log to console   Click Connect
-    # Wait Element And Click Element  ${downloads_page_wifi_connect_button['${mobile}']}
-    # Check Connect MDS WiFi
+
+Connect MDS Network
+    Log to console   Connect MDS Network...
+    Log to console   Click Connect
+    Wait Element And Click Element  ${downloads_page_wifi_connect_button['${mobile}']}
+    Log to console   Connect MDS Network to device
+    Wait Element And Click Element  ${downloads_page_wifi_connect_device['${mobile}']}
+    Check Connect MDS WiFi
 
 Check Connect MDS WiFi
     ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
@@ -587,3 +610,30 @@ Check Connect MDS WiFi
     ELSE
         Log to console  Check connect MDS WiFi: True
     END
+
+Check Pass Status
+    [Documentation]
+        ...
+        ...    Check Buy Pass Dialog popup, without activate any pass
+        ...      
+    Log to console Dash  Check Buy Pass Dialog
+    Log to console  Click play video
+    Wait Element And Click Element  ${downloads_file_movies_title['${mobile}']}
+    # check buy pass pop-up
+    Sleep  3s
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_buypass_dialog_title['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check Buy Pass Dialog: False
+        Play Video 20s
+    ELSE
+        Log to console  Check Buy Pass Dialog: True
+        Log to console  Check Buy Pass Dialog elements...
+        Verify Element Display  ${downloads_buypass_dialog_title['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_description['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_btn_buy['${mobile}']}
+        Verify Element Display  ${downloads_buypass_dialog_btn_cancel['${mobile}']}
+        Log to console  Click Cancel
+        Wait Element And Click Element  ${downloads_buypass_dialog_btn_cancel['${mobile}']}
+    END
+    Log to console Dash  Check Buy Pass Dialog Pass
