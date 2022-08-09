@@ -462,4 +462,15 @@ account_logout_confrim_btn:
   
 account_version:
   android:  id=com.migo.androidplayer:id/tv_app_version
+account_login_success:
+  android:  xpath=//*[contains(@text, "Logged in successfully.")]
 
+#login to continue
+account_login_con_image:
+  android:  id=com.migo.androidplayer:id/iv_image
+account_login_con_title:
+  android:  xpath=//*[contains(@text, "Login to continue")]
+account_login_con_description:
+  android:  xpath=//*[contains(@text, "Login to create your download list, earn rewards and more!")]
+account_login_con_btn:
+  android:  id=com.migo.androidplayer:id/button_login

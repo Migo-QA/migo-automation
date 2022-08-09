@@ -133,14 +133,20 @@ downloads_manage_delete_btn:
 downloads_manage_delete_all_btn:
   android:  id=com.migo.androidplayer:id/tv_delete_all
 #pop up delete single
-downloads_manage_delete_popup_title:
-  android:  id=com.migo.androidplayer:id/tv_title
+downloads_manage_delete_popup_title_single:
+  android:  xpath=//*[contains(@text, "Confirm Delete")]
 downloads_manage_delete_popup_description:
   android:  id=com.migo.androidplayer:id/tv_description
 downloads_manage_delete_popup_delete:
   android:  id=com.migo.androidplayer:id/tv_positive
 downloads_manage_delete_popup_cancel:
   android:  id=com.migo.androidplayer:id/tv_negative
+downloads_manage_delete_popup_delete_icon_ep1:
+  android:  xpath=//android.view.ViewGroup[2]/android.widget.ImageView
+
+#pop up delete all
+downloads_manage_delete_popup_title_all:
+  android:  xpath=//*[contains(@text, "Delete All Downloads")]
 
 #test download
 catalog_search_first_video:
@@ -253,6 +259,16 @@ downloads_play_video_pb_watched:
   android:  id=com.migo.androidplayer:id/pb_watched
 downloads_play_download_other_episode:
   android:  id=com.migo.androidplayer:id/tv_choose_others_episodes
+#check video play episode2
+downloads_play_video_episode2_title:
+  android:  xpath=//*[contains(@text, "Don't Wake Till Spring!")]
+downloads_play_video_episode2_description:
+  android:  xpath=//*[contains(@text, "6 min | 30 MB")]
+downloads_play_video_episode2_delete_icon:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.ImageView
+downloads_play_video_episode2_progressbar:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.FrameLayout/android.widget.ProgressBar
+
 
 # old code video button
 downloads_video_surfaceView:

@@ -132,3 +132,44 @@ Download Test
             Check Confirm Delete All Pop up
             Click Delete All
             Check Empty Downloads
+
+Login Entry Test
+    Check Login Status
+        Check Login Status: False
+        Check Login Status: True
+            Logout
+    Check Login Account_Login
+        Click Profile Information Tab
+	Login
+        Check Profile Information Page
+	Logout
+    Check Login Account_MyRewards
+        Click My Rewards Tab
+	Login to Continue
+        Check Linked Phone Number Page
+	Logout
+    Check Login Account_LinkedPhoneNumber
+        Click Linked Phone Number Tab
+	Login
+        Check Linked Phone Number Page
+	Logout
+    Check Login Account_ParentalControl
+        Click Parental Control Tab
+	Login
+        Check Parental Control Page
+	Logout
+    Check Login Account_PaymentMethods
+        Click Payment Methods Tab
+	Login
+        Check Payment Methods Page
+	Logout
+    Check Login Account_TransactionHistory
+        Click Transaction History Tab
+	Login
+        Check Transaction History Page
+	Logout
+    Check Login Customer Support
+        Click Customer Support
+	Login to Continue
+        Check Customer Support Page
+	Logout

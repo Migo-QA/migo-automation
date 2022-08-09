@@ -24,6 +24,30 @@ Click Linked Phone Number Tab
     sleep  1s
     Wait Element And Click Element  ${account_linked_phone_number_tab['${mobile}']} 
 
+Click Parental Control Tab
+    
+    Log to console  Swtich to Parental Control Tab
+    sleep  1s
+    Wait Element And Click Element  ${account_parental['${mobile}']} 
+
+Click Payment Methods Tab
+    
+    Log to console  Swtich to Payment Methods Tab
+    sleep  1s
+    Wait Element And Click Element  ${account_payment['${mobile}']} 
+
+Click Transaction History Tab
+    
+    Log to console  Swtich to Transaction History Tab
+    sleep  1s
+    Wait Element And Click Element  ${account_transaction['${mobile}']} 
+
+Click Customer Support Icon
+
+    Log to console  Swtich to Customer Support
+    sleep  1s
+    AppiumLibrary.Click Element At Coordinates      1000    2030
+
 Close Migo Reward Introduction Notification
 
     Log to console   Close Reward Introduction Notification...
@@ -264,6 +288,13 @@ Enter OTP code
     Log to console    Check code is wrong...
     Verify Element Display  ${OTP_wrong_code}
     Log to console    Try CORRECT password
+    Bypass Hard Code OTP Page    395749
+    Log to console    Check code is correct...
+    Sleep  5s
+    Verify Element Not Display  ${OTP_wrong_code}
+
+Enter OTP code correct 
+
     Bypass Hard Code OTP Page    395749
     Log to console    Check code is correct...
     Sleep  5s
@@ -606,6 +637,7 @@ Migo Point Should Not Be Zero
 
     Sleep  2s
     Get Text And Not Equal    ${account_rewards_point_number['${mobile}']}    0  
+
 Check Gift Redeem Flow
     [Documentation]
     ...
@@ -824,5 +856,104 @@ Close Parental Control
     Wait Element And Input    ${account_parental_set_pin_field4['${mobile}']}    ${pin_code4}
     Verify Element Display  ${account_parental_control_graph['${mobile}']}
 
+Check Login Status
+    [Documentation]
+    ...
+    ...    Check Login Status
+    ...
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${account_profile_welcome['${mobile}']}
+    IF  ${visible} == False
+        #not login
+        Log to console  Check Login Status: False
+    ELSE
+        #login
+        Log to console  Check Login Status: True
+        # if login, do logout
+        Log to console  Scroll Up
+        Scroll   550  1500  550  1000  500
+        Log to console  Click Log Out
+        Wait Element And Click Element  ${account_logout['${mobile}']}
+        Log to console  Click Confirm Log Out
+        Wait Element And Click Element  ${account_logout_confrim_btn['${mobile}']}
+        Sleep  2s
+        Check Login Status
+    END
 
+Login
+    Log to console    Login...
+    Login Later  +62  99999999999
+	Enter OTP code correct
+    Log to console    Login Pass
 
+Login to Continue
+    Log to console    Login to Continue...
+    Check Login to Continue Page
+    Login Later  +62  99999999999
+	Enter OTP code correct
+    Log to console    Login Pass
+
+Check Login to Continue Page
+    Log to console    Login to Continue Page...
+    Sleep  2s
+    Verify Element Display  ${account_login_con_image['${mobile}']}
+    Verify Element Display  ${account_login_con_title['${mobile}']}
+    Verify Element Display  ${account_login_con_description['${mobile}']}
+    Log to console    Click Login button
+    Wait Element And Click Element  ${account_login_con_btn['${mobile}']}
+
+Login Later
+    
+    [Arguments]     ${contry_code}   ${phone_number}   
+    [Documentation]
+    ...
+    ...    Login
+    ...     
+    Log to console    Login Process...
+    Sleep  2s
+
+    Log to console    Input Phone number ${phone_number} 
+    Input Phone Number      ${phone_number} 
+
+Check Login Account_Login
+
+    Log to console  Click Profile Information Tab
+    Wait Element And Click Element  ${account_register_login_tab['${mobile}']} 
+    Login
+    Check Login Status
+
+Check Login Account_MyRewards
+    Click My Rewards Tab
+    Login to Continue
+    User Press Back Key
+    Check Login Status
+
+Check Login Account_LinkedPhoneNumber
+    Click Linked Phone Number Tab
+    Login
+    User Press Back Key
+    Check Login Status
+
+Check Login Account_ParentalControl
+    Click Parental Control Tab
+    Login
+    User Press Back Key
+    Check Login Status
+
+Check Login Account_PaymentMethods
+    Click Payment Methods Tab
+    Login
+    User Press Back Key
+    Check Login Status
+
+Check Login Account_TransactionHistory
+    Click Transaction History Tab
+    Login
+    User Press Back Key
+    Check Login Status
+
+Check Login Customer Support
+    Click Customer Support Icon
+    Login to Continue
+    User Press Back Key
+    Check Login Status

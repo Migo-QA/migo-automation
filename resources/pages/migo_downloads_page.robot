@@ -100,7 +100,7 @@ Click Saving Master Tab
 
 Click Close Saving Master
 
-    Sleep  5s
+    Sleep  1s
     Log to console  Click Close Saving Master
     Log to console  Switch to Download Tab 
     Wait Element And Click Element  ${downloads_saving_master_close['${mobile}']}
@@ -295,11 +295,22 @@ Check Download Other episodes
     Log to Console   Click Download episode 2
     Wait Element And Click Element  ${catalog_titlecard_episode_list_2_download_btn['${mobile}']}
     Check Download Bar To Download Page
+
+    Log to console  Check Download Other episodes File
+    Log to Console   Click Video Title
+    Wait Element And Click Element  ${downloads_play_video_cover['${mobile}']}
+    Verify Element Display  ${downloads_play_video_episode2_title['${mobile}']}
+    Verify Element Display  ${downloads_play_video_episode2_description['${mobile}']}
+    Verify Element Display  ${downloads_play_video_episode2_delete_icon['${mobile}']}
+    Verify Element Display  ${downloads_play_video_episode2_progressbar['${mobile}']}
+    Check Download Status
+    Press Keycode  4
     Log to Console Dash  Check Download Other episodes Pass
     
 
 Check Manage Downloads
 
+    Log to console Dash  Check Manage Downloads
     Sleep  2s
     Wait Element And Click Element  ${downloads_manage_text['${mobile}']}
     Log to console  Switch to Manage Downloads Page
@@ -317,17 +328,17 @@ Check Manage Downloads
     Verify Element Display  ${downloads_manage_migo['${mobile}']}
     Verify Element Display  ${downloads_manage_otherfiles['${mobile}']}
     Verify Element Display  ${downloads_manage_freespace['${mobile}']}
-
+    Log to console Dash  Check Manage Pass
 
 Check Delete Single Download Video
 
-    Log to console  Check Delete Single Download Video...
-    Log to console  Click delete button
+    Log to console Dash  Check Delete Single Download Video
+    Log to console  Click Delete icon
     Wait Element And Click Element  ${downloads_manage_delete_btn['${mobile}']}
     
     Log to console  Check Confirm Delete Pop up
     Sleep  5s
-    Verify Element Display  ${downloads_manage_delete_popup_title['${mobile}']}
+    Verify Element Display  ${downloads_manage_delete_popup_title_single['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_description['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_delete['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_cancel['${mobile}']}
@@ -335,15 +346,41 @@ Check Delete Single Download Video
     Log to console  Click Cancel button
     Wait Element And Click Element  ${downloads_manage_delete_popup_cancel['${mobile}']}
 
+    Log to console  Click Video Title
+    Wait Element And Click Element  ${downloads_file_tvshows_title['${mobile}']}
+    Log to console  Click Delete icon episode 1
+    Wait Element And Click Element  ${downloads_manage_delete_popup_delete_icon_ep1['${mobile}']}
+
+    Log to console  Check Confirm Delete Pop up
+    Sleep  5s
+    Verify Element Display  ${downloads_manage_delete_popup_title_single['${mobile}']}
+    Verify Element Display  ${downloads_manage_delete_popup_description['${mobile}']}
+    Verify Element Display  ${downloads_manage_delete_popup_delete['${mobile}']}
+    Verify Element Display  ${downloads_manage_delete_popup_cancel['${mobile}']}
+    Log to console  Click Delete button
+    Wait Element And Click Element  ${downloads_manage_delete_popup_delete['${mobile}']}
+
+    # check deleted video
+    Log to console  Check Deleted video
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_play_video_episode_title['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check Deleted video: False
+    ELSE
+        Log to console  Check Deleted video: True
+    END
+    Log to console Dash  Check Delete Single Download Video Pass
+
+
 
 Check Delete All Download Video
 
-    Log to console  Check Delete All Download Video...
+    Log to console Dash  Check Delete All Download Video
     Log to console  Click Delete All Download button
     Wait Element And Click Element  ${downloads_manage_delete_all_btn['${mobile}']}
     
     Log to console  Check Confirm Delete All Pop up
-    Verify Element Display  ${downloads_manage_delete_popup_title['${mobile}']}
+    Verify Element Display  ${downloads_manage_delete_popup_title_all['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_description['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_delete['${mobile}']}
     Verify Element Display  ${downloads_manage_delete_popup_cancel['${mobile}']}
@@ -357,6 +394,8 @@ Check Delete All Download Video
 
     Log to console  Switch to Downloads Page
     Wait Element And Click Element  ${downloads_manage_close['${mobile}']}
+    
+    Log to console Dash  Check Delete All Download Video Pass
 
 #unuse
 Reading Download Tutorials
@@ -452,7 +491,7 @@ Check Play Video
     ...    ${downloads_buypass_dialog['${mobile}']}
     IF  ${visible} == False
         Log to console  Check Buy Pass Dialog: False
-        Play Video 20s
+        Play Video  20
     ELSE
         Log to console  Check Buy Pass Dialog: True
         Log to console  Check Buy Pass Dialog elements...

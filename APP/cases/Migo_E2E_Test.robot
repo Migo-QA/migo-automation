@@ -245,8 +245,8 @@ Passes Test
 
 Download Test
     [Tags]    Download_TEST  Login
-    # [Setup]    Launch Migo  Samsung_A515F
-    [Setup]   Launch Migo  Google_Pixel6
+    [Setup]    Launch Migo  Samsung_A515F
+    # [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
     Close In App Message
@@ -255,9 +255,9 @@ Download Test
 
     # download page
     Log to console Dash  Check Download Page
-    # Check Downloads Page Public Network
-    # Connect MDS VPN
-    # Click Downloads Main Tab
+    Check Downloads Page Public Network
+    Connect MDS VPN
+    Click Downloads Main Tab
     # Connect MDS Network
     Check Download Page
     Log to Console Dash  Download Page Pass  
@@ -277,6 +277,60 @@ Download Test
     Check Delete All Download Video
     Log to Console Dash  Manage Downloads Pass
 
+
+Location Test
+    [Tags]    Location_TEST  Login
+    [Setup]    Launch Migo  Samsung_A515F
+    # [Setup]   Launch Migo  Google_Pixel6
+
+    Sleep  2s
+    Close In App Message
+
+    Click Location Main Tab
+
+    Log to console Dash  Check Location Page
+
+Login Entry Test
+    [Tags]    LoginEntry_TEST  Login
+    [Setup]    Launch Migo  Samsung_A515F
+    # [Setup]   Launch Migo  Google_Pixel6
+
+    Sleep  2s
+    Close In App Message
+    Log to Console  Click Account Main Tab
+    Click Account Main Tab
+
+    Log to console Dash  Check Login Status
+    Check Login Status
+    Log to console Dash  Login Status Pass
+
+    Log to console Dash  Check Login Account_Login
+    Check Login Account_Login
+    Log to console Dash  Login Account_Login Pass
+
+    Log to console Dash  Check Login Account_MyRewards
+    Check Login Account_MyRewards
+    Log to console Dash  Login Account_MyRewards Pass
+
+    Log to console Dash  Check Login Account_LinkedPhoneNumber
+    Check Login Account_LinkedPhoneNumber
+    Log to console Dash  Login Account_LinkedPhoneNumber Pass
+
+    Log to console Dash  Check Login Account_ParentalControl
+    Check Login Account_ParentalControl
+    Log to console Dash  Login Account_ParentalControl Pass
+
+    Log to console Dash  Check Login Account_PaymentMethods
+    Check Login Account_PaymentMethods
+    Log to console Dash  Login Account_PaymentMethods Pass
+
+    Log to console Dash  Check Login Account_TransactionHistory
+    Check Login Account_TransactionHistory
+    Log to console Dash  Login Account_TransactionHistory Pass
+
+    Log to console Dash  Check Login Customer Support
+    Check Login Customer Support
+    Log to console Dash  Login Customer Support Pass
 
 Calculate from Launch App to Catalog timer 
     [Tags]    Calculate   time 
@@ -443,13 +497,14 @@ Downloan Page Happy Path
 Location Page Happy Path
     [Tags]    Location     e2e   existuser       
   
-    [Setup]    Launch Migo  Samsung_A505
+    [Setup]    Launch Migo  Samsung_A515F
     [Teardown]    Close Application
 
 
     Click Location Main Tab
     Reading Location Tutorials 
     Check Finding Migo MDS 
+    
 
     
 Passes Page Happy Path
