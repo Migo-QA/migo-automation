@@ -173,3 +173,28 @@ Login Entry Test
 	Login to Continue
         Check Customer Support Page
 	Logout
+    Check Login Save
+        Search Series Video
+	Click Save
+	Login to continue
+	Check Save Status
+	Logout
+    Check Login Rating
+	Search Series Video
+	Click Rating
+	Login to continue
+	Click Like
+	Check Rating Status
+	Logout
+    Check Login Buy Pass
+	Click Passes Main Tab
+	Click Buy Pass 1 Day
+	Login to continue
+	Check Buy Pass 1 Day
+	Logout
+    Check Login Redeem
+	Click Passes Main Tab
+	Redeem Promo Code
+	Login to continue
+	Check Redeem Promo Code
+	Logout

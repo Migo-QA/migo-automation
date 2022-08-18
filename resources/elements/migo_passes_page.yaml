@@ -233,3 +233,5 @@ passes_promo_code_redeem_result_dialog_title:
   android:  id=com.migo.androidplayer:id/tv_status_title
 passes_promo_code_redeem_result_dialog_title_btn:
   android:  id=com.migo.androidplayer:id/button_positive
+passes_promo_code_pass_migoqa:
+  android:  xpath=//*[contains(@text, "MIGO QA 2022")]

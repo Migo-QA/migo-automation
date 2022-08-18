@@ -33,15 +33,11 @@ downloads_saving_master_close:
 
 #saving master page 1
 downloads_saving_master_page1_title:
-  android:  xpath=//*[contains(@text, "Total films downloaded on Migo")]
-downloads_saving_master_page1_movies:
-  android:  xpath=//*[contains(@text, "Movies")]
-downloads_saving_master_page1_movies_count:
-  android:  id=com.migo.androidplayer:id/tv_movie_count
-downloads_saving_master_page1_episode:
-  android:  xpath=//*[contains(@text, "Episodes")]
-downloads_saving_master_page1_episode_count:
-  android:  id=com.migo.androidplayer:id/tv_episode_count
+  android:  xpath=//*[contains(@text, "Total cash saved from using Migo")]
+downloads_saving_master_page1_saving_count:
+  android:  id=com.migo.androidplayer:id/tv_saving_count
+downloads_saving_master_page1_hint:
+  android:  xpath=//*[contains(@text, "(Estimated by using quota price of Rp3,000/GB)")]
 downloads_saving_master_page1_graphic:
   android:  id=com.migo.androidplayer:id/iv_graphic
 
@@ -55,13 +51,18 @@ downloads_saving_master_page2_graphic:
 
 #saving master page 3
 downloads_saving_master_page3_title:
-  android:  xpath=//*[contains(@text, "Total cash saved from using Migo")]
-downloads_saving_master_page3_saving_count:
-  android:  id=com.migo.androidplayer:id/tv_saving_count
-downloads_saving_master_page3_hint:
-  android:  xpath=//*[contains(@text, "(Estimated by using quota price of Rp3,000/GB)")]
+  android:  xpath=//*[contains(@text, "Total films downloaded on Migo")]
+downloads_saving_master_page3_movies:
+  android:  xpath=//*[contains(@text, "Movies")]
+downloads_saving_master_page3_movies_count:
+  android:  id=com.migo.androidplayer:id/tv_movie_count
+downloads_saving_master_page3_episode:
+  android:  xpath=//*[contains(@text, "Episodes")]
+downloads_saving_master_page3_episode_count:
+  android:  id=com.migo.androidplayer:id/tv_episode_count
 downloads_saving_master_page3_graphic:
   android:  id=com.migo.androidplayer:id/iv_graphic
+
 
 #snack bar download
 downloads_snack_bar_success:

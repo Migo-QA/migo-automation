@@ -68,11 +68,9 @@ Check Saving Master
 
     Log to console  Check Saving Master Page 1
     Verify Element Display  ${downloads_saving_master_page1_title['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page1_movies['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page1_movies_count['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page1_episode['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page1_episode_count['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page1_graphic['${mobile}']}    
+    Verify Element Display  ${downloads_saving_master_page1_saving_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_hint['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page1_graphic['${mobile}']}
 
     Log to console  Swipe left
     Scroll   900  1050  100  1050  500
@@ -85,9 +83,12 @@ Check Saving Master
     Scroll   900  1050  100  1050  500
     Log to console  Check Saving Master Page 3
     Verify Element Display  ${downloads_saving_master_page3_title['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page3_saving_count['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page3_hint['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_page3_graphic['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_movies['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_movies_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_episode['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_episode_count['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_page3_graphic['${mobile}']}    
+
     
     Click Close Saving Master
 
@@ -183,19 +184,7 @@ Check Download Series
     Wait Element And Click Element   ${catalog_titlecard_episode_list_1_download_btn['${mobile}']}
 
     # Check First Download
-    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
-    ...    ${downloads_first_download_page_bg['${mobile}']}
-    IF  ${visible} == False
-        Log to console  Check First Download Page: False
-        #Go back to Download Page
-        Sleep  2s
-        Wait Element And Click Element   ${catalog_search_back['${mobile}']}
-        Wait Element And Click Element   ${catalog_search_back['${mobile}']}
-        Click Downloads Main Tab
-    ELSE
-        Log to console  Check First Download Page: True
-        Check First Download Page
-    END
+    Check First Download Video
     
     # check after download
     Sleep  5s
@@ -209,11 +198,27 @@ Check Download Series
 
     Log to Console Dash  Download Series Pass
 
+Check First Download Video
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_first_download_page_bg['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check First Download Page: False
+        #Go back to Download Page
+        Sleep  2s
+        User Press Back Key
+        User Press Back Key
+        Click Downloads Main Tab
+    ELSE
+        Log to console  Check First Download Page: True
+        Check First Download Page
+    END
+
 Check Download Status
     [Documentation]
     ...
     ...    Check Download Staus: Complete/Error
     ...
+    Verify Element Not Display  ${downloads_file_error['${mobile}']}
     ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
     ...    ${downloads_file_error['${mobile}']}
     IF  ${visible} == False

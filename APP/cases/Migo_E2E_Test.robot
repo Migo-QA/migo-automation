@@ -163,8 +163,8 @@ OnBoarding Test
 Catalog Test
     [Tags]    Catalog_TEST  
     # [Setup]    Launch Migo  Samsung_A505
-    # [Setup]    Launch Migo  Samsung_A515F
-    [Setup]   Launch Migo  Google_Pixel6
+    [Setup]    Launch Migo  Samsung_A515F
+    # [Setup]   Launch Migo  Google_Pixel6
 
     Sleep  2s
     Close In App Message
@@ -255,8 +255,8 @@ Download Test
 
     # download page
     Log to console Dash  Check Download Page
-    Check Downloads Page Public Network
-    Connect MDS VPN
+    # Check Downloads Page Public Network
+    # Connect MDS VPN
     Click Downloads Main Tab
     # Connect MDS Network
     Check Download Page
@@ -331,6 +331,27 @@ Login Entry Test
     Log to console Dash  Check Login Customer Support
     Check Login Customer Support
     Log to console Dash  Login Customer Support Pass
+
+    Log to console Dash  Check Login Download
+    Check Login Download
+    Log to console Dash  Check Login Download Pass   
+
+    Log to console Dash  Check Login Save
+    Check Login Save
+    Log to console Dash  Check Login Save Pass
+
+    Log to console Dash  Check Login Rating
+    Check Login Rating
+    Log to console Dash  Check Login Rating Pass
+
+    Log to console Dash  Check Login Buy Pass
+    Check Login Buy Pass
+    Log to console Dash  Check Login Buy Pass Pass
+
+    Log to console Dash  Check Login Redeem
+    Check Login Redeem
+    Log to console Dash  Check Login Redeem Pass    
+
 
 Calculate from Launch App to Catalog timer 
     [Tags]    Calculate   time 

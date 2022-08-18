@@ -113,6 +113,12 @@ account_rewards_notification_Text_Header:
   android:  id=com.migo.androidplayer:id/dialog # This is the white "New Migo Rewards" diaglog
 account_rewards_notification_close_dialog:
   android:  id=com.migo.androidplayer:id/imgClose # This is the X of the white dialog
+account_rewards_notification_dialog:
+  android:  xpath=//*[contains(@text, "Congratulations!")] # Congrats txt
+account_rewards_notification_dialog_viewfreepass:
+  android:  id=com.migo.androidplayer:id/tv_done # Btn View Free Pass
+
+
 account_rewards_tab:
   android:  com.migo.androidplayer:id/iv_reward_background
 account_rewards_gift:
@@ -474,3 +480,8 @@ account_login_con_description:
   android:  xpath=//*[contains(@text, "Login to create your download list, earn rewards and more!")]
 account_login_con_btn:
   android:  id=com.migo.androidplayer:id/button_login
+
+account_subpage_title:
+  android:  id=com.migo.androidplayer:id/tv_title
+account_subpage_title_cs:
+  android:  xpath=//*[contains(@text, "Migo Customer Care")]

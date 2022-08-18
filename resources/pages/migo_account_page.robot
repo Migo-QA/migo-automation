@@ -54,6 +54,12 @@ Close Migo Reward Introduction Notification
     Sleep  2s
     Wait Element And Click Element Option  ${account_rewards_notification_close_dialog['${mobile}']}  15
 
+Click View Free Pass Migo Rewards Notification
+
+    Log to console   Click View Free Pass...
+    Sleep  2s
+    Wait Element And Click Element Option  ${account_rewards_notification_dialog_viewfreepass['${mobile}']}  15
+
 Click Milestone View Pass Dialog
 
     Log to console   Milestone dialog
@@ -925,35 +931,208 @@ Check Login Account_Login
 Check Login Account_MyRewards
     Click My Rewards Tab
     Login to Continue
+    Log to console  Check Go to My Rewards Page
+    Get Text And Compare    ${account_subpage_title['${mobile}']}   	Your Migo Points
+    Log to console  Go to My Rewards Page Pass
+    Check Migo Rewards Notification
     User Press Back Key
     Check Login Status
 
 Check Login Account_LinkedPhoneNumber
     Click Linked Phone Number Tab
     Login
+    Log to console  Check Go to Linked Phone Number Page
+    Get Text And Compare    ${account_subpage_title['${mobile}']}   	Linked Phone Number
+    Log to console  Go to Linked Phone Number Page Pass
     User Press Back Key
+    Check Migo Rewards Notification
     Check Login Status
 
 Check Login Account_ParentalControl
     Click Parental Control Tab
     Login
+    Log to console  Check Go to Parental Control Page
+    Get Text And Compare    ${account_subpage_title['${mobile}']}   	Parental Control
+    Log to console  Go to Parental Control Page Pass
     User Press Back Key
+    Check Migo Rewards Notification
     Check Login Status
 
 Check Login Account_PaymentMethods
     Click Payment Methods Tab
     Login
+    Log to console  Check Go to Payment Methods Page
+    Get Text And Compare    ${account_subpage_title['${mobile}']}   	Payment Methods
+    Log to console  Go to Payment Methods Page Pass
     User Press Back Key
+    Check Migo Rewards Notification
     Check Login Status
 
 Check Login Account_TransactionHistory
     Click Transaction History Tab
     Login
+    Log to console  Check Go to Transaction History Page
+    Get Text And Compare    ${account_subpage_title['${mobile}']}   	Transaction History
+    Log to console  Go to Transaction History Page Pass
     User Press Back Key
+    Check Migo Rewards Notification
     Check Login Status
 
 Check Login Customer Support
     Click Customer Support Icon
     Login to Continue
+    Log to console  Check Go to Customer Support Page
+    Verify Element Display  ${account_subpage_title_cs['${mobile}']}
+    Log to console  Go to Customer Support Pass
     User Press Back Key
+    Check Migo Rewards Notification
     Check Login Status
+
+Check Login Download
+
+    Click Catalog Main Tab
+    Search Series Video
+    
+    # Download
+    Log to console  Click Download to Watch
+    Wait Element And Click Element   ${catalog_titlecard_episode_list_1_download_btn['${mobile}']}
+
+    Login to Continue
+    # check first video
+        ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_first_download_page_bg['${mobile}']}
+    IF  ${visible} == False
+        Log to console  Check First Download Page: False
+        #Go back to Download Page
+        Sleep  2s
+        # Click The First Search Title Card
+        # Log to console  Click Download to Watch
+        # Wait Element And Click Element   ${catalog_titlecard_episode_list_1_download_btn['${mobile}']}
+        User Press Back Key
+        User Press Back Key
+    ELSE
+        Log to console  Check First Download Page: True
+        Check First Download Page
+    END
+
+    Click Account Main Tab
+    Check Migo Rewards Notification
+    Check Login Status
+
+Check Login Save
+    Click Catalog Main Tab
+    Search Series Video
+    
+    # Save
+    Log to console  Click Save
+    Wait Element And Click Element  ${catalog_titlecard_save['${mobile}']}
+    Login to Continue
+
+    Log to console  Check Save Status
+    ${save_status}=  Wait Element And Get Text  ${catalog_titlecard_save['${mobile}']}
+    IF  '${save_status}' == 'Save'
+        Log to console  Save Status is 'Unsave'
+    ELSE IF  '${save_status}' == 'Saved'
+        Log to console  Save Status is 'Saved'
+    END
+    Log to console  Check Save Status Passs
+    User Press Back Key
+    User Press Back Key
+    Check Migo Rewards Notification
+
+    Click Account Main Tab
+    Check Migo Rewards Notification
+    Check Login Status
+
+Check Login Rating
+    Click Catalog Main Tab
+    Search Series Video
+
+    # Rating
+    Log to console  Click Rating
+    Wait Element And Click Element  ${catalog_titlecard_rating['${mobile}']}
+    Login to Continue
+    
+    Log to console  Click Like
+    Wait Element And Click Element  ${catalog_titlecard_rating_like['${mobile}']}
+    Log to console  Check Rating Status
+    ${rating_status}=  Wait Element And Get Text  ${catalog_titlecard_rating['${mobile}']}
+    IF  '${rating_status}' == 'Like'
+        Log to console  Rating Status is 'Like'
+    ELSE IF  '${rating_status}' == 'Liked'
+        Log to console  Rating Status is 'Liked'
+    ELSE IF  '${rating_status}' == 'Disliked'
+        Log to console  Rating Status is 'Disliked'
+    END
+    Log to console  Check Rating Status Passs
+    User Press Back Key
+    User Press Back Key
+    Check Migo Rewards Notification
+    
+    Click Account Main Tab
+    Check Migo Rewards Notification
+    Check Login Status
+
+Check Login Buy Pass
+    Click Passes Main Tab
+    Log to console  Click Buy Pass 1 Day
+    Wait Element And Click Element  ${passes_migo_passes_1_day_buy_btn['${mobile}']}
+
+    Login to Continue
+    Log to Console  Check Buy Pass 1 Day
+    Verify Element Display  ${passes_mds_far_dialog['${mobile}']}
+    Verify Element Display  ${passes_mds_far_dialog_title['${mobile}']}
+    Verify Element Display  ${passes_mds_far_dialog_find['${mobile}']}
+    Verify Element Display  ${passes_mds_far_dialog_continue['${mobile}']}
+    Wait Element And Click Element  ${passes_mds_far_dialog_continue['${mobile}']}
+    Log to Console  Check Buy Pass 1 Day Pass
+    User Press Back Key
+    
+    Click Account Main Tab
+    Check Migo Rewards Notification
+    Check Login Status
+
+Check Login Redeem
+    Click Passes Main Tab
+    #Promo code
+    Log to Console  Redeem Promo Code
+    Wait Element And Click Element  ${passes_promo_code_tab['${mobile}']}
+    Wait Element And Input    ${passes_promo_code_field['${mobile}']}   migoqa2022
+    Wait Element And Click Element  ${passes_promo_code_redeem_btn['${mobile}']}    
+
+    Login to Continue
+    # redeeem promo code
+    Log to Console  Check Redeem Promo Code
+    Verify Element Display  ${passes_promo_code_redeem_result_dialog['${mobile}']}
+    Get Text And Compare    ${passes_promo_code_redeem_result_dialog_title['${mobile}']}   Redeem Success
+    Log to Console  Click View My Pass
+    Wait Element And Click Element  ${passes_promo_code_redeem_result_dialog_title_btn['${mobile}']}
+    Verify Element Display  ${passes_promo_code_pass_migoqa['${mobile}']}
+    Log to Console  Check Redeem Promo Code Pass
+
+    Click Account Main Tab
+    Check Migo Rewards Notification
+    Check Login Status
+
+
+Search Series Video
+    Log to console  Search Series
+    Wait Element And Click Element  ${catalog_main_search['${mobile}']} 
+    Search  Masha and The Bear
+    Click The First Search Title Card
+
+Check Migo Rewards Notification
+    Log to Console  Check Migo Rewards Notification...
+    Sleep  2s
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${account_rewards_notification_dialog['${mobile}']}
+    IF  ${visible} == False
+        #no in app message
+        Log to console  Check Migo Rewards Notification: False
+    ELSE
+        Log to console  Check Migo Rewards Notification: True
+        Click View Free Pass Migo Rewards Notification
+        Sleep  2s
+        User Press Back Key
+    END
+
