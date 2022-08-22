@@ -931,6 +931,7 @@ Check Login Account_Login
 Check Login Account_MyRewards
     Click My Rewards Tab
     Login to Continue
+    Check Migo Rewards Notification
     Log to console  Check Go to My Rewards Page
     Get Text And Compare    ${account_subpage_title['${mobile}']}   	Your Migo Points
     Log to console  Go to My Rewards Page Pass

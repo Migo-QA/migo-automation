@@ -622,25 +622,24 @@ Check Downloads Page Public Network
     ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
     ...    ${downloads_page_wifi_alert_title['${mobile}']}
     IF  ${visible} == False
-        Log to console  Check wifi alert message: False
+        Log to console   Check Migo WiFi Connect tab
+        Verify Element Display  ${downloads_page_wifi_connect_icon['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_connect_text['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_connect_button['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_connect_more['${mobile}']}
     ELSE
         Log to console  Check wifi alert message: True
-        Verify Element Display  ${downloads_page_wifi_alert_title['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_alert_icon['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_connect_text['${mobile}']}
         Verify Element Display  ${downloads_page_wifi_btn_learnmore['${mobile}']}
-        Verify Element Display  ${downloads_page_wifi_btn_ok['${mobile}']}
-        Verify Element Display  ${downloads_page_wifi_icon_alert['${mobile}']}
+        Verify Element Display  ${downloads_page_wifi_btn_connect['${mobile}']}
         Log to console   Click button: Learn More
         Wait Element And Click Element  ${downloads_page_wifi_btn_learnmore['${mobile}']}
-        Log to console   Checking onBoarding tutorial & "Skip"...
-        Click Skip in onBoarding Page
-        Log to console   Click button: OK
-        Wait Element And Click Element  ${downloads_page_wifi_btn_ok['${mobile}']}
+        # verify download tutorial
+        Log to console   Close Download Tutorial
+        Wait Element And Click Element  ${downloads_page_tutorial_close['${mobile}']}
     END
-    Log to console   Check Migo WiFi Connect tab
-    Verify Element Display  ${downloads_page_wifi_connect_icon['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_connect_text['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_connect_button['${mobile}']}
-    Verify Element Display  ${downloads_page_wifi_connect_more['${mobile}']}
+
 
 Connect MDS Network
     Log to console   Connect MDS Network...

@@ -291,22 +291,25 @@ downloads_video_leftdurationtext:
 
 # MDS alert message
 downloads_page_wifi_alert_title:
-  android:  xpath=//*[contains(@text, "You must connect to Migo Hotspot Gratis to download.")]
+  android:  xpath=//*[contains(@text, "You must connect to "MigoHotspotGratis" WiFi to download films.")]
 downloads_page_wifi_btn_learnmore:
   android:  id=com.migo.androidplayer:id/button_learn_more
-downloads_page_wifi_btn_ok:
-  android:  id=com.migo.androidplayer:id/button_ok
-downloads_page_wifi_icon_alert:
+downloads_page_wifi_btn_connect:
+  android:  id=com.migo.androidplayer:id/button_connect
+downloads_page_wifi_alert_icon:
   android:  id=com.migo.androidplayer:id/iv_pink_alert
 
 # MDS wifi connect
 downloads_page_wifi_connect_icon:
-  android:  id=com.migo.androidplayer:id/iv_red_circle
+  android:  id=com.migo.androidplayer:id/iv_circle
 downloads_page_wifi_connect_text:
-  android:  id=com.migo.androidplayer:id/tv_migo_wifi_disconnection
+  android:  xpath=//*[contains(@text, "Migo WiFi Disconnected")]
 downloads_page_wifi_connect_button:
   android:  id=com.migo.androidplayer:id/tv_migo_wifi_connection
 downloads_page_wifi_connect_more:
   android:  id=com.migo.androidplayer:id/iv_arrow
-downloads_page_wifi_connect_device:
-  android:  id=android:id/button1
+
+
+# Download tutorial
+downloads_page_tutorial_close:
+  android:  id=com.migo.androidplayer:id/btn_tutorial_close

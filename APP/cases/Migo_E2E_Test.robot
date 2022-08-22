@@ -255,8 +255,8 @@ Download Test
 
     # download page
     Log to console Dash  Check Download Page
-    # Check Downloads Page Public Network
-    # Connect MDS VPN
+    Check Downloads Page Public Network
+    Connect MDS VPN
     Click Downloads Main Tab
     # Connect MDS Network
     Check Download Page
