@@ -1,29 +1,72 @@
 location_main_tab:
   android:  xpath=//*[contains(@text, "Location")]
+
 #onboard_tutorials
-location_onboard_tutorials_skip:
-  android:  id=com.migo.androidplayer:id/tv_right_button_text
+location_onboard_tutorials_image:
+  android:  id=com.migo.androidplayer:id/iv_image
 location_onboard_tutorials_title:
-  android:  id=com.migo.androidplayer:id/tv_title
+  android:  xpath=//*[contains(@text, "Use Migo WiFi Network at Warung Migo to download")]
 location_onboard_tutorials_desc:
-  android:  id=com.migo.androidplayer:id/tv_desc
+  android:  xpath=//*[contains(@text, "Download 1 movie for 1 mins")]
 location_onboard_tutorials_btn:
-  android:  id=com.migo.androidplayer:id/tv_submit
+  android:  xpath=//*[contains(@text, "See Migo WiFi Location")]
 
 #Tutorials
-location_tutorials_btn:
-  android:  id=com.migo.androidplayer:id/ivTutorialBtn
+#page1
+location_tutorials_title:
+  android:  xpath=//*[contains(@text, "How to download Migo films to your phone?")]
+location_tutorials_btn_next:
+  android:  id=com.migo.androidplayer:id/button_tutorial_call_to_action
 location_tutorials_close:
   android:  id=com.migo.androidplayer:id/btn_tutorial_close
-location_tutorials_next_btn:
-  android:  id=com.migo.androidplayer:id/btn_tutorial_cta
-location_tutorials_MDS_btn:
-  android:  id=com.migo.androidplayer:id/btn_tutorial_cta
+location_tutorials_step:
+  android:  id=com.migo.androidplayer:id/tv_tutorial_step
+location_tutorials_image:
+  android:  id=com.migo.androidplayer:id/iv_tutorial_image
+location_tutorials_desc:
+  android:  id=com.migo.androidplayer:id/tv_tutorial_desc
+
+
+
 #MDS list
 location_list_btn:
   android:  id=com.migo.androidplayer:id/ivListBtn
 location_list_title:
-  android:  id=//*[contains(@text, "Warung Migo Areas")]
+  android:  id=com.migo.androidplayer:id/tv_title
+location_list_description:
+  android:  id=com.migo.androidplayer:id/warungMigoLocationsText
+location_list_lastupdated:
+  android:  id=com.migo.androidplayer:id/lastUpdateText
+location_list_map_icon:
+  android:  id=com.migo.androidplayer:id/iv_right_button_icon
+location_list_map_text:
+  android:  id=com.migo.androidplayer:id/tv_right_button_text
+
+#MDS sub list
+location_list_wifi_icon:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.ImageView
+location_list_jakarta_pasar:
+  android:  xpath=//android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.TextView[1]
+#MDS sub list page
+location_list_sub_title:
+  android:  id=com.migo.androidplayer:id/tv_title
+location_list_sub_mds_icon:
+  android:  id=com.migo.androidplayer:id/mdsLogoImage
+location_list_sub_description:
+  android:  id=com.migo.androidplayer:id/messageText
+location_list_sub_mds_title:
+  android:  id=com.migo.androidplayer:id/titleText
+location_list_sub_mds_subtitle:
+  android:  id=com.migo.androidplayer:id/subTitleText
+location_list_sub_mds_showinmap_text:
+  android:  id=com.migo.androidplayer:id/showInMapText
+location_list_sub_mds_showinmap_icon:
+  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.ImageView
+location_list_googlemap_url:
+  android:  id=com.android.chrome:id/url_bar
+location_list_googlemap_back:
+  android:  id=com.android.chrome:id/close_button
+
 location_back_btn:
   android:  xpath=//android.view.ViewGroup[1]/android.widget.ImageButton
 location_map_btn:

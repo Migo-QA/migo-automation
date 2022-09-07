@@ -17,17 +17,15 @@ downloads_storage_capacity_hint:
 
 #saving master
 downloads_saving_master_icon:
-  android:  id=com.migo.androidplayer:id/iv_map
+  android:  id=com.migo.androidplayer:id/iv_quota_save
 downloads_saving_master_title:
-  android:  xpath=//*[contains(@text, "Halo. Saving Master!")]
-downloads_saving_master_description:
-  android:  xpath=//*[contains(@text, "You've saved this much while using Migo!")]
+  android:  xpath=//*[contains(@text, "Congrats! You've saved this much using Migo!")]
 downloads_saving_master_value:
   android:  id=com.migo.androidplayer:id/tv_value
 downloads_saving_master_tab:
   android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup
-downloads_saving_master_dialog:
-  android:  xpath=//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup
+downloads_saving_master_more:
+  android:  id=com.migo.androidplayer:id/iv_arrow
 downloads_saving_master_close:
   android:  id=com.migo.androidplayer:id/iv_navigation
 
@@ -264,7 +262,7 @@ downloads_play_download_other_episode:
 downloads_play_video_episode2_title:
   android:  xpath=//*[contains(@text, "Don't Wake Till Spring!")]
 downloads_play_video_episode2_description:
-  android:  xpath=//*[contains(@text, "6 min | 30 MB")]
+  android:  xpath=//*[contains(@text, "6 min | 30.3 MB")]
 downloads_play_video_episode2_delete_icon:
   android:  xpath=//android.view.ViewGroup[3]/android.widget.ImageView
 downloads_play_video_episode2_progressbar:
@@ -309,7 +307,12 @@ downloads_page_wifi_connect_button:
 downloads_page_wifi_connect_more:
   android:  id=com.migo.androidplayer:id/iv_arrow
 
-
 # Download tutorial
 downloads_page_tutorial_close:
   android:  id=com.migo.androidplayer:id/btn_tutorial_close
+
+# Download parental control
+downloads_parentalcontrol_title:
+  android:  xpath=//*[contains(@text, "Enter your Migo PIN")]
+downloads_parentalcontrol_pin_0:
+  android:  xpath=//*[contains(@text, "0")]

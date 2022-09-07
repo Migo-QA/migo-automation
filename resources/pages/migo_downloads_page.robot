@@ -60,8 +60,8 @@ Check Saving Master
     Log to console   Check Saving Master elements
     Verify Element Display  ${downloads_saving_master_icon['${mobile}']}
     Verify Element Display  ${downloads_saving_master_title['${mobile}']}
-    Verify Element Display  ${downloads_saving_master_description['${mobile}']}
     Verify Element Display  ${downloads_saving_master_value['${mobile}']}
+    Verify Element Display  ${downloads_saving_master_more['${mobile}']}
 
     Log to console  Check Saving Master Page...
     Click Saving Master Tab
@@ -132,7 +132,7 @@ Check Download Movie
     Log to console Dash  Check Storage & Saving Change
     Log to console  Before Downloading...
     Log to console  Check Storage Capacity
-    Log to console  Check Saving Maving
+    Log to console  Check Saving Master
     ${storage_before} =  Wait Element And Get Text  ${downloads_storage_capacity['${mobile}']}
     ${saving_before} =  Wait Element And Get Text  ${downloads_saving_master_value['${mobile}']}
 
@@ -374,8 +374,8 @@ Check Delete Single Download Video
     ELSE
         Log to console  Check Deleted video: True
     END
+    User Press Back Key
     Log to console Dash  Check Delete Single Download Video Pass
-
 
 
 Check Delete All Download Video
@@ -583,7 +583,8 @@ Check Download Free Tag
     # play video
     Log to console  Play video Free Tag...
     Wait Element And Click Element  ${downloads_file_freetag_title['${mobile}']}
-    Play Video  20  
+    # Check Parental Control Enter PIN
+    Play Video  20
     Log to Console Dash  Download Free Tag Pass
 
 Play Video
@@ -595,6 +596,22 @@ Play Video
     Log to Console   Playing video ${time}s
     Sleep  ${time}s
     Press Keycode  4
+
+Check Parental Control Enter PIN
+    Log to Console  Check Parental Control...
+    # Check wifi alert message
+    ${visible}    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible
+    ...    ${downloads_parentalcontrol_title['${mobile}']}
+    IF  ${visible} == True
+        Log to console   Check Parental Control Enter PIN : True
+        Wait Element And Click Element  ${downloads_parentalcontrol_pin_0['${mobile}']}
+        Wait Element And Click Element  ${downloads_parentalcontrol_pin_0['${mobile}']}
+        Wait Element And Click Element  ${downloads_parentalcontrol_pin_0['${mobile}']}
+        Wait Element And Click Element  ${downloads_parentalcontrol_pin_0['${mobile}']}
+    ELSE
+        Log to console  Check Parental Control Enter PIN: False
+    END
+    
     
 Connect MDS VPN
     [Documentation]
