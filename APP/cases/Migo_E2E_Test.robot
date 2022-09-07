@@ -255,12 +255,12 @@ Download Test
 
     # download page
     Log to console Dash  Check Download Page
-    Check Downloads Page Public Network
-    Connect MDS VPN
+    # Check Downloads Page Public Network
+    # Connect MDS VPN
     Click Downloads Main Tab
     # Connect MDS Network
-    Check Download Page
-    Log to Console Dash  Download Page Pass  
+    # Check Download Page
+    # Log to Console Dash  Download Page Pass  
 
     # download
     Log to console Dash  Check Download Video
@@ -285,19 +285,28 @@ Location Test
 
     Sleep  2s
     Close In App Message
-
     Click Location Main Tab
-    # Log to console Dash  Check Onboard Location Tutorials
-    # Check the Onboard Location Tutorials
-    # Log to console Dash  Onboard Location Tutorials Pass
 
-    # Log to console Dash  Check Location Tutorials
-    # Check Location Tutorials
-    # Log to console Dash  Location Tutorials Pass
+    Log to console Dash  Check Onboard Location Tutorials
+    Check the Onboard Location Tutorials
+    Log to console Dash  Onboard Location Tutorials Pass
+
+    Log to console Dash  Check Location Tutorials
+    Check Location Tutorials
+    Log to console Dash  Location Tutorials Pass
 
     Log to console Dash  Check Location List
     Check Location List
-    Log to console Dash  Location List Pass
+    Log to console Dash  Check Location List Pass
+
+    Log to console Dash  Check Locate
+    Check Locate
+    Log to console Dash  Check Locate Pass
+
+    Log to console Dash  Check Map Pin
+    Check Map Pin
+    Log to console Dash  Check Map Pin Pass
+
 
 Login Entry Test
     [Tags]    LoginEntry_TEST  Login
@@ -313,37 +322,37 @@ Login Entry Test
     Check Login Status
     Log to console Dash  Login Status Pass
 
-    # Log to console Dash  Check Login Account_Login
-    # Check Login Account_Login
-    # Log to console Dash  Login Account_Login Pass
+    Log to console Dash  Check Login Account_Login
+    Check Login Account_Login
+    Log to console Dash  Login Account_Login Pass
 
-    # Log to console Dash  Check Login Account_MyRewards
-    # Check Login Account_MyRewards
-    # Log to console Dash  Login Account_MyRewards Pass
+    Log to console Dash  Check Login Account_MyRewards
+    Check Login Account_MyRewards
+    Log to console Dash  Login Account_MyRewards Pass
 
-    # Log to console Dash  Check Login Account_LinkedPhoneNumber
-    # Check Login Account_LinkedPhoneNumber
-    # Log to console Dash  Login Account_LinkedPhoneNumber Pass
+    Log to console Dash  Check Login Account_LinkedPhoneNumber
+    Check Login Account_LinkedPhoneNumber
+    Log to console Dash  Login Account_LinkedPhoneNumber Pass
 
-    # Log to console Dash  Check Login Account_ParentalControl
-    # Check Login Account_ParentalControl
-    # Log to console Dash  Login Account_ParentalControl Pass
+    Log to console Dash  Check Login Account_ParentalControl
+    Check Login Account_ParentalControl
+    Log to console Dash  Login Account_ParentalControl Pass
 
-    # Log to console Dash  Check Login Account_PaymentMethods
-    # Check Login Account_PaymentMethods
-    # Log to console Dash  Login Account_PaymentMethods Pass
+    Log to console Dash  Check Login Account_PaymentMethods
+    Check Login Account_PaymentMethods
+    Log to console Dash  Login Account_PaymentMethods Pass
 
-    # Log to console Dash  Check Login Account_TransactionHistory
-    # Check Login Account_TransactionHistory
-    # Log to console Dash  Login Account_TransactionHistory Pass
+    Log to console Dash  Check Login Account_TransactionHistory
+    Check Login Account_TransactionHistory
+    Log to console Dash  Login Account_TransactionHistory Pass
 
-    # Log to console Dash  Check Login Customer Support
-    # Check Login Customer Support
-    # Log to console Dash  Login Customer Support Pass
+    Log to console Dash  Check Login Customer Support
+    Check Login Customer Support
+    Log to console Dash  Login Customer Support Pass
 
-    # Log to console Dash  Check Login Download
-    # Check Login Download
-    # Log to console Dash  Check Login Download Pass   
+    Log to console Dash  Check Login Download
+    Check Login Download
+    Log to console Dash  Check Login Download Pass   
 
     Log to console Dash  Check Login Save
     Check Login Save

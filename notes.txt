@@ -198,3 +198,25 @@ Login Entry Test
 	Login to continue
 	Check Redeem Promo Code
 	Logout
+Location Test
+    Check Onboard Location Tutorials
+        Check Onboard Location Tutorials: True
+        Check Onboard Location Tutorials: False
+            Click Button: See Migo Wifi Location
+    Check Location Tutorials
+        Check Location Tutorials Page 1
+	Check Location Tutorials Page 2
+	Check Location Tutorials Page 3
+	Check Location Tutorials Page 4
+    Check Location List
+	Check Location List Page
+	Check List
+	Check Sub List
+            Click Show in map
+            Check Link to Google Map
+	Check Scroll Down List
+	Click Map Icon
+    Check Locate
+    Check Map Pin
+	Check Pin Migo Warung Bar
+	Check Other Map Pin

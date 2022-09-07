@@ -8,7 +8,7 @@ Variables         ..${/}elements${/}migo_auth_page.yaml
 *** Keywords ***
 Click Location Main Tab
 
-    Log to console  Swtich to Location Main Tab 
+    Log to console  Switch to Location Main Tab 
     Wait Element And Click Element  ${location_main_tab['${mobile}']}
     #Verify Element Display  ${location_location_btn['${mobile}']}
 
@@ -38,7 +38,7 @@ Click Location Tuitorial Icon
 
     Log to Console  Click Location Tuitorial Icon
     AppiumLibrary.Click Element At Coordinates      70    180
-    Log to console  Swtich to Location Tuitorial
+    Log to console  Switch to Location Tuitorial
 
 Check Location Tutorials
 
@@ -95,24 +95,9 @@ Click Location List Icon
     Log to console  Swtich to Location List Page
 
 
-Check Finding Migo MDS
-
-    Wait Element And Click Element  ${location_list_btn['${mobile}']}
-    Wait Element And Click Element  ${location_map_btn['${mobile}']}
-    Wait Element And Click Element  ${location_list_btn['${mobile}']}
-    #Verify Element Display  ${location_location_icon['${mobile}']}
-
-    Verify Element Display  ${location_location_icon['${mobile}']}
-    Wait Element And Click Element  ${location_warung_migo['${mobile}']}
-
-    Verify Element Display  ${location_warung_title['${mobile}']}
-    Verify Element Display  ${location_warung_name['${mobile}']}
-    Verify Element Display  ${location_warung_show_btn['${mobile}']}
-    Wait Element And Click Element  ${location_back_btn['${mobile}']}
-    Wait Element And Click Element  ${location_back_btn['${mobile}']}
-
 Check Location List
 
+    Sleep  2s
     Click Location List Icon
     Log to Console  Check Location List Page...
 
@@ -143,6 +128,8 @@ Check Location List
     Log to Console  Check Sub List...
     Log to Console  Click Show in map
     Wait Element And Click Element  ${location_list_sub_mds_title['${mobile}']}
+    Sleep  4s
+    Log to Console  Check Link to Google Map
     Get Text And Compare    ${location_list_googlemap_url['${mobile}']}    google.com
     Log to Console  Close Google Map Link
     Wait Element And Click Element  ${location_list_googlemap_back['${mobile}']}
@@ -150,13 +137,51 @@ Check Location List
     Log to Console  Sub List PASS
     
     # scroll page
+    Log to Console  Check Scroll Down List
     Log to console  Scroll Up
     Scroll   550  1500  550  1000  500
     Log to console  Scroll Up
     Scroll   550  1500  550  1000  500
-        Log to console  Scroll Up
+    Log to console  Scroll Up
     Scroll   550  1500  550  1000  500
+    Sleep  2s
+    Verify Element Not Display  ${location_warung_title['${mobile}']}
+    Log to console  Check Scroll Down List PASS
 
     Log to Console  Click MAP Icon
     Wait Element And Click Element  ${location_list_map_text['${mobile}']}
+
+
+Check Locate
+    Click Locate Icon
+    Sleep  4s
+
+
+Click Locate Icon
+
+    Log to Console  Click Locate Icon
+    Sleep  4s
+    AppiumLibrary.Click Element At Coordinates      950    300
+
+
+Check Map Pin
+
+    Log to Console  Click Pin Migo Warung
+    AppiumLibrary.Click Element At Coordinates      150    1860
+
+    Log to Console  Check Pin Migo Warung Bar...
+    Verify Element Display  ${location_pin_title['${mobile}']}
+    Verify Element Display  ${location_pin_description['${mobile}']}
+    Verify Element Display  ${location_pin_icon_pin['${mobile}']}
+    Verify Element Display  ${location_pin_km['${mobile}']}
+    Verify Element Display  ${location_pin_triple['${mobile}']}
+    Log to Console  Check Pin Migo Warung Bar PASS
     
+    Log to Console  Click Other Map Pin
+    Wait Element And Click Element  ${location_pin_triple_other['${mobile}']}
+    Log to Console  Check Other Map Pin
+    Verify Element Display  ${location_pin_title_other['${mobile}']}
+    Verify Element Display  ${location_pin_description['${mobile}']}
+    Verify Element Display  ${location_pin_icon_pin['${mobile}']}
+    Verify Element Display  ${location_pin_km['${mobile}']}
+    Log to Console  Check Other Map Pin PASS

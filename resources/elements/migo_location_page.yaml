@@ -85,3 +85,20 @@ location_warung_show_btn:
 
 location_location_btn:
   android:  id=com.migo.androidplayer:id/ivLocateBtn
+
+location_pin_title:
+  android:  xpath=//*[contains(@text, "Triple A Cell")]
+location_pin_description:
+  android:  xpath=//*[contains(@text, "Hub Kalibaru Timur - Kalibaru Barat")]
+location_pin_icon_pin:
+  android:  xpath=//android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout[2]/android.widget.ImageView
+location_pin_km:
+  android:  xpath=//*[contains(@text, "km")]
+location_pin_triple:
+  android:  xpath=//(//android.view.View[@content-desc="Triple A Cell. Hub Kalibaru Timur - Kalibaru Barat."])[2]
+location_pin_navigate_google:
+  android:  id=com.rs.explorer.filemanager:id/search_view
+location_pin_triple_other:
+  android:  xpath=//android.view.View[@content-desc="Warteg Barokah Cilincing. Hub Kalibaru Timur - Kalibaru Barat."]
+location_pin_title_other:
+  android:  xpath=//*[contains(@text, "Warteg Barokah Cilincing")]
